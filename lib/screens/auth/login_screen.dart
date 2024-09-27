@@ -1,0 +1,182 @@
+import 'dart:developer';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
+import '../../shared/shared_text.dart';
+import '../../theme/theme.dart';
+import '../admin/home/admin_home.dart';
+import '../user/user_dashboard.dart';
+import 'Registration.dart';
+import 'authWidgets/CustomTextField.dart';
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  FirebaseAuth auth = FirebaseAuth.instance;
+  final firebaseFirestore = FirebaseFirestore.instance.collection("Admins");
+  final _formKey = GlobalKey<FormState>();
+  bool isLoading = false;
+
+  Future setData(bool admin) async {
+    final SharedPreferences perf = await SharedPreferences.getInstance();
+    perf.setBool('admin', admin);
+  }
+
+  Future<void> signIn() async {
+    try {
+      UserCredential userCredential = await auth.signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+      QuerySnapshot querySnapshot = await firebaseFirestore.get();
+
+      bool admin = false;
+      if (querySnapshot.docs.isNotEmpty) {
+        for (var x in querySnapshot.docs) {
+          log(x['email']);
+
+          if (x['email'] == emailController.text) {
+            admin = true;
+            break;
+          }
+        }
+      }
+      setState(() {
+        isLoading = false;
+      });
+
+      if (admin) {
+        setData(admin);
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => AdminHome(
+                      admin: admin,
+                    )));
+      } else {
+        setData(false);
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => UserDashboard(admin: admin)));
+      }
+    } on FirebaseException catch (e) {
+      setState(() {
+        isLoading = false;
+      });
+      showTopSnackBar(Overlay.of(context),
+          CustomSnackBar.error(message: e.message.toString()));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 100),
+                const Image(image: AssetImage('assets/images/logo.png')),
+                const SizedBox(height: 25),
+                CustomTextField(
+                  controller: emailController,
+                  label: 'Email',
+                  keyboardType: TextInputType.emailAddress,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your email';
+                    }
+                    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+                      return 'Please enter a valid email ';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
+                CustomTextField(
+                  controller: passwordController,
+                  label: 'Password',
+                  isPassword: true,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your password';
+                    }
+                    if (value.length < 6) {
+                      return 'Password must be at least 6 characters';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16.0),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                    ),
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {
+                        setState(() {
+                          isLoading = true;
+                        });
+                        await signIn();
+                      }
+                    },
+                    child: isLoading
+                        ? const CircularProgressIndicator(
+                            color: AppColors.textColor,
+                          )
+                        : const TitleText(
+                            'Login',
+                          ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Don't have an account?"),
+                    TextButton(
+                      onPressed: () {
+                        // Navigate to RegistrationScreen when SignUp is clicked
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RegistrationScreen(),
+                          ),
+                        );
+                      },
+                      child: const TitleTextO(
+                        'SignUp',
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16.0),
+                TextButton(
+                  onPressed: () {
+                    print("Forgot Password clicked");
+                  },
+                  child: const Text('Forgot Password?'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

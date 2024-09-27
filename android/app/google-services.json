@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "931965156716",
+    "project_id": "codesthinkers-41602",
+    "storage_bucket": "codesthinkers-41602.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931965156716:android:53de9f82545560d739c749",
+        "android_client_info": {
+          "package_name": "com.example.codes_thinkers"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjNjThABng4GqGvmE3SuracbOk6DJraJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
