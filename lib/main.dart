@@ -1,4 +1,5 @@
 
+import 'package:codes_thinkers/screens/admin/attendance/attendance.dart';
 import 'package:codes_thinkers/screens/splash.dart';
 import 'package:codes_thinkers/theme/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
