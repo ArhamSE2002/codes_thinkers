@@ -181,8 +181,7 @@ class _AddCourseState extends State<AddCourse> {
     }
   }
 
-  Future<void> uploadCourseImage(
-      File filePath, Map<String, dynamic> data) async {
+  Future<void> uploadCourseImage(File filePath, Map<String, dynamic> data) async {
     final storageRef = FirebaseStorage.instance.ref();
     try {
       final courseImageRef = storageRef.child("courses_img/$imageName");

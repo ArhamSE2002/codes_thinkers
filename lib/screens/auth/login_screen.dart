@@ -35,46 +35,47 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> signIn() async {
     try {
+      // Attempt to sign in the user with email and password
       UserCredential userCredential = await auth.signInWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
-      QuerySnapshot querySnapshot = await firebaseFirestore.get();
 
-      bool admin = false;
-      if (querySnapshot.docs.isNotEmpty) {
-        for (var x in querySnapshot.docs) {
-          log(x['email']);
+      // Query Firestore for the Admins collection where email matches the input email
+      QuerySnapshot querySnapshot = await firebaseFirestore
+          .where('email', isEqualTo: emailController.text)
+          .get();
 
-          if (x['email'] == emailController.text) {
-            admin = true;
-            break;
-          }
-        }
-      }
+      // Check if any admin document exists with the same email
+      bool isAdmin = querySnapshot.docs.isNotEmpty;
+
+      // Stop loading animation
       setState(() {
         isLoading = false;
       });
-
-      if (admin) {
-        setData(admin);
+      if (isAdmin) {
+        setData(true); // Store admin status in SharedPreferences
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
                 builder: (context) => AdminHome(
-                      admin: admin,
-                    )));
+                  admin: true,
+                )));
       } else {
+        // If not an admin, navigate to the User Dashboard
         setData(false);
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => UserDashboard(admin: admin)));
+                builder: (context) => UserDashboard(admin: false)));
       }
     } on FirebaseException catch (e) {
+      // Stop loading animation and show error message
       setState(() {
         isLoading = false;
       });
-      showTopSnackBar(Overlay.of(context),
-          CustomSnackBar.error(message: e.message.toString()));
+      showTopSnackBar(
+        Overlay.of(context),
+        CustomSnackBar.error(message: e.message.toString()),
+      );
     }
   }
 
@@ -101,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       return 'Please enter your email';
                     }
                     if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                      return 'Please enter a valid email ';
+                      return 'Please enter a valid email';
                     }
                     return null;
                   },
@@ -129,6 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       backgroundColor: Colors.orange,
                     ),
                     onPressed: () async {
+                      // Validate form before attempting login
                       if (_formKey.currentState!.validate()) {
                         setState(() {
                           isLoading = true;
@@ -138,11 +140,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     child: isLoading
                         ? const CircularProgressIndicator(
-                            color: AppColors.textColor,
-                          )
+                      color: AppColors.textColor,
+                    )
                         : const TitleText(
-                            'Login',
-                          ),
+                      'Login',
+                    ),
                   ),
                 ),
                 Row(
