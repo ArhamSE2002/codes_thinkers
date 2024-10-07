@@ -46,12 +46,14 @@ class _ProjectsState extends State<Projects> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(left: 13, right: 13, top: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ProjectWidget(
-                  "assets/images/dummyPost.jpg", "CodeThinkers Mobile App"),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ProjectWidget(
+                    "assets/images/dummyPost.jpg", "CodeThinkers Mobile App"),
+              ],
+            ),
           ),
         ),
       ),

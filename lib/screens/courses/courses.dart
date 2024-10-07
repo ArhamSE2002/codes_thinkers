@@ -1,10 +1,7 @@
 import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../shared/shared_text.dart';
 import '../../theme/theme.dart';
 import '../admin/upload_data/add_course.dart';
@@ -18,9 +15,10 @@ class Courses extends StatefulWidget {
 }
 
 class _CoursesState extends State<Courses> {
-  final firestoreCollection = FirebaseFirestore.instance.collection('Courses');
+  final firestoreCollection = FirebaseFirestore.instance.collection('courses'); // Fixed collection name to lowercase
 
   bool admin = false;
+
   Future getAdmin() async {
     final SharedPreferences perf = await SharedPreferences.getInstance();
     setState(() {
@@ -30,10 +28,9 @@ class _CoursesState extends State<Courses> {
 
   @override
   void initState() {
+    super.initState();
     getAdmin();
     log(admin.toString());
-
-    super.initState();
   }
 
   @override
@@ -44,16 +41,16 @@ class _CoursesState extends State<Courses> {
       ),
       floatingActionButton: admin
           ? FloatingActionButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const AddCourse(),
-                  ),
-                );
-              },
-              child: const Icon(Icons.add),
-            )
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>  AddCourse(),
+            ),
+          );
+        },
+        child: const Icon(Icons.add),
+      )
           : null,
       body: SafeArea(
         child: Padding(
@@ -61,34 +58,39 @@ class _CoursesState extends State<Courses> {
           child: Column(
             children: [
               StreamBuilder<QuerySnapshot>(
-                  stream: FirebaseFirestore.instance
-                      .collection("Courses")
-                      .snapshots(),
-                  builder: (context, snapshot) {
-                    if (!snapshot.hasData) {
-                      return const Center(
-                        child: CircularProgressIndicator(
-                          color: AppColors.textColor,
-                        ),
-                      );
-                    }
-                    var docs = snapshot.data!.docs;
-                    return Expanded(
-                      child: ListView.builder(
-                          itemCount: docs.length,
-                          itemBuilder: (context, index) {
-                            if (docs.isEmpty) {
-                              return const CircularProgressIndicator(
-                                color: AppColors.textColor,
-                              );
-                            }
-                            return CoursesCustomCard(
-                                docs[index]['title'],
-                                docs[index]['shortDec'],
-                                docs[index]['duration']);
-                          }),
+                stream: firestoreCollection.snapshots(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return const Center(
+                      child: CircularProgressIndicator(
+                        color: AppColors.textColor,
+                      ),
                     );
-                  }),
+                  }
+                  var docs = snapshot.data!.docs;
+                  return Expanded(
+                    child: ListView.builder(
+                      itemCount: docs.length,
+                      itemBuilder: (context, index) {
+                        if (docs.isEmpty) {
+                          return const Center(
+                            child: Text("No courses available."),
+                          );
+                        }
+                        // Access the required course data
+                        final course = docs[index];
+                        return CustomCard(
+                          imageUrl: course['imageUrl'], // Add imageUrl field
+                          title: course['title'],
+                          shortDescription: course['shortDec'],
+                          duration: course['duration'].toString(),
+                          monthlyFee: course['monthlyFee'].toString(), // Updated to monthlyFee
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),

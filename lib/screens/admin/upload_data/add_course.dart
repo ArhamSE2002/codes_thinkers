@@ -1,35 +1,36 @@
-import 'dart:developer';
 import 'dart:io';
-import 'package:path/path.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
-
-import '../../../theme/theme.dart';
-import '../../courses/courses_text.dart';
+import 'package:path/path.dart';
 
 class AddCourse extends StatefulWidget {
-  const AddCourse({super.key});
-
   @override
-  State<AddCourse> createState() => _AddCourseState();
+  _AddCourseState createState() => _AddCourseState();
 }
 
 class _AddCourseState extends State<AddCourse> {
   final formKey = GlobalKey<FormState>();
-  TextEditingController titleContoller = TextEditingController();
-  TextEditingController shortDesContoller = TextEditingController();
-  TextEditingController descriptionContoller = TextEditingController();
-  TextEditingController durationContoller = TextEditingController();
+
+  // Controllers
+  TextEditingController titleController = TextEditingController();
+  TextEditingController shortDesController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+  TextEditingController durationController = TextEditingController();
+  TextEditingController feeController = TextEditingController(); // Monthly fee
+
   File? imagePath;
-  String imageName = "";
   bool uploading = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Add Course"),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(18.0),
@@ -37,38 +38,27 @@ class _AddCourseState extends State<AddCourse> {
             key: formKey,
             child: Column(
               children: [
-                const SizedBox(
-                  height: 30,
-                ),
+                const SizedBox(height: 30),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: imagePath == null
                       ? GestureDetector(
-                          onTap: () {
-                            imagePicker();
-                          },
-                          child: const Icon(
-                            Icons.image,
-                            size: 150,
-                          ),
-                        )
+                    onTap: imagePicker,
+                    child: const Icon(Icons.image, size: 150),
+                  )
                       : GestureDetector(
-                          onTap: () {
-                            imagePicker();
-                          },
-                          child: Image.file(
-                            imagePath!,
-                            height: 200,
-                            width: 200,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
+                    onTap: imagePicker,
+                    child: Image.file(
+                      imagePath!,
+                      height: 200,
+                      width: 200,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
+                const SizedBox(height: 30),
                 TextFormField(
-                  controller: titleContoller,
+                  controller: titleController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Field empty!";
@@ -77,28 +67,20 @@ class _AddCourseState extends State<AddCourse> {
                   },
                   decoration: const InputDecoration(labelText: "Title"),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 TextFormField(
-                  controller: shortDesContoller,
+                  controller: shortDesController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Field empty!";
                     }
                     return null;
                   },
-                  textAlign: TextAlign.start,
-                  decoration: const InputDecoration(
-                    labelText: "Short Description",
-                  ),
-                  maxLines: null,
+                  decoration: const InputDecoration(labelText: "Short Description"),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 TextFormField(
-                  controller: descriptionContoller,
+                  controller: descriptionController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Field empty!";
@@ -108,59 +90,62 @@ class _AddCourseState extends State<AddCourse> {
                   decoration: const InputDecoration(labelText: "Description"),
                   maxLines: null,
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 TextFormField(
-                  controller: durationContoller,
+                  controller: durationController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Field empty!";
                     }
                     return null;
                   },
-                  textAlign: TextAlign.start,
+                  decoration: const InputDecoration(labelText: "Duration (months)"),
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    labelText: "Duration",
-                  ),
-                  maxLines: null,
                 ),
-                const SizedBox(
-                  height: 10,
+                const SizedBox(height: 10),
+                // Monthly Fee TextField
+                TextFormField(
+                  controller: feeController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Field empty!";
+                    }
+                    return null;
+                  },
+                  decoration: const InputDecoration(labelText: "Monthly Fee (Rs)"),
+                  keyboardType: TextInputType.number,
                 ),
+                const SizedBox(height: 10),
                 SizedBox(
-                    width: 200,
-                    child: ElevatedButton(
-                        onPressed: () async {
-                          if (formKey.currentState!.validate()) {
-                            Map<String, dynamic> data = {
-                              "title": titleContoller.text,
-                              "shortDec": shortDesContoller.text,
-                              "description": descriptionContoller.text,
-                              "duration": durationContoller.text
-                            };
-                            setState(() {
-                              uploading = true;
-                            });
-                            if (imagePath != null) {
-                              await uploadCourseImage(imagePath!, data);
-                            } else {}
-                            showTopSnackBar(
-                              Overlay.of(context),
-                              const CustomSnackBar.success(message: "Course Added"),
-                            );
-                            Navigator.pop(context);
-                            setState(() {
-                              uploading = false;
-                            });
-                          }
-                        },
-                        child: uploading
-                            ? CircularProgressIndicator(
-                                color: AppColors.textColor,
-                              )
-                            : const TitleCText("Upload")))
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      if (formKey.currentState!.validate()) {
+                        setState(() {
+                          uploading = true;
+                        });
+
+                        if (imagePath != null) {
+                          // Upload image and save course details to Firestore
+                          await uploadCourseImageAndDetails(context);
+                        } else {
+                          // If no image is selected
+                          showTopSnackBar(
+                            Overlay.of(context),
+                            const CustomSnackBar.error(message: "Please select an image"),
+                          );
+                        }
+
+                        setState(() {
+                          uploading = false;
+                        });
+                      }
+                    },
+                    child: uploading
+                        ? CircularProgressIndicator(color: Colors.white)
+                        : const Text("Upload"),
+                  ),
+                ),
               ],
             ),
           ),
@@ -169,38 +154,50 @@ class _AddCourseState extends State<AddCourse> {
     );
   }
 
-  Future imagePicker() async {
-    ImagePicker picker = ImagePicker();
+  void imagePicker() async {
+    final picker = ImagePicker();
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       setState(() {
         imagePath = File(pickedFile.path);
-        imageName = basename(imagePath.toString());
-        log(imageName);
       });
     }
   }
 
-  Future<void> uploadCourseImage(File filePath, Map<String, dynamic> data) async {
-    final storageRef = FirebaseStorage.instance.ref();
+  Future<void> uploadCourseImageAndDetails(BuildContext context) async {
     try {
-      final courseImageRef = storageRef.child("courses_img/$imageName");
-      await courseImageRef.putFile(filePath);
-      String imageUrl = await courseImageRef.getDownloadURL();
-      data["imageUrl"] = imageUrl;
-      await courseData(data);
-    } on FirebaseException catch (e) {
-      log(e.message.toString());
-    }
-  }
+      // Step 1: Upload image to Firebase Storage
+      String imageFileName = basename(imagePath!.path);
+      Reference firebaseStorageRef =
+      FirebaseStorage.instance.ref().child('courseImages/$imageFileName');
 
-  Future<void> courseData(Map<String, dynamic> data) async {
-    log(data.toString());
-    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-    try {
-      await firebaseFirestore.collection("Courses").add(data).then((value) {});
-    } on FirebaseException catch (e) {
-      log(e.message.toString());
+      UploadTask uploadTask = firebaseStorageRef.putFile(imagePath!);
+      TaskSnapshot taskSnapshot = await uploadTask;
+      String imageUrl = await taskSnapshot.ref.getDownloadURL();
+
+      // Step 2: Add course details to Firestore
+      Map<String, dynamic> data = {
+        "title": titleController.text,
+        "shortDec": shortDesController.text,
+        "description": descriptionController.text,
+        "duration": durationController.text,
+        "monthlyFee": feeController.text, // Monthly fee
+        "imageUrl": imageUrl // Image URL after upload
+      };
+
+      await FirebaseFirestore.instance.collection('courses').add(data);
+
+      showTopSnackBar(
+        Overlay.of(context),
+        const CustomSnackBar.success(message: "Course Added"),
+      );
+
+      Navigator.pop(context); // Close the page after successful upload
+    } catch (e) {
+      showTopSnackBar(
+        Overlay.of(context),
+        CustomSnackBar.error(message: "Error uploading course: $e"),
+      );
     }
   }
 }
