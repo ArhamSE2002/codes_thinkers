@@ -1,5 +1,6 @@
 
 import 'package:codes_thinkers/screens/admin/attendance/attendance.dart';
+import 'package:codes_thinkers/screens/admin/attendance/attendancetwo.dart';
 import 'package:codes_thinkers/screens/splash.dart';
 
 import 'package:codes_thinkers/theme/theme.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
             child: child!);
       },
       theme: primaryTheme,
-      home: Splash(),
+      home: feeScreen(),
     );
   }
 }
