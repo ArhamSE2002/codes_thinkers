@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             child: child!);
       },
       theme: primaryTheme,
-      home: feeScreen(),
+      home: FeeScreen(),
     );
   }
 }
