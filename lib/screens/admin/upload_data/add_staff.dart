@@ -27,7 +27,7 @@ class _AddStaffState extends State<AddStaff> {
   TextEditingController gmailContoller = TextEditingController();
   TextEditingController linkedInContoller = TextEditingController();
   TextEditingController waNumContoller = TextEditingController();
-  // TextEditingController fbContoller = TextEditingController();
+  TextEditingController fbContoller = TextEditingController();
 
   File? imagePath;
   String imageName = "";
