@@ -1,4 +1,5 @@
 
+import 'package:codes_thinkers/screens/admin/attendance/attendancetwo.dart';
 import 'package:codes_thinkers/screens/admin/home/styled_admin_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +7,6 @@ import '../../courses/courses.dart';
 import '../../posts/posts.dart';
 import '../../projects/projects.dart';
 import '../../staff/staff.dart';
-import '../attendance/attendancetwo.dart';
 import '../profile/admin_profile.dart';
 import '../students/students_data.dart';
 
@@ -87,7 +87,7 @@ class _AdminHomeState extends State<AdminHome> {
                   const Expanded(child: SizedBox()),
                   StyledContainer("Attendance", () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const AttendanceScreen()));
+                        MaterialPageRoute(builder: (context) =>  AttendanceScreen()));
                   }),
                   const Expanded(child: SizedBox()),
                   StyledContainer("Profile", () {

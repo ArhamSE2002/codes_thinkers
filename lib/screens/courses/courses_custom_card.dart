@@ -8,13 +8,13 @@ class CustomCard extends StatelessWidget {
   final String monthlyFee; // Renamed from fee to monthlyFee
 
   const CustomCard({
-    Key? key,
+    super.key,
     required this.imageUrl,
     required this.title,
     required this.shortDescription,
     required this.duration,
     required this.monthlyFee, // Updated parameter name
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class CustomCard extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [Colors.blue, Colors.lightBlueAccent], // Gradient colors
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -125,13 +125,13 @@ class CustomCard extends StatelessWidget {
                   onPressed: () {
                     // Implement navigation to course details
                   },
-                  child: const Text("More Info",style: TextStyle(color: Colors.black),),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white, // Button color
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
+                  child: const Text("More Info",style: TextStyle(color: Colors.black),),
                 ),
               ],
             ),

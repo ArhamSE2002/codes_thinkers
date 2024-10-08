@@ -78,7 +78,7 @@ class _OnBoardingState extends State<OnBoarding> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => RegistrationScreen(),
+                              builder: (context) => const RegistrationScreen(),
                             ),
                           );
                         }

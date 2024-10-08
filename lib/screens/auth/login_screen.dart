@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => AdminHome(
+                builder: (context) => const AdminHome(
                   admin: true,
                 )));
       } else {
@@ -65,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => UserDashboard(admin: false)));
+                builder: (context) => const UserDashboard(admin: false)));
       }
     } on FirebaseException catch (e) {
       // Stop loading animation and show error message
@@ -157,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => RegistrationScreen(),
+                            builder: (context) => const RegistrationScreen(),
                           ),
                         );
                       },

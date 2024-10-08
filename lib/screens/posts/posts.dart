@@ -1,11 +1,9 @@
-import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:codes_thinkers/screens/posts/postWidget.dart';
 
 import 'package:flutter/material.dart';
 
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../shared/shared_text.dart';
 import '../admin/upload_data/addPost.dart';

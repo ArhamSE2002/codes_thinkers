@@ -8,6 +8,8 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:path/path.dart';
 
 class AddCourse extends StatefulWidget {
+  const AddCourse({super.key});
+
   @override
   _AddCourseState createState() => _AddCourseState();
 }
@@ -142,7 +144,7 @@ class _AddCourseState extends State<AddCourse> {
                       }
                     },
                     child: uploading
-                        ? CircularProgressIndicator(color: Colors.white)
+                        ? const CircularProgressIndicator(color: Colors.white)
                         : const Text("Upload"),
                   ),
                 ),
