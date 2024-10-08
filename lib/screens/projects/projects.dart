@@ -1,12 +1,7 @@
-// import 'dart:ffi';
-
-
 import 'package:codes_thinkers/screens/projects/projectWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../shared/shared_text.dart';
-import '../../theme/theme.dart';
 
 class Projects extends StatefulWidget {
   const Projects({super.key});
