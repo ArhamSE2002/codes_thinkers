@@ -6,6 +6,8 @@ class AppColors {
   static const textColor = Color(0xFFFFFFFF);
   static const redColor = Color(0xFFE70C0C);
   static const greenColor = Color(0xFF24DA09);
+
+  static var backgroundColor;
 }
 
 // app primary theme
