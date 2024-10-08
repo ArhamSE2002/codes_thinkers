@@ -44,7 +44,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   Color _getButtonColor(String status) {
     switch (status) {
       case 'Present':
-        return const Color.fromARGB(255, 193, 235, 146); // Light green for Present
+        return const Color.fromARGB(255, 0, 146, 5); // Light green for Present
       case 'Absent':
         return Colors.red; // Red for Absent
       case 'Leave':
@@ -57,7 +57,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   Color _getTextColor(String status) {
     switch (status) {
       case 'Present':
-        return Colors.green; // Dark green for Present
+        return const Color.fromARGB(255, 255, 255, 255); // Dark green for Present
       case 'Absent':
         return Colors.white; // White for Absent text
       case 'Leave':
@@ -112,8 +112,8 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor, // Updated this line
-      appBar: AppBar(
+      // backgroundColor: AppColors.backgroundColor, // Updated this line
+      appBar: AppBar(shadowColor: Colors.white,
         backgroundColor: Colors.blue,
         title: SizedBox(
           width: 300,
@@ -131,8 +131,11 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 11, right: 11, top: 33),
+      body: Container(
+        color: Colors.white,
+        height: double.infinity,
+        width: double.infinity,
+        padding: const EdgeInsets.only(left: 11, right: 11, top: 13),
         child: Column(
           children: [
             Container(
