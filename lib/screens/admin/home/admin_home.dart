@@ -6,7 +6,7 @@ import '../../courses/courses.dart';
 import '../../posts/posts.dart';
 import '../../projects/projects.dart';
 import '../../staff/staff.dart';
-import '../attendance/attendance.dart';
+import '../attendance/attendancetwo.dart';
 import '../profile/admin_profile.dart';
 import '../students/students_data.dart';
 
@@ -87,7 +87,7 @@ class _AdminHomeState extends State<AdminHome> {
                   const Expanded(child: SizedBox()),
                   StyledContainer("Attendance", () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Attendance()));
+                        MaterialPageRoute(builder: (context) => const AttendanceScreen()));
                   }),
                   const Expanded(child: SizedBox()),
                   StyledContainer("Profile", () {

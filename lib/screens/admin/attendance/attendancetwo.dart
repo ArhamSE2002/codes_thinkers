@@ -1,14 +1,14 @@
 import 'package:codes_thinkers/theme/theme.dart';
 import 'package:flutter/material.dart';
 
-class FeeScreen extends StatefulWidget {
-  const FeeScreen({super.key});
+class AttendanceScreen extends StatefulWidget {
+  const AttendanceScreen({super.key});
 
   @override
-  State<FeeScreen> createState() => _FeeScreenState();
+  State<AttendanceScreen> createState() => _AttendanceScreenState();
 }
 
-class _FeeScreenState extends State<FeeScreen> {
+class _AttendanceScreenState extends State<AttendanceScreen> {
   List<String> _statuses = ['Select Status', 'Select Status']; 
   List<String> _employees = [
     'Anugrah Prasetya',
