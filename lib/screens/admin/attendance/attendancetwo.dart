@@ -1,69 +1,69 @@
-import 'package:codes_thinkers/theme/theme.dart';
+import 'package:codes_thinkers/theme/theme.dart'; // Assuming AppColors is defined here
 import 'package:flutter/material.dart';
 
-class AttendanceScreen extends StatefulWidget {
-  const AttendanceScreen({super.key});
+class FeeScreen extends StatefulWidget {
+  const FeeScreen({super.key});
 
   @override
-  State<AttendanceScreen> createState() => _AttendanceScreenState();
+  State<FeeScreen> createState() => _FeeScreenState();
 }
 
-class _AttendanceScreenState extends State<AttendanceScreen> {
-  List<String> _statuses = ['Select Status', 'Select Status']; 
+class _FeeScreenState extends State<FeeScreen> {
+  List<String> _statuses = ['Select Status', 'Select Status']; // List to hold statuses for each employee
   List<String> _employees = [
     'Anugrah Prasetya',
     'Another Employee',
-  ]; 
-  late List<String> _filteredEmployees; 
-  TextEditingController _searchController = TextEditingController(); 
+  ]; // Original list of employees
+  late List<String> _filteredEmployees; // List for filtered employees
+  TextEditingController _searchController = TextEditingController(); // Controller for the search bar
 
   @override
   void initState() {
     super.initState();
-    _filteredEmployees = _employees; 
-    _searchController.addListener(_filterEmployees); 
+    _filteredEmployees = _employees; // Initialize the filtered list
+    _searchController.addListener(_filterEmployees); // Add listener to the search controller
   }
 
   @override
   void dispose() {
-    _searchController.dispose(); 
+    _searchController.dispose(); // Dispose of the controller
     super.dispose();
   }
 
   void _filterEmployees() {
     String query = _searchController.text.toLowerCase();
     setState(() {
-      
+      // Filter employees based on the search query
       _filteredEmployees = _employees
           .where((employee) => employee.toLowerCase().contains(query))
           .toList();
     });
   }
 
-  
+  // Define colors for each status
   Color _getButtonColor(String status) {
     switch (status) {
       case 'Present':
-        return const Color.fromARGB(255, 193, 235, 146); 
+        return const Color.fromARGB(255, 193, 235, 146); // Light green for Present
       case 'Absent':
-        return Colors.red; 
+        return Colors.red; // Red for Absent
       case 'Leave':
-        return Colors.grey;
+        return Colors.grey; // Grey for Leave
       default:
-        return Colors.blue; 
+        return Colors.blue; // Default color
     }
   }
 
   Color _getTextColor(String status) {
     switch (status) {
       case 'Present':
-        return Colors.green; 
+        return Colors.green; // Dark green for Present
       case 'Absent':
-        return Colors.white; 
+        return Colors.white; // White for Absent text
       case 'Leave':
-        return Colors.black; 
+        return Colors.black; // Black for Leave
       default:
-        return Colors.white; 
+        return Colors.white; // Default text color
     }
   }
 
@@ -79,7 +79,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 title: Text('Present'),
                 onTap: () {
                   setState(() {
-                    _statuses[index] = 'Present'; 
+                    _statuses[index] = 'Present'; // Update status for the specific employee
                   });
                   Navigator.pop(context);
                 },
@@ -88,7 +88,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 title: Text('Absent'),
                 onTap: () {
                   setState(() {
-                    _statuses[index] = 'Absent'; 
+                    _statuses[index] = 'Absent'; // Update status for the specific employee
                   });
                   Navigator.pop(context);
                 },
@@ -97,7 +97,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 title: Text('Leave'),
                 onTap: () {
                   setState(() {
-                    _statuses[index] = 'Leave'; 
+                    _statuses[index] = 'Leave'; // Update status for the specific employee
                   });
                   Navigator.pop(context);
                 },
@@ -112,14 +112,13 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.white,
+      // backgroundColor: AppColors.backgroundColor, // Updated this line
       appBar: AppBar(
-      
-       backgroundColor: AppColors.primaryColor,
+        backgroundColor: Colors.blue,
         title: Container(
           width: 300,
           child: TextField(
-            controller: _searchController, 
+            controller: _searchController, // Set the controller to the search bar
             decoration: InputDecoration(
               contentPadding: EdgeInsets.all(12.5),
               hintText: 'Search...',
@@ -157,7 +156,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
             ),
             SizedBox(height: 10),
 
-            
+            // Display filtered employee cards
             Expanded(
               child: ListView.builder(
                 itemCount: _filteredEmployees.length,
@@ -179,7 +178,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                         ),
                         child: Row(
                           children: [
-                            Text('${1 + index}', style: TextStyle(fontSize: 14, color: Colors.black)), 
+                            Text('${1 + index}', style: TextStyle(fontSize: 14, color: Colors.black)), // Example ID
                             SizedBox(width: 25),
                             CircleAvatar(
                               radius: 20,
@@ -192,26 +191,26 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(_filteredEmployees[index], style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
-                                Text('Graphic Designer', style: TextStyle(fontSize: 14, color: Colors.grey)),
+                                Text('Graphic Designer', style: TextStyle(fontSize: 14, color: Colors.grey)), // Example role
                               ],
                             ),
                             Spacer(),
 
-                            
+                            // Button to show status options for the employee
                             ElevatedButton(
                               onPressed: () => _showStatusOptions(context, index),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: _getButtonColor(_statuses[index]), 
+                                backgroundColor: _getButtonColor(_statuses[index]), // Set background color based on status
                               ),
                               child: Text(
                                 _statuses[index],
-                                style: TextStyle(color: _getTextColor(_statuses[index])), 
+                                style: TextStyle(color: _getTextColor(_statuses[index])), // Set text color based on status
                               ),
                             ),
                           ],
                         ),
                       ),
-                      
+                      // Divider after each container
                       Divider(thickness: 0.5, color: Colors.grey),
                     ],
                   );
