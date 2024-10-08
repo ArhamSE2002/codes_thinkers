@@ -1,5 +1,5 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:codes_thinkers/forgetpassword/forgetscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -35,32 +35,27 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> signIn() async {
     try {
-      // Attempt to sign in the user with email and password
       UserCredential userCredential = await auth.signInWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
 
-      // Query Firestore for the Admins collection where email matches the input email
       QuerySnapshot querySnapshot = await firebaseFirestore
           .where('email', isEqualTo: emailController.text)
           .get();
 
-      // Check if any admin document exists with the same email
       bool isAdmin = querySnapshot.docs.isNotEmpty;
 
-      // Stop loading animation
       setState(() {
         isLoading = false;
       });
       if (isAdmin) {
-        setData(true); // Store admin status in SharedPreferences
+        setData(true);
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
                 builder: (context) => const AdminHome(
-                  admin: true,
-                )));
+                      admin: true,
+                    )));
       } else {
-        // If not an admin, navigate to the User Dashboard
         setData(false);
         Navigator.pushReplacement(
             context,
@@ -68,7 +63,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 builder: (context) => const UserDashboard(admin: false)));
       }
     } on FirebaseException catch (e) {
-      // Stop loading animation and show error message
       setState(() {
         isLoading = false;
       });
@@ -130,7 +124,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       backgroundColor: Colors.orange,
                     ),
                     onPressed: () async {
-                      // Validate form before attempting login
                       if (_formKey.currentState!.validate()) {
                         setState(() {
                           isLoading = true;
@@ -140,11 +133,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     child: isLoading
                         ? const CircularProgressIndicator(
-                      color: AppColors.textColor,
-                    )
+                            color: AppColors.textColor,
+                          )
                         : const TitleText(
-                      'Login',
-                    ),
+                            'Login',
+                          ),
                   ),
                 ),
                 Row(
@@ -153,7 +146,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     const Text("Don't have an account?"),
                     TextButton(
                       onPressed: () {
-                        // Navigate to RegistrationScreen when SignUp is clicked
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -170,7 +162,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 16.0),
                 TextButton(
                   onPressed: () {
-                    print("Forgot Password clicked");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Forgetscreen(),
+                      ),
+                    );
                   },
                   child: const Text('Forgot Password?'),
                 ),
@@ -178,6 +175,22 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ForgetScreen extends StatelessWidget {
+  const ForgetScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Forgot Password'),
+      ),
+      body: Center(
+        child: const Text('This is the Forgot Password screen'),
       ),
     );
   }
