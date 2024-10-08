@@ -21,17 +21,14 @@ class AddStaff extends StatefulWidget {
 
 class _AddStaffState extends State<AddStaff> {
   final formKey = GlobalKey<FormState>();
-  TextEditingController nameContoller = TextEditingController();
-  TextEditingController skillContoller = TextEditingController();
-  TextEditingController shortDesContoller = TextEditingController();
-  TextEditingController gmailContoller = TextEditingController();
-  TextEditingController linkedInContoller = TextEditingController();
-  TextEditingController waNumContoller = TextEditingController();
-  TextEditingController fbContoller = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController fieldController = TextEditingController();
+  TextEditingController experienceController = TextEditingController();
 
   File? imagePath;
   String imageName = "";
   bool uploading = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,31 +46,32 @@ class _AddStaffState extends State<AddStaff> {
                   borderRadius: BorderRadius.circular(8),
                   child: imagePath == null
                       ? GestureDetector(
-                          onTap: () {
-                            imagePicker();
-                          },
-                          child: const Icon(
-                            Icons.image,
-                            size: 150,
-                          ),
-                        )
+                    onTap: () {
+                      imagePicker();
+                    },
+                    child: const Icon(
+                      Icons.image,
+                      size: 150,
+                    ),
+                  )
                       : GestureDetector(
-                          onTap: () {
-                            imagePicker();
-                          },
-                          child: Image.file(
-                            imagePath!,
-                            height: 120,
-                            width: 100,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
+                    onTap: () {
+                      imagePicker();
+                    },
+                    child: Image.file(
+                      alignment: Alignment.center,
+                      imagePath!,
+                      height: 120,
+                      width: 100,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 TextFormField(
-                  controller: nameContoller,
+                  controller: nameController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Field empty!";
@@ -86,132 +84,66 @@ class _AddStaffState extends State<AddStaff> {
                   height: 10,
                 ),
                 TextFormField(
-                  controller: skillContoller,
+                  controller: fieldController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Field empty!";
                     }
                     return null;
                   },
-                  textAlign: TextAlign.start,
-                  decoration: const InputDecoration(
-                    labelText: "Skill",
-                  ),
-                  maxLines: null,
+                  decoration: const InputDecoration(labelText: "Field"),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 TextFormField(
-                  controller: shortDesContoller,
+                  controller: experienceController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Field empty!";
                     }
                     return null;
                   },
-                  decoration:
-                      const InputDecoration(labelText: "Short Description"),
-                  maxLines: null,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
-                  controller: gmailContoller,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Field empty!";
-                    }
-                    return null;
-                  },
-                  decoration: const InputDecoration(labelText: "Gmail"),
-                  maxLines: null,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
-                  controller: linkedInContoller,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Field empty!";
-                    }
-                    return null;
-                  },
-                  decoration:
-                      const InputDecoration(labelText: "LinkedIn Profile Link"),
-                  maxLines: null,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
-                  controller: waNumContoller,
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Field empty!";
-                    }
-                    return null;
-                  },
-                  decoration:
-                      const InputDecoration(labelText: "WhatsApp Number"),
-                  maxLines: null,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
-                  controller: fbContoller,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Field empty!";
-                    }
-                    return null;
-                  },
-                  decoration:
-                      const InputDecoration(labelText: "Facebook Profile Link"),
-                  maxLines: null,
+                  decoration: const InputDecoration(labelText: "Experience"),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 SizedBox(
-                    width: 200,
-                    child: ElevatedButton(
-                        onPressed: () async {
-                          if (formKey.currentState!.validate()) {
-                            Map<String, dynamic> data = {
-                              "name": nameContoller.text,
-                              "skill": skillContoller.text,
-                              "shortDec": shortDesContoller.text,
-                              "gmail": gmailContoller.text,
-                              "linkedIn": linkedInContoller.text,
-                              "waNum": waNumContoller.text,
-                              "fbLink": fbContoller.text
-                            };
-                            setState(() {
-                              uploading = true;
-                            });
-                            if (imagePath != null) {
-                              await uploadCourseImage(imagePath!, data);
-                            } else {}
-                            showTopSnackBar(
-                              Overlay.of(context),
-                              const CustomSnackBar.success(message: "Course Added"),
-                            );
-                            Navigator.pop(context);
-                            setState(() {
-                              uploading = false;
-                            });
-                          }
-                        },
-                        child: uploading
-                            ? const CircularProgressIndicator(
-                                color: AppColors.textColor,
-                              )
-                            : const TitleCText("Upload")))
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      if (formKey.currentState!.validate()) {
+                        Map<String, dynamic> data = {
+                          "name": nameController.text,
+                          "field": fieldController.text,
+                          "experience": experienceController.text,
+                        };
+                        setState(() {
+                          uploading = true;
+                        });
+                        if (imagePath != null) {
+                          await uploadCourseImage(imagePath!, data, context);
+                        }
+                        showTopSnackBar(
+                          Overlay.of(context),
+                          const CustomSnackBar.success(
+                            message: "Staff Added",
+                          ),
+                        );
+                        Navigator.pop(context);
+                        setState(() {
+                          uploading = false;
+                        });
+                      }
+                    },
+                    child: uploading
+                        ? const CircularProgressIndicator(
+                      color: AppColors.textColor,
+                    )
+                        : const TitleCText("Upload"),
+                  ),
+                ),
               ],
             ),
           ),
@@ -233,27 +165,29 @@ class _AddStaffState extends State<AddStaff> {
   }
 
   Future<void> uploadCourseImage(
-      File filePath, Map<String, dynamic> data) async {
+      File filePath, Map<String, dynamic> data, BuildContext context) async {
     final storageRef = FirebaseStorage.instance.ref();
     try {
       final courseImageRef = storageRef.child("staff/$imageName");
       await courseImageRef.putFile(filePath);
       String imageUrl = await courseImageRef.getDownloadURL();
       data["imageUrl"] = imageUrl;
-      await courseData(data);
+      await courseData(data, context);
     } on FirebaseException catch (e) {
       log(e.message.toString());
     }
   }
 
-  Future<void> courseData(Map<String, dynamic> data) async {
+  Future<void> courseData(Map<String, dynamic> data, BuildContext context) async {
     log(data.toString());
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     try {
-      await firebaseFirestore.collection("Staff").add(data).then((value) {});
+      await firebaseFirestore.collection("Staff").add(data);
     } on FirebaseException catch (e) {
-      showTopSnackBar(Overlay.of(context as BuildContext),
-          CustomSnackBar.error(message: e.message.toString()));
+      showTopSnackBar(
+        Overlay.of(context),
+        CustomSnackBar.error(message: e.message.toString()),
+      );
     }
   }
 }
