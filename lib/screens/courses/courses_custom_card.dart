@@ -32,7 +32,7 @@ class CustomCard extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             gradient: const LinearGradient(
-              colors: [Colors.blue, Colors.lightBlueAccent], // Gradient colors
+              colors: [Colors.yellow, Colors.lightBlueAccent], // Gradient colors
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),

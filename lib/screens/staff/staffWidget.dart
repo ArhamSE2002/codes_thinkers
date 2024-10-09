@@ -29,7 +29,7 @@ class StaffWidget extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.secondaryColor, width: 2),
         borderRadius: BorderRadius.circular(10),
-        color: AppColors.secondaryColor.withOpacity(0.2),
+        color: AppColors.secondaryColor.withOpacity(0.4),
       ),
       child: Column(
         children: [

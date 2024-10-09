@@ -41,6 +41,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   String imageUrl = "";
   bool isLoading = false;
 
+  // Pick Image from Gallery
   Future<void> _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 
@@ -48,13 +49,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       setState(() {
         _profileImage = File(pickedFile.path);
       });
-      fileName = p.basename(_profileImage.toString());
+      fileName = p.basename(_profileImage!.path);
     }
   }
 
+  // Register Function
   void _register() async {
     if (_formKey.currentState!.validate()) {
-      // Perform registration logic here
       if (_profileImage != null) {
         setState(() {
           isLoading = true;
@@ -63,32 +64,43 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           await auth.createUserWithEmailAndPassword(
               email: emailController.text, password: passwordController.text);
           await uploadImg();
-          showTopSnackBar(Overlay.of(context),
-              const CustomSnackBar.success(message: "Account Created"));
+          showTopSnackBar(
+              Overlay.of(context),
+              const CustomSnackBar.success(
+                  message: "Account created successfully"));
           setState(() {
             isLoading = false;
           });
           FirebaseAuth.instance.signOut();
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => const LoginScreen()));
-        } on FirebaseException catch (e) {
+        } on FirebaseAuthException catch (e) {
+          setState(() {
+            isLoading = false;
+          });
           log(e.message!);
           showTopSnackBar(
             Overlay.of(context),
             CustomSnackBar.error(message: e.message!),
           );
         }
-      } else {}
+      } else {
+        showTopSnackBar(
+          Overlay.of(context),
+          const CustomSnackBar.error(
+              message: "Please select a profile image."),
+        );
+      }
     }
   }
 
+  // Upload Image to Firebase Storage
   Future uploadImg() async {
-    final ref = firebaseStorage.ref();
+    final ref = firebaseStorage.ref().child("profile_images/$fileName");
     try {
-      final uploaded = ref.child("profile_images/$fileName");
-      await uploaded.putFile(_profileImage!);
-      imageUrl = await uploaded.getDownloadURL();
-      await userData();
+      await ref.putFile(_profileImage!);
+      imageUrl = await ref.getDownloadURL();
+      await saveUserData();
     } on FirebaseException catch (e) {
       showTopSnackBar(
         Overlay.of(context),
@@ -99,7 +111,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     }
   }
 
-  Future userData() async {
+  // Save User Data to Firestore
+  Future saveUserData() async {
     Map<String, dynamic> data = {
       'imgUrl': imageUrl,
       'fName': firstNameController.text,
@@ -127,7 +140,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return Scaffold(
       body: Padding(
         padding:
-            const EdgeInsets.only(top: 0.0, bottom: 10, left: 22, right: 22),
+        const EdgeInsets.only(top: 0.0, bottom: 10, left: 22, right: 22),
         child: Form(
           key: _formKey,
           child: ListView(
@@ -146,14 +159,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         backgroundImage: _profileImage != null
                             ? FileImage(_profileImage!)
                             : const AssetImage(
-                                    'assets/images/default_person.png')
-                                as ImageProvider,
+                            'assets/images/default_person.png')
+                        as ImageProvider,
                         child: _profileImage == null
                             ? const Icon(
-                                Icons.person,
-                                size: 60,
-                                color: Colors.white,
-                              )
+                          Icons.person,
+                          size: 60,
+                          color: Colors.white,
+                        )
                             : null,
                       ),
                     ),
@@ -292,7 +305,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         );
                       },
                       child: const TitleTextO(
-                        "SignIn",
+                        "Sign In",
                       ))
                 ],
               )
