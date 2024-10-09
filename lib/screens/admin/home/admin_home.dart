@@ -2,7 +2,6 @@
 import 'package:codes_thinkers/screens/admin/attendance/attendancetwo.dart';
 import 'package:codes_thinkers/screens/admin/home/styled_admin_widgets.dart';
 import 'package:flutter/material.dart';
-
 import '../../courses/courses.dart';
 import '../../posts/posts.dart';
 import '../../projects/projects.dart';

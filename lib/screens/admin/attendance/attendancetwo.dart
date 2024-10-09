@@ -1,4 +1,4 @@
-import 'package:codes_thinkers/theme/theme.dart'; // Assuming AppColors is defined here
+import 'package:codes_thinkers/theme/theme.dart'; 
 import 'package:flutter/material.dart';
 
 class AttendanceScreen extends StatefulWidget {
@@ -9,61 +9,61 @@ class AttendanceScreen extends StatefulWidget {
 }
 
 class _AttendanceScreenState extends State<AttendanceScreen> {
-  final List<String> _statuses = ['Select Status', 'Select Status']; // List to hold statuses for each employee
+  final List<String> _statuses = ['Select Status', 'Select Status']; 
   final List<String> _employees = [
     'Anugrah Prasetya',
     'Another Employee',
-  ]; // Original list of employees
-  late List<String> _filteredEmployees; // List for filtered employees
-  final TextEditingController _searchController = TextEditingController(); // Controller for the search bar
+  ];
+  late List<String> _filteredEmployees; 
+  final TextEditingController _searchController = TextEditingController(); 
 
   @override
   void initState() {
     super.initState();
-    _filteredEmployees = _employees; // Initialize the filtered list
-    _searchController.addListener(_filterEmployees); // Add listener to the search controller
+    _filteredEmployees = _employees; 
+    _searchController.addListener(_filterEmployees); 
   }
 
   @override
   void dispose() {
-    _searchController.dispose(); // Dispose of the controller
+    _searchController.dispose(); 
     super.dispose();
   }
 
   void _filterEmployees() {
     String query = _searchController.text.toLowerCase();
     setState(() {
-      // Filter employees based on the search query
+     
       _filteredEmployees = _employees
           .where((employee) => employee.toLowerCase().contains(query))
           .toList();
     });
   }
 
-  // Define colors for each status
+  
   Color _getButtonColor(String status) {
     switch (status) {
       case 'Present':
-        return const Color.fromARGB(255, 0, 146, 5); // Light green for Present
+        return const Color.fromARGB(255, 0, 146, 5); 
       case 'Absent':
-        return Colors.red; // Red for Absent
+        return Colors.red; 
       case 'Leave':
-        return Colors.grey; // Grey for Leave
+        return Colors.grey; 
       default:
-        return Colors.blue; // Default color
+        return Colors.blue; 
     }
   }
 
   Color _getTextColor(String status) {
     switch (status) {
       case 'Present':
-        return const Color.fromARGB(255, 255, 255, 255); // Dark green for Present
+        return const Color.fromARGB(255, 255, 255, 255); 
       case 'Absent':
-        return Colors.white; // White for Absent text
+        return Colors.white;
       case 'Leave':
-        return Colors.black; // Black for Leave
+        return Colors.black; 
       default:
-        return Colors.white; // Default text color
+        return Colors.white; 
     }
   }
 
@@ -79,7 +79,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 title: const Text('Present'),
                 onTap: () {
                   setState(() {
-                    _statuses[index] = 'Present'; // Update status for the specific employee
+                    _statuses[index] = 'Present'; 
                   });
                   Navigator.pop(context);
                 },
@@ -88,7 +88,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 title: const Text('Absent'),
                 onTap: () {
                   setState(() {
-                    _statuses[index] = 'Absent'; // Update status for the specific employee
+                    _statuses[index] = 'Absent'; 
                   });
                   Navigator.pop(context);
                 },
@@ -97,7 +97,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 title: const Text('Leave'),
                 onTap: () {
                   setState(() {
-                    _statuses[index] = 'Leave'; // Update status for the specific employee
+                    _statuses[index] = 'Leave'; 
                   });
                   Navigator.pop(context);
                 },
@@ -112,13 +112,13 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: AppColors.backgroundColor, // Updated this line
+      
       appBar: AppBar(shadowColor: Colors.white,
         backgroundColor: Colors.blue,
         title: SizedBox(
           width: 300,
           child: TextField(
-            controller: _searchController, // Set the controller to the search bar
+            controller: _searchController, 
             decoration: const InputDecoration(
               contentPadding: EdgeInsets.all(12.5),
               hintText: 'Search...',
@@ -159,7 +159,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
             ),
             const SizedBox(height: 10),
 
-            // Display filtered employee cards
+           
             Expanded(
               child: ListView.builder(
                 itemCount: _filteredEmployees.length,
@@ -199,21 +199,21 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                             ),
                             const Spacer(),
 
-                            // Button to show status options for the employee
+                           
                             ElevatedButton(
                               onPressed: () => _showStatusOptions(context, index),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: _getButtonColor(_statuses[index]), // Set background color based on status
+                                backgroundColor: _getButtonColor(_statuses[index]),
                               ),
                               child: Text(
                                 _statuses[index],
-                                style: TextStyle(color: _getTextColor(_statuses[index])), // Set text color based on status
+                                style: TextStyle(color: _getTextColor(_statuses[index])), 
                               ),
                             ),
                           ],
                         ),
                       ),
-                      // Divider after each container
+                     
                       const Divider(thickness: 0.5, color: Colors.grey),
                     ],
                   );
