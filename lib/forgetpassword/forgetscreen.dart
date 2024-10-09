@@ -8,8 +8,8 @@ class Forgetscreen extends StatefulWidget {
 }
 
 class _ForgetscreenState extends State<Forgetscreen> {
-  final _formKey = GlobalKey<FormState>(); // Form key for validation
-  final TextEditingController _emailController = TextEditingController(); // Controller for the email field
+  final _formKey = GlobalKey<FormState>(); 
+  final TextEditingController _emailController = TextEditingController(); 
 
   @override
   void dispose() {
@@ -26,17 +26,16 @@ class _ForgetscreenState extends State<Forgetscreen> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
-          key: _formKey, // Assigning the form key
+          key: _formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Display logo image
               Image.asset(
                 'assets/images/logo.png',
-                height: 150, // Adjust size as needed
+                height: 150, 
               ),
               const SizedBox(height: 40),
-              // Email TextField
+             
               TextFormField(
                 controller: _emailController,
                 decoration: const InputDecoration(
@@ -54,20 +53,76 @@ class _ForgetscreenState extends State<Forgetscreen> {
                 },
               ),
               const SizedBox(height: 20),
-              // Submit Button
+             
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    // Handle the forgot password logic here
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Password reset link sent')),
+                    // Navigate to OTPVerificationScreen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OTPVerificationScreen(),
+                      ),
                     );
                   }
                 },
-                child: const Text('Send Opt'),
+                child: const Text('Send OTP'),
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+// OTP Verification Screen
+class OTPVerificationScreen extends StatefulWidget {
+  @override
+  _OTPVerificationScreenState createState() => _OTPVerificationScreenState();
+}
+
+class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
+  final TextEditingController _otpController = TextEditingController();
+
+  @override
+  void dispose() {
+    _otpController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('OTP Verification'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Enter the OTP sent to your email'),
+            const SizedBox(height: 20),
+            TextField(
+              controller: _otpController,
+              decoration: const InputDecoration(
+                labelText: 'OTP',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.number,
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Add OTP validation logic here
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('OTP Verified: ${_otpController.text}')),
+                );
+              },
+              child: const Text('Verify OTP'),
+            ),
+          ],
         ),
       ),
     );
