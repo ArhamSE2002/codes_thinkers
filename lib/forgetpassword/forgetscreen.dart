@@ -76,7 +76,7 @@ class _ForgetscreenState extends State<Forgetscreen> {
   }
 }
 
-// OTP Verification Screen
+
 class OTPVerificationScreen extends StatefulWidget {
   @override
   _OTPVerificationScreenState createState() => _OTPVerificationScreenState();
@@ -115,7 +115,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Add OTP validation logic here
+               
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('OTP Verified: ${_otpController.text}')),
                 );
