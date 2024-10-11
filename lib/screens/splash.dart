@@ -1,11 +1,8 @@
 import 'dart:async';
-
-
 import 'package:codes_thinkers/screens/user/user_dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'admin/home/admin_home.dart';
 import 'auth/login_screen.dart';
 
@@ -69,13 +66,23 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Image.asset(
-          'assets/images/logo.png',
-          width: 200,
-          height: 200,
-        ),
-      ),
+      
+      body:   Stack(
+        children: [
+        
+          Positioned.fill(
+            child: Image.asset(
+          'assets/ images/background.jpg', 
+              fit: BoxFit.cover, 
+            ),
+          ),
+      //  Center(
+      //   child: Image.asset(
+      //     'assets/images/logo.png',
+      //     width: 200,
+      //     height: 200,
+        // ),
+      ] ),
     );
   }
 }
