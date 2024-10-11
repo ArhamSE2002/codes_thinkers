@@ -1,4 +1,5 @@
 import 'package:codes_thinkers/screens/splash.dart';
+import 'package:codes_thinkers/screens/splashscreenmain.dart';
 import 'package:codes_thinkers/theme/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       },
       debugShowCheckedModeBanner: false,
       theme: primaryTheme,
-      home: const Splash(),
+      home: const SplashScreenmain()
     );
   }
 }
