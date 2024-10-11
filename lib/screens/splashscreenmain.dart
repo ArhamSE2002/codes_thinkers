@@ -29,7 +29,7 @@ class _SplashScreenmainState extends State<SplashScreenmain> {
         width: MediaQuery.sizeOf(context).width * 2,
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image:AssetImage('assets/animations/background thinker.jpg',
+                image:AssetImage('assets/images/background thinker.jpg',
                   
                     ),
                 fit:BoxFit.fill, )),
@@ -41,7 +41,7 @@ class _SplashScreenmainState extends State<SplashScreenmain> {
         child: Container(
            margin: EdgeInsets.only(top: 100),
           height: 200,width: 400,
-          child:Image.asset('assets/animations/logo.png'),
+          child:Image.asset('assets/images/logo.png'),
            
             ),
         ),
@@ -108,7 +108,12 @@ class _SplashScreenmainState extends State<SplashScreenmain> {
                       Center(
                         child: Container(margin: EdgeInsets.only(left: 350,top: 50),
                           child: ElevatedButton(
-                          onPressed: (){},
+                           onPressed: () {
+                     Navigator.push(
+                     context,
+                    MaterialPageRoute(builder: (context) => Splash()),
+          );
+        },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.yellow,
                           ),
