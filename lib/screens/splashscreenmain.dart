@@ -1,13 +1,7 @@
 
 import 'dart:async';
-
-
 import 'package:codes_thinkers/screens/splash.dart';
 import 'package:flutter/material.dart';
-// import 'package:lottie/lottie.dart';
-
-
-
 class SplashScreenmain extends StatefulWidget {
   const SplashScreenmain({super.key});
 
@@ -31,8 +25,7 @@ class _SplashScreenmainState extends State<SplashScreenmain> {
   
   body: Center( 
      child:  Container(
-
-        height: MediaQuery.sizeOf(context).height * 2,
+       height: MediaQuery.sizeOf(context).height * 2,
         width: MediaQuery.sizeOf(context).width * 2,
         decoration: const BoxDecoration(
             image: DecorationImage(
@@ -41,7 +34,6 @@ class _SplashScreenmainState extends State<SplashScreenmain> {
                     ),
                 fit:BoxFit.fill, )),
 
-      
      child:   Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -53,10 +45,7 @@ class _SplashScreenmainState extends State<SplashScreenmain> {
            
             ),
         ),
-      
-
-                  
-                    Container(
+     Container(
                         margin: const EdgeInsets.only(top: 3),
                       width: 210,height: 50,
                       decoration: const BoxDecoration(             
@@ -85,11 +74,8 @@ class _SplashScreenmainState extends State<SplashScreenmain> {
                                    ),
                    ),
               ),
-                        
-
-                  Container(
-                      // margin: EdgeInsets.only(bottom: 150),
-                      width: 197,height: 50,
+              Container(
+                     width: 197,height: 50,
                       decoration:  const BoxDecoration(             
                          color: Colors.yellow, 
                        borderRadius: BorderRadius.only(
@@ -117,10 +103,7 @@ class _SplashScreenmainState extends State<SplashScreenmain> {
                                    ),
                    ),
               ),
-                              
-
-
-                  Row(
+         Row(
                     children: [
                       Center(
                         child: Container(margin: EdgeInsets.only(left: 350,top: 50),
@@ -144,15 +127,7 @@ class _SplashScreenmainState extends State<SplashScreenmain> {
                       ),
                     ],
                   ),
-                  ]),
-    // 
-         
-   )) ,
-
-   
-   
-   
-   ) ;
+                  ]), )) ,) ;
      
    
         
