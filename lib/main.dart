@@ -26,8 +26,13 @@ class MyApp extends StatelessWidget {
             child: child!);
       },
       debugShowCheckedModeBanner: false,
+<<<<<<< HEAD
        theme: primaryTheme,
       home: const Splash()
+=======
+      theme: primaryTheme,
+      home: MyApp()
+>>>>>>> c7588e45198c8aa49b50c66dbd6c8ffbea4cc1a6
     );
   }
 }
