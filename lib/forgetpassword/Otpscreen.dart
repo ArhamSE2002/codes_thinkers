@@ -1,3 +1,4 @@
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -20,7 +21,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BackgroundScaffold(
       appBar: AppBar(
         title: const Text("OTP Verification"),
         backgroundColor: Colors.orange,

@@ -5,20 +5,24 @@ class BackgroundScaffold extends StatelessWidget {
   final Widget body;
   final PreferredSizeWidget? appBar;
 
-  const BackgroundScaffold({Key? key, required this.body, this.appBar, FloatingActionButton? floatingActionButton}) : super(key: key);
+  const BackgroundScaffold({
+    Key? key, required this.body, 
+    this.appBar,
+    FloatingActionButton? floatingActionButton})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
-            image: Images.backgroundImage, // Global background image
+            image: Images.backgroundImage, 
             fit: BoxFit.cover,
           ),
         ),
-        child: body, // Ismein actual content ayega har page ka
+        child: body, 
       ),
     );
   }

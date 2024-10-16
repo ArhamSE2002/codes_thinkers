@@ -1,3 +1,4 @@
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/forgetpassword/Otpscreen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class _ForgetscreenState extends State<Forgetscreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BackgroundScaffold(
       appBar: AppBar(
         title: const Text('Forgot Password'),
       ),
