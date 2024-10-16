@@ -1,4 +1,5 @@
 
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:flutter/material.dart';
 
 import '../shared/shared_text.dart';
@@ -19,7 +20,7 @@ class _OnBoardingState extends State<OnBoarding> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BackgroundScaffold(
       body: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Column(

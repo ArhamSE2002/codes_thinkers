@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:path/path.dart' as p;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -137,7 +138,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BackgroundScaffold(
       body: Padding(
         padding:
         const EdgeInsets.only(top: 0.0, bottom: 10, left: 22, right: 22),

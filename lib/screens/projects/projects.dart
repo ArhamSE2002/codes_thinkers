@@ -1,3 +1,4 @@
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/screens/projects/projectWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -28,7 +29,7 @@ class _ProjectsState extends State<Projects> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BackgroundScaffold(
       appBar: AppBar(
         title: const BigText("Projects"),
       ),

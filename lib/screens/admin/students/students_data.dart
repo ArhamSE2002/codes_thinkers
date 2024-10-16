@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../shared/shared_text.dart'; // Ensure this import is correct
@@ -46,7 +47,7 @@ class _StudentsDataState extends State<StudentsData> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BackgroundScaffold(
       appBar: AppBar(
         title: const BigText("Students"),
       ),

@@ -1,5 +1,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/screens/posts/postWidget.dart';
 
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class _PostsState extends State<Posts> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BackgroundScaffold(
       appBar: AppBar(
         title: const BigText("Home"),
       ),

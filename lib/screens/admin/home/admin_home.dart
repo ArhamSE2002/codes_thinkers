@@ -1,4 +1,5 @@
 
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/screens/admin/attendance/attendancetwo.dart';
 import 'package:codes_thinkers/screens/admin/home/styled_admin_widgets.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class AdminHome extends StatefulWidget {
 class _AdminHomeState extends State<AdminHome> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BackgroundScaffold(
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(18.0),

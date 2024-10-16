@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:io';
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
 import 'package:path/path.dart';
@@ -43,7 +44,7 @@ class _AddPostState extends State<AddPost> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BackgroundScaffold(
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(18.0),

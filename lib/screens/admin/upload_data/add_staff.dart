@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:io';
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:path/path.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -31,7 +32,7 @@ class _AddStaffState extends State<AddStaff> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BackgroundScaffold(
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(18.0),

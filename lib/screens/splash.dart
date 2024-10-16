@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/screens/user/user_dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,7 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BackgroundScaffold(
       
       body:
        Center(

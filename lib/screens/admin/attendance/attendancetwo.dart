@@ -1,3 +1,4 @@
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/theme/theme.dart'; 
 import 'package:flutter/material.dart';
 
@@ -111,7 +112,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BackgroundScaffold(
       
       appBar: AppBar(shadowColor: Colors.white,
         backgroundColor: Colors.blue,

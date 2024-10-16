@@ -6,8 +6,14 @@ class AppColors {
   static const textColor = Color(0xFFFFFFFF);
   static const redColor = Color(0xFFE70C0C);
   static const greenColor = Color(0xFF24DA09);
-
+static var backgroundImage;
   static var backgroundColor;
+}
+//images
+class Images {
+ static const backgroundImage = AssetImage('assets/images/background thinker.jpg') ;
+  
+  
 }
 
 // app primary theme
@@ -15,7 +21,7 @@ ThemeData primaryTheme = ThemeData(
   colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
 
   // Scaffold theme
-  scaffoldBackgroundColor: AppColors.primaryColor,
+  // scaffoldBackgroundColor: AppColors.primaryColor,
 
   // Elevated Button Theme
   elevatedButtonTheme: ElevatedButtonThemeData(
