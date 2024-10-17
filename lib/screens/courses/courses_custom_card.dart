@@ -150,22 +150,6 @@
           
 
 import 'package:flutter/material.dart';
-
-// void main() => runApp(MyApp());
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Custom Widget Example',
-//       home: Scaffold(
-//         appBar: AppBar(title: Text('Custom Scrollable Cards')),
-//         body: const CustomCardList(),
-//       ),
-//     );
-//   }
-// }
-
 class CustomCardList extends StatefulWidget {
   const CustomCardList({super.key});
 
@@ -174,7 +158,7 @@ class CustomCardList extends StatefulWidget {
 }
 
 class _CustomCardListState extends State<CustomCardList> {
-  // Dynamic list for items
+ 
   List<Map<String, String>> items = [
     {"image": "assets/images/app image.jpg", "title": "App Development", "Course duration": "6 Month"},
     {"image": "assets/images/Digitalimage.jpg", "title": "Digital Market", "Course duration": "6 Month"},
