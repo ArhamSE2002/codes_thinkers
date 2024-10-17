@@ -142,53 +142,203 @@
 //   }
 // }
 // 
+
+                    
+                
+                
+              
+          
+
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+// void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Custom Widget Example',
-      home: Scaffold(
-        appBar: AppBar(title: Text('Custom Scrollable Cards')),
-        body: CustomCardList(),
-      ),
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Custom Widget Example',
+//       home: Scaffold(
+//         appBar: AppBar(title: Text('Custom Scrollable Cards')),
+//         body: const CustomCardList(),
+//       ),
+//     );
+//   }
+// }
 
 class CustomCardList extends StatefulWidget {
+  const CustomCardList({super.key});
+
   @override
   _CustomCardListState createState() => _CustomCardListState();
 }
 
 class _CustomCardListState extends State<CustomCardList> {
-  // Yeh list dynamic data ke liye hai
+  // Dynamic list for items
   List<Map<String, String>> items = [
-    {"image": "assets/images/app image.jpg", "title": "App Development", "fee": "Rs 1000",},
-    {"image": "assets/images/Digitalimage.jpg", "title": "Digital Market", "fee": "Rs 2000"},
-    {"image": "assets/images/web image.jpg", "title": "Web Development", "fee": "Rs 3000"},
-    {"image": "assets/images/item4.png", "title": "Item 4", "fee": "Rs 4000"},
-    {"image": "assets/images/item5.png", "title": "Item 5", "fee": "Rs 5000"},
+    {"image": "assets/images/app image.jpg", "title": "App Development", "Course duration": "6 Month"},
+    {"image": "assets/images/Digitalimage.jpg", "title": "Digital Market", "Course duration": "6 Month"},
+    {"image": "assets/images/web image.jpg", "title": "Web Development", "Course duration": "6 Month"},
+    {"image": "assets/images/ui designer.jpg", "title": "UX /&UI designer", "Course duration": "6 Month"},
+    {"image": "assets/images/seo.jpg", "title": "SEO", "Course duration": "6 Month"},
+    {"image": "assets/images/web hosting.jpg", "title": "Web Hosting", "Course duration": "6 Month"},
+   
+   
   ];
+
+  void _showCourseDetails(String title, String Courseduration) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Course Details'),
+          content: Text('$title\nCourse duration: $Courseduration',style: const TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+          actions: [
+            TextButton(
+              child: const Text('Close',style: TextStyle(color: Colors.red),),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      padding: EdgeInsets.all(16),
       itemCount: items.length,
       itemBuilder: (context, index) {
         return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Card(
-            elevation: 5,
-            child: ListTile(
-              leading: Image.asset(items[index]["image"]!),
-              title: Text(items[index]["title"]!),
-              subtitle: Text("Fee: ${items[index]["fee"]}"),
-              
-            ),
+          padding: const EdgeInsets.symmetric(vertical: 12.0),
+          child: Stack(
+            clipBehavior: Clip.none, 
+            children: [
+              // Card with full image
+              Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Stack(
+                    children: [
+                     
+                      Image.asset(
+                        items[index]["image"]!,
+                        fit: BoxFit.cover,
+                        height: 250, 
+                        width: double.infinity,
+                      ),
+                     
+                      Positioned.fill(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Colors.transparent,
+                                Colors.black,
+                                // .withOpacity(0.7), // Gradient color
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                     
+                      Positioned(
+                        bottom: 20,
+                        left: 16,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              items[index]["title"]!,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white, 
+                                shadows: [
+                                  Shadow(
+                                    offset: Offset(1.0, 1.0),
+                                    blurRadius: 3.0,
+                                    color: Colors.black.withOpacity(0.5),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              "Course duration: ${items[index]["Course duration"]}",
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.white,
+                                shadows: [
+                                  Shadow(
+                                    offset: const Offset(1.0, 1.0),
+                                    blurRadius: 3.0,
+                                    color: Colors.black.withOpacity(0.5),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+             
+              Positioned(
+                bottom: 30, 
+                right: 30,
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        print("Start button pressed");
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      ),
+                      child: const Text(
+                        "Learn more",
+                        style: TextStyle(color: Colors.white, fontSize: 10),
+                      ),
+                    ),])),
+                    const SizedBox(height: 8),
+                    Positioned(
+                      bottom: -11,
+                      right: -11,
+                      child: Column(
+                        children: [
+                          CircleAvatar(
+                            radius: 20, // Circular icon button
+                            backgroundColor: Colors.blue,
+                            child: IconButton(
+                              icon: const Icon(Icons.arrow_forward, color: Colors.white,size: 15,),
+                              onPressed: () {
+                                _showCourseDetails(items[index]["title"]!, items[index]["Course duration"]!);
+                              },
+                            ),
+                          ),
+                        
+                      
+                    
+                  ],
+                ),
+              ),
+            ],
           ),
         );
       },
