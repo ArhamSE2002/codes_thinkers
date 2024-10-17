@@ -15,9 +15,9 @@ class _MyappState extends State<Myapp> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Whatsapps',style: TextStyle(color: Colors.purple,fontWeight: FontWeight.bold),),
+        title: const Text('Whatsapps',style: TextStyle(color: Colors.purple,fontWeight: FontWeight.bold),),
       ),
-      body: Column(
+      body: const Column(
         children: [
           CircleAvatar(
             radius: 22,

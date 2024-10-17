@@ -80,13 +80,13 @@ class _CoursesState extends State<Courses> {
                         }
                         // Access the required course data
                         final course = docs[index];
-                        return CustomCard(
-                          imageUrl: course['imageUrl'], // Add imageUrl field
-                          title: course['title'],
-                          shortDescription: course['shortDec'],
-                          duration: course['duration'].toString(),
-                          monthlyFee: course['monthlyFee'].toString(), // Updated to monthlyFee
-                        );
+                        return CustomCardList();
+                        //   imageUrl: course['imageUrl'], // Add imageUrl field
+                        //   title: course['title'],
+                        //   shortDescription: course['shortDec'],
+                        //   duration: course['duration'].toString(),
+                        //   monthlyFee: course['monthlyFee'].toString(), // Updated to monthlyFee
+                        // );
                       },
                     ),
                   );
