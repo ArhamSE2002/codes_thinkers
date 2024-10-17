@@ -19,20 +19,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      builder: (context, child) {
-        return MediaQuery(
-            data: MediaQuery.of(context)
-                .copyWith(textScaler: const TextScaler.linear(.8)),
-            child: child!);
-      },
-      debugShowCheckedModeBanner: false,
-
-       theme: primaryTheme,
-      home: const Splash()
-
-      
-     
- 
-    );
+        builder: (context, child) {
+          return MediaQuery(
+              data: MediaQuery.of(context)
+                  .copyWith(textScaler: const TextScaler.linear(.8)),
+              child: child!);
+        },
+        debugShowCheckedModeBanner: false,
+        theme: primaryTheme,
+        home: const Splash());
   }
 }

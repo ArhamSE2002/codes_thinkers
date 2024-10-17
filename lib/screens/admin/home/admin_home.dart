@@ -1,6 +1,8 @@
+import 'dart:developer';
 
 import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/screens/admin/attendance/attendancetwo.dart';
+import 'package:codes_thinkers/screens/admin/home/animations.dart';
 import 'package:codes_thinkers/screens/admin/home/styled_admin_widgets.dart';
 import 'package:flutter/material.dart';
 import '../../courses/courses.dart';
@@ -22,105 +24,497 @@ class _AdminHomeState extends State<AdminHome> {
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 50,
+        // body: SingleChildScrollView(
+        //   child: Padding(
+        //     padding: const EdgeInsets.all(8.0),
+        //     child: Column(
+        //       children: [
+        //         const SizedBox(
+        //           height: 50,
+        //         ),
+        //         const CustomAdminContainer(),
+        //         const SizedBox(
+        //           height: 20,
+        //         ),
+        //         Row(
+        //           children: [
+        //             const Expanded(child: SizedBox()),
+        //             StyledContainer("Courses", () {
+        //               Navigator.push(
+        //                   context,
+        //                   MaterialPageRoute(
+        //                       builder: (context) => const Courses()));
+        //             }),
+        //             const Expanded(child: SizedBox()),
+        //             StyledContainer("Students", () {
+        //               Navigator.push(
+        //                   context,
+        //                   MaterialPageRoute(
+        //                       builder: (context) => const StudentsData()));
+        //             }),
+        //             const Expanded(child: SizedBox()),
+        //           ],
+        //         ),
+        //         const SizedBox(
+        //           height: 20,
+        //         ),
+        //         Row(
+        //           children: [
+        //             const Expanded(child: SizedBox()),
+        //             StyledContainer("Posts", () {
+        //               Navigator.push(
+        //                 context,
+        //                 MaterialPageRoute(
+        //                   builder: (context) => Posts(
+        //                     admin: widget.admin,
+        //                   ),
+        //                 ),
+        //               );
+        //             }),
+        //             const Expanded(child: SizedBox()),
+        //             StyledContainer("Projects", () {
+        //               Navigator.push(
+        //                   context,
+        //                   MaterialPageRoute(
+        //                       builder: (context) => const Projects()));
+        //             }),
+        //             const Expanded(child: SizedBox()),
+        //           ],
+        //         ),
+        //         const SizedBox(
+        //           height: 20,
+        //         ),
+        //         Row(
+        //           children: [
+        //             const Expanded(child: SizedBox()),
+        //             StyledContainer("Attendance", () {
+        //               Navigator.push(
+        //                   context,
+        //                   MaterialPageRoute(
+        //                       builder: (context) => AttendanceScreen()));
+        //             }),
+        //             const Expanded(child: SizedBox()),
+        //             StyledContainer("Profile", () {
+        //               Navigator.push(
+        //                   context,
+        //                   MaterialPageRoute(
+        //                       builder: (context) => const AdminProfile()));
+        //             }),
+        //             const Expanded(child: SizedBox()),
+        //           ],
+        //         ),
+        //         const SizedBox(height: 20),
+        //         Row(
+        //           children: [
+        //             const Expanded(child: SizedBox()),
+        //             StyledContainer("Staff", () {
+        //               Navigator.push(context,
+        //                   MaterialPageRoute(builder: (context) => const Staff()));
+        //             }),
+        //             const Expanded(child: SizedBox()),
+        //             StyledContainer("Admins", () {
+        //               Navigator.push(
+        //                   context,
+        //                   MaterialPageRoute(
+        //                       builder: (context) => const AdminProfile()));
+        //             }),
+        //             const Expanded(child: SizedBox()),
+        //           ],
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
+        body: SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Center(
+        child: Container(
+            width: MediaQuery.of(context).size.width,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/fff.jpeg'),
+                fit: BoxFit.fill,
               ),
-              const CustomAdminContainer(),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  const Expanded(child: SizedBox()),
-                  StyledContainer("Courses", () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Courses()));
-                  }),
-                  const Expanded(child: SizedBox()),
-                  StyledContainer("Students", () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const StudentsData()));
-                  }),
-                  const Expanded(child: SizedBox()),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  const Expanded(child: SizedBox()),
-                  StyledContainer("Posts", () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Posts(
-                          admin: widget.admin,
+            ),
+            child: Column(
+              children: [
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(40),
+                    child: Container(
+                      height: 130,
+                      width: 250,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: const Color.fromARGB(255, 189, 207, 240),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Column(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(top: 4),
+                                width: 100,
+                                height: 100,
+                                decoration: const BoxDecoration(
+                                  color: Color.fromARGB(255, 0, 0, 128),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: FullCircleLoading(),
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              const Text('Students'),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(top: 4),
+                                width: 100,
+                                height: 100,
+                                decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: FullCircleLoading(),
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              const Text('Team'),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Courses()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        height: 100,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 0, 0, 128),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(5),
+                              child: SizedBox(
+                                height: 60,
+                                width: 60,
+                                child: Image.asset(
+                                  'assets/images/Courses.png',
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            const Text(
+                              'Courses',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
                         ),
                       ),
-                    );
-                  }),
-                  const Expanded(child: SizedBox()),
-                  StyledContainer("Projects", () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Projects()));
-                  }),
-                  const Expanded(child: SizedBox()),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  const Expanded(child: SizedBox()),
-                  StyledContainer("Attendance", () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>  AttendanceScreen()));
-                  }),
-                  const Expanded(child: SizedBox()),
-                  StyledContainer("Profile", () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AdminProfile()));
-                  }),
-                  const Expanded(child: SizedBox()),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row(
-                children: [
-                  const Expanded(child: SizedBox()),
-                  StyledContainer("Staff", () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Staff()));
-                  }),
-                  const Expanded(child: SizedBox()),
-                  StyledContainer("Admins", () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AdminProfile()));
-                  }),
-                  const Expanded(child: SizedBox()),
-                ],
-              ),
-            ],
-          ),
-        ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => StudentsData()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        height: 100,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 0, 0, 128),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(5),
+                              child: SizedBox(
+                                height: 60,
+                                width: 60,
+                                child: Image.asset(
+                                  'assets/images/students.png',
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            const Text(
+                              'Student',
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Posts(
+                              admin: widget.admin,
+                            ),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        height: 100,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 0, 0, 128),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(5),
+                              child: SizedBox(
+                                height: 60,
+                                width: 60,
+                                child: Image.asset(
+                                  'assets/images/post.png',
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            const Text(
+                              'Posts',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Projects()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        height: 100,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 0, 0, 128),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(5),
+                              child: SizedBox(
+                                height: 60,
+                                width: 60,
+                                child: Image.asset(
+                                  'assets/images/portfolio-management.png',
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            const Text(
+                              'Projects',
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AttendanceScreen()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        height: 100,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 0, 0, 128),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(5),
+                              child: SizedBox(
+                                height: 60,
+                                width: 60,
+                                child: Image.asset(
+                                  'assets/images/Attendence.png',
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            const Text(
+                              'Attendance',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AdminProfile()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        height: 100,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 0, 0, 128),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(5),
+                              child: SizedBox(
+                                height: 60,
+                                width: 60,
+                                child: Image.asset(
+                                  'assets/images/profile.png',
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            const Text(
+                              'Profile',
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Staff()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        height: 100,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 0, 0, 128),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(5),
+                              child: SizedBox(
+                                height: 60,
+                                width: 60,
+                                child: Image.asset(
+                                  'assets/images/Staff.png',
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            const Text(
+                              'Staff',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AdminProfile()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        height: 100,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 0, 0, 128),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(5),
+                              child: SizedBox(
+                                height: 60,
+                                width: 60,
+                                child: Image.asset(
+                                  'assets/images/Admin.png',
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            const Text(
+                              'Admin',
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            )),
       ),
-    );
+    ));
   }
 }
