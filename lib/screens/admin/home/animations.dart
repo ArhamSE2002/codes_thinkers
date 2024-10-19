@@ -54,7 +54,7 @@ class FullCirclePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = Colors.yellow
+      ..color = const Color(0xFFFDD51D)
       ..strokeWidth = 6
       ..style = PaintingStyle.stroke;
 
