@@ -24,13 +24,13 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
     return BackgroundScaffold(
       appBar: AppBar(
         title: const Text("OTP Verification"),
-        backgroundColor: Colors.orange,
-      ),
+        backgroundColor: const Color((0xFF133B7A),
+      ),),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Center(
           child: Card(
-            elevation: 8,
+            elevation: 15,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
@@ -50,20 +50,21 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                   const SizedBox(height: 10),
                   const Text(
                     'Please enter the 6-digit OTP sent to your email.',
-                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                    style: TextStyle(fontSize: 16, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 20),
+                   const SizedBox(height: 20),
                   
                   // PinCodeTextField for OTP Input
-                  PinCodeTextField(enableActiveFill: true,
+                  PinCodeTextField(
+                    enableActiveFill: true,
                     appContext: context,
                     length: 6,
                     controller: otpController,
                     keyboardType: TextInputType.number,
                     obscureText: true,
                     obscuringCharacter: '*',
-                    pinTheme: PinTheme(activeFillColor: Colors.green,
+                    pinTheme: PinTheme(activeFillColor: Colors.blue,
                       shape: PinCodeFieldShape.box,
                       fieldHeight: 55,  // Adjusted height
                       fieldWidth: 50,   // Adjusted width
@@ -78,9 +79,9 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                       }
                     },
                     onCompleted: (otp) {
-                      // ScaffoldMessenger.of(context).showSnackBar(
-                      //   SnackBar(content: Text('OTP Verified: $otp')),
-                      // );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('OTP Verified: $otp')),
+                      );
                     },
                   ),
                   const SizedBox(height: 20),
@@ -94,7 +95,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                      backgroundColor: Colors.orange,
+                      backgroundColor: Colors.blue,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),

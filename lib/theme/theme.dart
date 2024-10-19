@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const primaryColor = Color(0xFF121225);
-  static const secondaryColor = Color(0xFFFFA500);
+  
+  static const secondaryColor=Color((0xFF133B7A));
   static const textColor = Color(0xFFFFFFFF);
   static const redColor = Color(0xFFE70C0C);
   static const greenColor = Color(0xFF24DA09);
-static var backgroundImage;
+  static var backgroundImage;
   static var backgroundColor;
 }
 //images
@@ -26,7 +27,7 @@ ThemeData primaryTheme = ThemeData(
   // Elevated Button Theme
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      backgroundColor: AppColors.secondaryColor,
+      backgroundColor: const Color(0xFFFDD51D),
       foregroundColor: Colors.white,
     ),
   ),
@@ -100,11 +101,12 @@ ThemeData primaryTheme = ThemeData(
       color: AppColors.primaryColor,
       foregroundColor: AppColors.textColor,
       surfaceTintColor: Colors.transparent),
+
   cardTheme: CardTheme(
     color: AppColors.secondaryColor.withOpacity(0.8),
   ),
 
-  //circular indicator
+  // circular indicator
   progressIndicatorTheme:
       const ProgressIndicatorThemeData(color: AppColors.textColor),
 
