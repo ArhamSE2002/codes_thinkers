@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:codes_thinkers/backgroundimage.dart';
+import 'package:codes_thinkers/screens/splashscreenmain.dart';
 import 'package:codes_thinkers/screens/user/user_dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class _SplashState extends State<Splash> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => const LoginScreen(),
+              builder: (context) => const SplashScreen(),
             ),
           );
         } else {

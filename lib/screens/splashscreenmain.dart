@@ -1,149 +1,132 @@
 
 import 'dart:async';
-import 'package:codes_thinkers/backgroundimage.dart';
-import 'package:codes_thinkers/screens/splash.dart';
+import 'package:codes_thinkers/screens/auth/login_screen.dart';
 import 'package:flutter/material.dart';
-class SplashScreenmain extends StatefulWidget {
-  const SplashScreenmain({super.key});
+
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<SplashScreenmain> createState() => _SplashScreenmainState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
-class _SplashScreenmainState extends State<SplashScreenmain> {
 
-@override
+class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+  late Animation<Offset> _iconTranslationAnimation;
+  late Animation<Offset> _buttonSlideAnimation;
+
+  @override
   void initState() {
-  super.initState();
-  Timer(const Duration(seconds: 4),
-  (){
-    Navigator.pushReplacement(context,MaterialPageRoute(builder:(context)=>const Splash()));
-  });
+    super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+
+   
+    _scaleAnimation = Tween<double>(begin: 0.3, end: 5.3).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.bounceOut),
+    );
+
+    _iconTranslationAnimation = Tween<Offset>(
+      begin: const Offset(4, -11),
+      end: const Offset(0, 1),   
+    ).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+
+   _buttonSlideAnimation = Tween<Offset>(
+      begin: const Offset(1, 0), 
+      end: const Offset(0, 0),   
+    ).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+
+    _controller.forward();
+ Timer(const Duration(seconds: 4), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundScaffold(
-  
-  body: Center( 
-     child:  Container(
-       height: MediaQuery.sizeOf(context).height * 2,
-        width: MediaQuery.sizeOf(context).width * 2,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image:AssetImage('assets/images/background thinker.jpg',
-                  
-                    ),
-                fit:BoxFit.fill, )),
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
 
-     child:   Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-        Center(
+    return Scaffold(
+      body: Center(
         child: Container(
-           margin: EdgeInsets.only(top: 100),
-          height: 200,width: 400,
-          child:Image.asset('assets/images/logo.png'),
-           
+          height: screenHeight,
+          width: screenWidth,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/Splash screen.JPG'),
+              fit: BoxFit.fill,
             ),
-        ),
-     Container(
-                        margin: const EdgeInsets.only(top: 3),
-                      width: 210,height: 50,
-                      decoration: const BoxDecoration(             
-                         color: Colors.yellow,
-                      borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      bottomLeft: Radius.elliptical(30, 50),
-                      topRight: Radius.circular(20),
-                      bottomRight: Radius.elliptical(30, 50),),
-
-                      boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(-1, 12),
-                          blurRadius: 55,
-                          spreadRadius: 1
-                          ),
-                    ],
-              ),
-                   child: const Center(
-                     child: Text('Welcome',
-                      style: TextStyle(
-                       fontSize: 35,color: Colors.white,
-                       fontWeight: FontWeight.normal,
-                      fontFamily: 'Bobbers',)
-                                   ),
-                   ),
-              ),
-              Container(
-                     width: 197,height: 50,
-                      decoration:  const BoxDecoration(             
-                         color: Colors.yellow, 
-                       borderRadius: BorderRadius.only(
-                      topLeft: Radius.elliptical(30, 70),
-                      bottomLeft: Radius.circular(40),
-                      topRight: Radius.elliptical(30, 70),
-                      bottomRight: Radius.circular(40),
-                      ),
-                    
-                      boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(-1, 12),
-                          blurRadius:55,
-                          spreadRadius: 1
-                          ),
-                    ],
-              ),
-                   child: const Center(
-                     child: Text('Student Management App',
-                      style: TextStyle(
-                       fontSize: 15,color: Colors.black,
-                       fontWeight: FontWeight.normal,
-                      fontFamily: 'Bobbers',)
-                                   ),
-                   ),
-              ),
-         Row(
-                    children: [
-                      Center(
-                        child: Container(margin: EdgeInsets.only(left: 350,top: 50),
-                          child: ElevatedButton(
-                           onPressed: () {
-                     Navigator.push(
-                     context,
-                    MaterialPageRoute(builder: (context) => Splash()),
-          );
-        },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.yellow,
-                          ),
-                          child: const Text(
-                            'Get started',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.normal,
-                              fontFamily: 'Roboto',
-                            ),
-                          ),
-                                          ),
-                        ),
-                      ),
-                    ],
+          ),
+          child: Stack(
+            children: [
+            
+              Positioned(
+                top: 0,
+                right: 0,
+                child: SlideTransition(
+                  position: _iconTranslationAnimation, 
+                  child: ScaleTransition(
+                    scale: _scaleAnimation,  
+                    child: Container(
+                      height: screenHeight * 0.06, 
+                      width: screenWidth * 0.3,   
+                      child: Image.asset('assets/images/Icon.JPG'),
+                    ),
                   ),
-                  ]), )) ,) ;
-     
-   
-        
-         
-                                  
-                               
-                  
-             
+                ),
+              ),
               
-      
-  
+              Positioned(
+                bottom: screenHeight * 0.02,
+                left: screenWidth * 0.8,
+                child: SlideTransition(
+                  position: _buttonSlideAnimation,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.yellow,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: screenWidth * 0.010,
+                        vertical: screenHeight * 0.02,
+                      ),
+                    ),
+                    child: const Text(
+                      'Get started',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
+
+
