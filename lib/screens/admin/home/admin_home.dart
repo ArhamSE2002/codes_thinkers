@@ -24,107 +24,6 @@ class _AdminHomeState extends State<AdminHome> {
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
-        // body: SingleChildScrollView(
-        //   child: Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: Column(
-        //       children: [
-        //         const SizedBox(
-        //           height: 50,
-        //         ),
-        //         const CustomAdminContainer(),
-        //         const SizedBox(
-        //           height: 20,
-        //         ),
-        //         Row(
-        //           children: [
-        //             const Expanded(child: SizedBox()),
-        //             StyledContainer("Courses", () {
-        //               Navigator.push(
-        //                   context,
-        //                   MaterialPageRoute(
-        //                       builder: (context) => const Courses()));
-        //             }),
-        //             const Expanded(child: SizedBox()),
-        //             StyledContainer("Students", () {
-        //               Navigator.push(
-        //                   context,
-        //                   MaterialPageRoute(
-        //                       builder: (context) => const StudentsData()));
-        //             }),
-        //             const Expanded(child: SizedBox()),
-        //           ],
-        //         ),
-        //         const SizedBox(
-        //           height: 20,
-        //         ),
-        //         Row(
-        //           children: [
-        //             const Expanded(child: SizedBox()),
-        //             StyledContainer("Posts", () {
-        //               Navigator.push(
-        //                 context,
-        //                 MaterialPageRoute(
-        //                   builder: (context) => Posts(
-        //                     admin: widget.admin,
-        //                   ),
-        //                 ),
-        //               );
-        //             }),
-        //             const Expanded(child: SizedBox()),
-        //             StyledContainer("Projects", () {
-        //               Navigator.push(
-        //                   context,
-        //                   MaterialPageRoute(
-        //                       builder: (context) => const Projects()));
-        //             }),
-        //             const Expanded(child: SizedBox()),
-        //           ],
-        //         ),
-        //         const SizedBox(
-        //           height: 20,
-        //         ),
-        //         Row(
-        //           children: [
-        //             const Expanded(child: SizedBox()),
-        //             StyledContainer("Attendance", () {
-        //               Navigator.push(
-        //                   context,
-        //                   MaterialPageRoute(
-        //                       builder: (context) => AttendanceScreen()));
-        //             }),
-        //             const Expanded(child: SizedBox()),
-        //             StyledContainer("Profile", () {
-        //               Navigator.push(
-        //                   context,
-        //                   MaterialPageRoute(
-        //                       builder: (context) => const AdminProfile()));
-        //             }),
-        //             const Expanded(child: SizedBox()),
-        //           ],
-        //         ),
-        //         const SizedBox(height: 20),
-        //         Row(
-        //           children: [
-        //             const Expanded(child: SizedBox()),
-        //             StyledContainer("Staff", () {
-        //               Navigator.push(context,
-        //                   MaterialPageRoute(builder: (context) => const Staff()));
-        //             }),
-        //             const Expanded(child: SizedBox()),
-        //             StyledContainer("Admins", () {
-        //               Navigator.push(
-        //                   context,
-        //                   MaterialPageRoute(
-        //                       builder: (context) => const AdminProfile()));
-        //             }),
-        //             const Expanded(child: SizedBox()),
-        //           ],
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // ),
         body: SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Center(
@@ -146,7 +45,7 @@ class _AdminHomeState extends State<AdminHome> {
                       width: 250,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
-                        color: const Color.fromARGB(255, 28, 28, 238),
+                        color: const Color(0xFF295276),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -158,7 +57,7 @@ class _AdminHomeState extends State<AdminHome> {
                                 width: 100,
                                 height: 100,
                                 decoration: const BoxDecoration(
-                                  color: Color.fromARGB(255, 0, 0, 128),
+                                  color: Color(0xFF103068),
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(20)),
                                 ),
@@ -211,7 +110,7 @@ class _AdminHomeState extends State<AdminHome> {
                         height: 100,
                         width: 150,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 0, 0, 128),
+                          color: Color(0xFF103068),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -248,7 +147,7 @@ class _AdminHomeState extends State<AdminHome> {
                         height: 100,
                         width: 150,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 0, 0, 128),
+                          color: Color(0xFF103068),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -293,7 +192,7 @@ class _AdminHomeState extends State<AdminHome> {
                         height: 100,
                         width: 150,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 0, 0, 128),
+                          color: const Color(0xFF103068),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -329,7 +228,7 @@ class _AdminHomeState extends State<AdminHome> {
                         height: 100,
                         width: 150,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 0, 0, 128),
+                          color: const Color(0xFF103068),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -371,7 +270,7 @@ class _AdminHomeState extends State<AdminHome> {
                         height: 100,
                         width: 150,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 0, 0, 128),
+                          color: const Color(0xFF103068),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -408,7 +307,7 @@ class _AdminHomeState extends State<AdminHome> {
                         height: 100,
                         width: 150,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 0, 0, 128),
+                          color: const Color(0xFF103068),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -449,7 +348,7 @@ class _AdminHomeState extends State<AdminHome> {
                         height: 100,
                         width: 150,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 0, 0, 128),
+                          color: const Color(0xFF103068),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -486,7 +385,7 @@ class _AdminHomeState extends State<AdminHome> {
                         height: 100,
                         width: 150,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 0, 0, 128),
+                          color: const Color(0xFF103068),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
