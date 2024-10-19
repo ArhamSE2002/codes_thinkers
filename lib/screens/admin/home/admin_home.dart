@@ -146,7 +146,7 @@ class _AdminHomeState extends State<AdminHome> {
                       width: 250,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
-                        color: const Color.fromARGB(255, 189, 207, 240),
+                        color: const Color.fromARGB(255, 28, 28, 238),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
