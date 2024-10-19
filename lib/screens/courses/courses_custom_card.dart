@@ -15,7 +15,6 @@
 //     required this.monthlyFee, // Updated parameter name
 //   });
 
-
 //   @override
 //   Widget build(BuildContext context) {
 //     return GestureDetector(
@@ -141,15 +140,10 @@
 //     );
 //   }
 // }
-// 
-
-                    
-                
-                
-              
-          
+//
 
 import 'package:flutter/material.dart';
+
 class CustomCardList extends StatefulWidget {
   const CustomCardList({super.key});
 
@@ -158,16 +152,42 @@ class CustomCardList extends StatefulWidget {
 }
 
 class _CustomCardListState extends State<CustomCardList> {
- 
   List<Map<String, String>> items = [
-    {"image": "assets/images/app image.jpg", "title": "App Development", "Course duration": "6 Month"},
-    {"image": "assets/images/Digitalimage.jpg", "title": "Digital Market", "Course duration": "6 Month"},
-    {"image": "assets/images/web image.jpg", "title": "Web Development", "Course duration": "6 Month"},
-    {"image": "assets/images/ui designer.jpg", "title": "UX /&UI designer", "Course duration": "6 Month"},
-    {"image": "assets/images/seo.jpg", "title": "SEO", "Course duration": "6 Month"},
-    {"image": "assets/images/web hosting.jpg", "title": "Web Hosting", "Course duration": "6 Month"},
-   
-   
+    {
+      "image": "assets/images/app image.jpg",
+      "title": "App Development",
+      "Course duration": "6 Month"
+    },
+    {
+      "image": "assets/images/Digitalimage.jpg",
+      "title": "Digital Market",
+      "Course duration": "6 Month"
+    },
+    {
+      "image": "assets/images/web image.jpg",
+      "title": "Web Development",
+      "Course duration": "6 Month"
+    },
+    {
+      "image": "assets/images/ui designer.jpg",
+      "title": "UX /&UI designer",
+      "Course duration": "6 Month"
+    },
+    {
+      "image": "assets/images/seo.jpg",
+      "title": "SEO",
+      "Course duration": "6 Month"
+    },
+    {
+      "image": "assets/images/web hosting.jpg",
+      "title": "Web Hosting",
+      "Course duration": "6 Month"
+    },
+     {
+      "image": "assets/images/wordpress.jpg",
+      "title": "Word press",
+      "Course duration": "6 Month"
+    },
   ];
 
   void _showCourseDetails(String title, String Courseduration) {
@@ -176,10 +196,17 @@ class _CustomCardListState extends State<CustomCardList> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Course Details'),
-          content: Text('$title\nCourse duration: $Courseduration',style: const TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+          content: Text(
+            '$title\nCourse duration: $Courseduration',
+            style: const TextStyle(
+                color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
+          ),
           actions: [
             TextButton(
-              child: const Text('Close',style: TextStyle(color: Colors.red),),
+              child: const Text(
+                'Close',
+                style: TextStyle(color: Colors.red),
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -199,7 +226,7 @@ class _CustomCardListState extends State<CustomCardList> {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 12.0),
           child: Stack(
-            clipBehavior: Clip.none, 
+            clipBehavior: Clip.none,
             children: [
               // Card with full image
               Card(
@@ -211,14 +238,12 @@ class _CustomCardListState extends State<CustomCardList> {
                   borderRadius: BorderRadius.circular(15),
                   child: Stack(
                     children: [
-                     
                       Image.asset(
                         items[index]["image"]!,
                         fit: BoxFit.cover,
-                        height: 250, 
+                        height: 250,
                         width: double.infinity,
                       ),
-                     
                       Positioned.fill(
                         child: Container(
                           decoration: const BoxDecoration(
@@ -234,7 +259,6 @@ class _CustomCardListState extends State<CustomCardList> {
                           ),
                         ),
                       ),
-                     
                       Positioned(
                         bottom: 20,
                         left: 16,
@@ -246,7 +270,7 @@ class _CustomCardListState extends State<CustomCardList> {
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white, 
+                                color: Colors.white,
                                 shadows: [
                                   Shadow(
                                     offset: Offset(1.0, 1.0),
@@ -278,12 +302,11 @@ class _CustomCardListState extends State<CustomCardList> {
                   ),
                 ),
               ),
-             
+
               Positioned(
-                bottom: 30, 
-                right: 30,
-                child: Column(
-                  children: [
+                  bottom: 30,
+                  right: 30,
+                  child: Column(children: [
                     ElevatedButton(
                       onPressed: () {
                         print("Start button pressed");
@@ -293,32 +316,36 @@ class _CustomCardListState extends State<CustomCardList> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
                       ),
                       child: const Text(
                         "Learn more",
                         style: TextStyle(color: Colors.white, fontSize: 10),
                       ),
-                    ),])),
-                    const SizedBox(height: 8),
-                    Positioned(
-                      bottom: -11,
-                      right: -11,
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            radius: 20, // Circular icon button
-                            backgroundColor: Colors.blue,
-                            child: IconButton(
-                              icon: const Icon(Icons.arrow_forward, color: Colors.white,size: 15,),
-                              onPressed: () {
-                                _showCourseDetails(items[index]["title"]!, items[index]["Course duration"]!);
-                              },
-                            ),
-                          ),
-                        
-                      
-                    
+                    ),
+                  ])),
+              const SizedBox(height: 8),
+              Positioned(
+                bottom: -11,
+                right: -11,
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 20, // Circular icon button
+                      backgroundColor: Colors.blue,
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_forward,
+                          color: Colors.white,
+                          size: 15,
+                        ),
+                        onPressed: () {
+                          _showCourseDetails(items[index]["title"]!,
+                              items[index]["Course duration"]!);
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),

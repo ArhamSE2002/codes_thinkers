@@ -1,5 +1,4 @@
 import 'package:codes_thinkers/backgroundimage.dart';
-import 'package:codes_thinkers/theme/theme.dart'; 
 import 'package:flutter/material.dart';
 
 class AttendanceScreen extends StatefulWidget {
@@ -45,7 +44,9 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   Color _getButtonColor(String status) {
     switch (status) {
       case 'Present':
-        return const Color.fromARGB(255, 0, 146, 5); 
+    
+      return const Color.fromARGB(255, 13, 158, 18);
+        // return  const Color(0xFFFBE580); 
       case 'Absent':
         return Colors.red; 
       case 'Leave':
@@ -58,7 +59,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   Color _getTextColor(String status) {
     switch (status) {
       case 'Present':
-        return const Color.fromARGB(255, 255, 255, 255); 
+        return Colors.white; 
       case 'Absent':
         return Colors.white;
       case 'Leave':
@@ -69,7 +70,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   }
 
   void _showStatusOptions(BuildContext context, int index) {
-    showModalBottomSheet(
+    showModalBottomSheet(backgroundColor: const Color(0xFF133B7A), 
       context: context,
       builder: (BuildContext context) {
         return SizedBox(
@@ -77,7 +78,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
           child: Column(
             children: [
               ListTile(
-                title: const Text('Present'),
+                title: const Text('Present',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white),),
                 onTap: () {
                   setState(() {
                     _statuses[index] = 'Present'; 
@@ -86,7 +87,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 },
               ),
               ListTile(
-                title: const Text('Absent'),
+                title: const Text('Absent',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white),),
                 onTap: () {
                   setState(() {
                     _statuses[index] = 'Absent'; 
@@ -95,7 +96,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 },
               ),
               ListTile(
-                title: const Text('Leave'),
+                title: const Text('Leave',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color:Colors.white),),
                 onTap: () {
                   setState(() {
                     _statuses[index] = 'Leave'; 
@@ -113,14 +114,34 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
-      
-      appBar: AppBar(shadowColor: Colors.white,
-        backgroundColor: Colors.blue,
-        title: SizedBox(
-          width: 300,
+     body: Stack(
+      children: [    Column(
+          children: [
+            Row(
+              children: [
+                Container(margin: EdgeInsets.only(left: 10),
+                   child: const Icon(
+                               Icons.arrow_back, 
+                               color: Colors.white, 
+                               size: 30.0,  ), ),
+               
+                     Container(
+                      child: const Text(
+                            'Attendance',
+                            style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 30,
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Roboto',
+                            ),
+                          ) ), ],),
+            Container(margin: const EdgeInsets.only(top: 10),
+          width: 400,
           child: TextField(
             controller: _searchController, 
             decoration: const InputDecoration(
+            fillColor:Color(0xFF133B7A),
               contentPadding: EdgeInsets.all(12.5),
               hintText: 'Search...',
               hintStyle: TextStyle(color: Colors.black),
@@ -129,35 +150,56 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
             ),
             style: const TextStyle(color: Colors.black),
             cursorColor: Colors.black,
-          ),
-        ),
-      ),
-      body: Container(
-        color: Colors.white,
-        height: double.infinity,
-        width: double.infinity,
-        padding: const EdgeInsets.only(left: 11, right: 11, top: 13),
-        child: Column(
-          children: [
-            Container(
-              height: 50,
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("ID", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
-                  SizedBox(width: 25),
-                  Text("Employee", style: TextStyle(fontSize: 16, color: Colors.black)),
-                  Spacer(),
-                  Text("Status", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
-                ],
-              ),
-            ),
+          ),),
+            Row(
+              children: [
+              
+                Container(margin: EdgeInsets.only(top: 8,left: 190,),
+                 child: const Text(
+                            '17-oct-2024',
+                            style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 30,
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Roboto',
+                            ),
+                          )
+                   
+                   ),
+                 Container(margin: EdgeInsets.only(top: 8), child: const Icon(
+                                 Icons.dataset, 
+                                 color: Colors.grey, 
+                                 size: 40.0, 
+                               ),
+                     
+                           ), ],),
+            Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+          margin: const EdgeInsets.only(top: 10),
+          child: ElevatedButton(
+            onPressed: () {},style: ElevatedButton.styleFrom(
+                  backgroundColor:Colors.blue,foregroundColor: Colors.white ),
+                   child: const Text("Student",style: TextStyle( color: Colors.white,
+                                      fontSize: 20,
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.normal,
+                                      fontFamily: 'Roboto',
+                            ),),)),
+          Container(
+          margin: const EdgeInsets.only(top: 10),
+          child: ElevatedButton(onPressed: () {},style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,foregroundColor: Colors.white ),
+                   child: const Text("Staff",style: TextStyle( color: Colors.white,
+                                      fontSize: 20,
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.normal,
+                                      fontFamily: 'Roboto',
+                            ),),)),
+        
+        ],),
             const SizedBox(height: 10),
 
            
@@ -168,9 +210,9 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                   return Column(
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 16),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                         color: Color(0xFF13316A),
                           borderRadius: BorderRadius.circular(8),
                           boxShadow: [
                             BoxShadow(
@@ -182,20 +224,23 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                         ),
                         child: Row(
                           children: [
-                            Text('${1 + index}', style: const TextStyle(fontSize: 14, color: Colors.black)), // Example ID
-                            const SizedBox(width: 25),
-                            const CircleAvatar(
-                              radius: 20,
-                              backgroundImage: NetworkImage(
-                                'https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=826&t=st=1728292833~exp=1728293433~hmac=0eba3ac1fb2f08336c5800dfd6f0043f41b3533a788ad98c95a89fdfe76bd5e1',
+                            Text('${1 + index}', style: const TextStyle(fontSize: 24, color: Colors.white)), // Example ID
+                            const SizedBox(width: 35),
+                            Container(height: 100,width: 100,
+                              child: ClipRRect(
+                                   borderRadius: BorderRadius.circular(15), 
+                                child: Image.asset(
+                                  'assets/images/app image.jpg',fit:BoxFit.fill ,
+                                ),
                               ),
                             ),
                             const SizedBox(width: 10),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(_filteredEmployees[index], style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
-                                const Text('Graphic Designer', style: TextStyle(fontSize: 14, color: Colors.grey)), // Example role
+                                Text(_filteredEmployees[index], style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+                                SizedBox(height: 50,),
+                                const Text('Graphic Designer', style: TextStyle(fontSize: 14, color: Colors.white)), // Example role
                               ],
                             ),
                             const Spacer(),
@@ -215,14 +260,14 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                         ),
                       ),
                      
-                      const Divider(thickness: 0.5, color: Colors.grey),
+                      // const Divider(thickness: 0.5, color: Colors.grey),
                     ],
                   );
                 },
               ),
             ),
           ],
-        ),
+        ),]
       ),
     );
   }

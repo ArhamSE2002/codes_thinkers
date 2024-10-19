@@ -78,9 +78,9 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                       }
                     },
                     onCompleted: (otp) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('OTP Verified: $otp')),
-                      );
+                      // ScaffoldMessenger.of(context).showSnackBar(
+                      //   SnackBar(content: Text('OTP Verified: $otp')),
+                      // );
                     },
                   ),
                   const SizedBox(height: 20),
