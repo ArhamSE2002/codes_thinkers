@@ -113,7 +113,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                       'Get started',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 20,
                         fontWeight: FontWeight.normal,
                         fontFamily: 'Roboto',
                       ),
