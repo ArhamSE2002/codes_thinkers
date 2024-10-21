@@ -1,9 +1,8 @@
-import 'dart:developer';
-
 import 'package:codes_thinkers/backgroundimage.dart';
-import 'package:codes_thinkers/screens/admin/attendance/attendancetwo.dart';
+import 'package:codes_thinkers/screens/admin/attendance/attendancestudent.dart';
+import 'package:codes_thinkers/screens/admin/attendance/attendencestaff.dart';
 import 'package:codes_thinkers/screens/admin/home/animations.dart';
-import 'package:codes_thinkers/screens/admin/home/styled_admin_widgets.dart';
+
 import 'package:flutter/material.dart';
 import '../../courses/courses.dart';
 import '../../posts/posts.dart';
@@ -31,7 +30,7 @@ class _AdminHomeState extends State<AdminHome> {
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/fff.jpeg'),
+                image: AssetImage('assets/images/background thinker.jpeg'),
                 fit: BoxFit.fill,
               ),
             ),
@@ -262,7 +261,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => AttendanceScreen()),
+                              builder: (context) => Attendancestaff()),
                         );
                       },
                       child: Container(

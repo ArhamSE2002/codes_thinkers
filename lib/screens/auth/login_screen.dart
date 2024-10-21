@@ -190,8 +190,8 @@ class ForgetScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Forgot Password'),
       ),
-      body: Center(
-        child: const Text('This is the Forgot Password screen'),
+      body: const Center(
+        child: Text('This is the Forgot Password screen'),
       ),
     );
   }

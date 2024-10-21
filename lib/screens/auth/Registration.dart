@@ -88,8 +88,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       } else {
         showTopSnackBar(
           Overlay.of(context),
-          const CustomSnackBar.error(
-              message: "Please select a profile image."),
+          const CustomSnackBar.error(message: "Please select a profile image."),
         );
       }
     }
@@ -141,7 +140,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return BackgroundScaffold(
       body: Padding(
         padding:
-        const EdgeInsets.only(top: 0.0, bottom: 10, left: 22, right: 22),
+            const EdgeInsets.only(top: 0.0, bottom: 10, left: 22, right: 22),
         child: Form(
           key: _formKey,
           child: ListView(
@@ -160,14 +159,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         backgroundImage: _profileImage != null
                             ? FileImage(_profileImage!)
                             : const AssetImage(
-                            'assets/images/default_person.png')
-                        as ImageProvider,
+                                    'assets/images/default_person.png')
+                                as ImageProvider,
                         child: _profileImage == null
                             ? const Icon(
-                          Icons.person,
-                          size: 60,
-                          color: Colors.white,
-                        )
+                                Icons.person,
+                                size: 60,
+                                color: Colors.white,
+                              )
                             : null,
                       ),
                     ),
