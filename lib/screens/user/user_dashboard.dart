@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import '../../theme/theme.dart';
 import '../courses/courses.dart';
 import '../posts/posts.dart';
-import '../projects/projects.dart';
+import '../projects/newprojects.dart';
 import '../staff/staff.dart';
 
 class UserDashboard extends StatefulWidget {
