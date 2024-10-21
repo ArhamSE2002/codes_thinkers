@@ -402,7 +402,7 @@ class _AdminHomeState extends State<AdminHome> {
                             ),
                             const SizedBox(height: 5),
                             const Text(
-                              'Admin',
+                              'Suggestion',
                               style: TextStyle(color: Colors.white),
                             )
                           ],
