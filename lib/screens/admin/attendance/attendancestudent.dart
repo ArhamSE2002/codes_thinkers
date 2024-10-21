@@ -13,8 +13,8 @@ class Attendancestudent extends StatefulWidget {
 class _AttendancestudentState extends State<Attendancestudent> {
   final List<String> _statuses = ['Select Status', 'Select Status'];
   final List<String> _employees = [
-    'Anugrah Prasetya',
-    'Another Employee',
+    'First Student',
+    'Second Student',
   ];
   late List<String> _filteredEmployees;
   final TextEditingController _searchController = TextEditingController();
@@ -208,11 +208,17 @@ class _AttendancestudentState extends State<Attendancestudent> {
                 Container(
                     margin: const EdgeInsets.only(top: 10),
                     child: ElevatedButton(
-                      onPressed: () {
+                      onPressed: () { 
+                          Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const Attendancestudent()),
+                              );
 
                       },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
+                          backgroundColor: Color (0xFFFDD51D),
                           foregroundColor: Colors.white),
                       child: const Text(
                         "Student",
@@ -237,7 +243,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                               );
                       },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
+                          backgroundColor: Color (0xFFFDD51D),
                           foregroundColor: Colors.white),
                       child: const Text(
                         "Staff",

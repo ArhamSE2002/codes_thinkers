@@ -1,6 +1,4 @@
-
 import 'dart:io';
-import 'package:codes_thinkers/screens/admin/attendance/attendancestudent.dart';
 import 'package:codes_thinkers/screens/admin/attendance/attendencestaff.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -138,30 +136,30 @@ class _NewstaffState extends State<Newstaff> {
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 60,),
-               ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Attendancestaff()),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 50, vertical: 15),
-                              backgroundColor: Color(0xFFFDD51D),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            child: const Text(
-                              'Add',
-                              style:
-                                  TextStyle(fontSize: 18, color: Colors.white),
-                            ),
-                          )
+              SizedBox(
+                height: 60,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Attendancestaff()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                  backgroundColor: Color(0xFFFDD51D),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: const Text(
+                  'Add',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              )
             ],
           ),
         ],

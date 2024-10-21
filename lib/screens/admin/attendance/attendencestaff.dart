@@ -1,5 +1,6 @@
 import 'package:codes_thinkers/backgroundimage.dart';
-import 'package:codes_thinkers/screens/admin/attendance/newstudent.dart';
+import 'package:codes_thinkers/screens/admin/attendance/attendancestudent.dart';
+import 'package:codes_thinkers/screens/admin/attendance/newstaff.dart';
 import 'package:flutter/material.dart';
 
 class Attendancestaff extends StatefulWidget {
@@ -11,9 +12,18 @@ class Attendancestaff extends StatefulWidget {
 
 class _AttendancestaffState extends State<Attendancestaff> {
   final List<String> _statuses = ['Select Status', 'Select Status'];
+
+   final List<String> _reg = [
+    'reg 1',
+    'reg 2',
+  ];
   final List<String> _employees = [
-    'Anugrah Prasetya',
-    'Another Employee',
+    'emploee 1',
+    'emploee 2',
+  ];
+   final List<String> _name = [
+    'emploee 1',
+    'emploee 2',
   ];
   late List<String> _filteredEmployees;
   final TextEditingController _searchController = TextEditingController();
@@ -21,6 +31,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
   @override
   void initState() {
     super.initState();
+    
     _filteredEmployees = _employees;
     _searchController.addListener(_filterEmployees);
   }
@@ -34,6 +45,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
   void _filterEmployees() {
     String query = _searchController.text.toLowerCase();
     setState(() {
+ 
       _filteredEmployees = _employees
           .where((employee) => employee.toLowerCase().contains(query))
           .toList();
@@ -207,9 +219,16 @@ class _AttendancestaffState extends State<Attendancestaff> {
                 Container(
                     margin: const EdgeInsets.only(top: 10),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const Attendancestudent()),
+                              );
+                      },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
+                          backgroundColor: Color (0xFFFDD51D),
                           foregroundColor: Colors.white),
                       child: const Text(
                         "Student",
@@ -225,9 +244,16 @@ class _AttendancestaffState extends State<Attendancestaff> {
                 Container(
                     margin: const EdgeInsets.only(top: 10),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const Attendancestaff()),
+                              );
+                      },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
+                         backgroundColor: Color (0xFFFDD51D),
                           foregroundColor: Colors.white),
                       child: const Text(
                         "Staff",
@@ -328,7 +354,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Newstudent()),
+                  MaterialPageRoute(builder: (context) => const Newstaff()),
                 );
               },
               icon: const CircleAvatar(
