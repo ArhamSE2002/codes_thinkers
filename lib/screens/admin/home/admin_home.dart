@@ -2,6 +2,7 @@ import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/screens/admin/attendance/attendancestudent.dart';
 import 'package:codes_thinkers/screens/admin/attendance/attendencestaff.dart';
 import 'package:codes_thinkers/screens/admin/home/animations.dart';
+import 'package:codes_thinkers/screens/admin/profile/profile.dart';
 
 import 'package:flutter/material.dart';
 import '../../courses/courses.dart';
@@ -298,7 +299,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => AdminProfile()),
+                              builder: (context) =>const Profile()),
                         );
                       },
                       child: Container(
