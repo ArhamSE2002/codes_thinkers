@@ -228,25 +228,7 @@ class _CustomCardListState extends State<CustomCardList> {
           child: Stack(
             clipBehavior: Clip.none,
             children: [
-               Container(
-                  margin: EdgeInsets.only(left: 10),
-                  child: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                    size: 30.0,
-                  ),
-                ),
-                Container(
-                    child: const Text(
-                  'Course',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontStyle: FontStyle.normal,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Roboto',
-                  ),
-                )),
+              
               // Card with full image
               Card(
                 elevation: 5,
