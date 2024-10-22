@@ -75,11 +75,11 @@ class _newstaffState extends State<newstaff> {
                   child: GestureDetector(
                     onTap: _pickImage,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100), // Circle effect
+                      borderRadius: BorderRadius.circular(100), 
                       child: _profileImage != null
                           ? Image.file(
                               _profileImage!,
-                              width: 100, // Diameter same as CircleAvatar
+                              width: 100, 
                               height: 100,
                               fit: BoxFit.cover,
                             )
@@ -87,7 +87,7 @@ class _newstaffState extends State<newstaff> {
                               width: 100,
                               height: 100,
                               color:
-                                  Colors.blue, // Background color when no image
+                                  Colors.blue,
                               child: const Icon(
                                 Icons.person,
                                 size: 60,

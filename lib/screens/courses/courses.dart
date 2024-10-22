@@ -37,7 +37,7 @@ class _CoursesState extends State<Courses> {
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor: AppColors.secondaryColor,
         title: const BigText("Courses"),
       ),
       body: const Center(

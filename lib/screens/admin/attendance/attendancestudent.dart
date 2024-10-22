@@ -306,8 +306,15 @@ class _AttendancestudentState extends State<Attendancestudent> {
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white)),
+                                          const SizedBox(
+                                  height: 20,
+                                ),
+                                          const Text('RegNo#1',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white)),
                                 const SizedBox(
-                                  height: 50,
+                                  height: 20,
                                 ),
                                 const Text('Graphic Designer',
                                     style: TextStyle(

@@ -96,7 +96,7 @@ class _NewstudentState extends State<Newstudent> {
                     ),
                   ),
                   Positioned(
-                    right: 233,
+                    right: 265,
                     bottom: 0,
                     child: GestureDetector(
                       onTap: _pickImage,
