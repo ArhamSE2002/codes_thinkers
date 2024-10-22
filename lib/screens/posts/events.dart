@@ -50,7 +50,7 @@ class Events extends StatelessWidget {
                     Navigator.push(context,MaterialPageRoute(builder: (context) => NewEventScreen()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xffB6A132),
+                    backgroundColor: Color(0xffFDD51D),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
