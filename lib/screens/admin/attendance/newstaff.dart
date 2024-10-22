@@ -30,7 +30,6 @@ class _NewstaffState extends State<Newstaff> {
     super.dispose();
   }
 
-  // Pick Image from Gallery
   Future<void> _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 
@@ -71,74 +70,86 @@ class _NewstaffState extends State<Newstaff> {
                   ),
                 ],
               ),
-              Stack(
-                children: [
-                  Center(
-                    child: GestureDetector(
-                      onTap: _pickImage,
-                      child: CircleAvatar(
-                        radius: 50,
-                        backgroundColor: Colors.blue,
-                        backgroundImage: _profileImage != null
-                            ? FileImage(_profileImage!)
-                            : const AssetImage(
-                                    'assets/images/default_person.png')
-                                as ImageProvider,
-                        child: _profileImage == null
-                            ? const Icon(
-                                Icons.person,
-                                size: 60,
-                                color: Colors.white,
-                              )
-                            : null,
+              Card(
+                margin: const EdgeInsets.all(20),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      Stack(
+                        children: [
+                          Center(
+                            child: GestureDetector(
+                              onTap: _pickImage,
+                              child: CircleAvatar(
+                                radius: 50,
+                                backgroundColor: Colors.blue,
+                                backgroundImage: _profileImage != null
+                                    ? FileImage(_profileImage!)
+                                    : const AssetImage(
+                                            'assets/images/default_person.png')
+                                        as ImageProvider,
+                                child: _profileImage == null
+                                    ? const Icon(
+                                        Icons.person,
+                                        size: 60,
+                                        color: Colors.white,
+                                      )
+                                    : null,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            right: 265,
+                            bottom: 0,
+                            child: GestureDetector(
+                              onTap: _pickImage,
+                              child: const CircleAvatar(
+                                backgroundColor: Color(0xFFFDD51D),
+                                radius: 15,
+                                child: Icon(
+                                  Icons.add,
+                                  color: Colors.black,
+                                  size: 27,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ),
-                  Positioned(
-                    right: 265,
-                    bottom: 0,
-                    child: GestureDetector(
-                      onTap: _pickImage,
-                      child: const CircleAvatar(
-                        backgroundColor: Color(0xFFFDD51D),
-                        radius: 15,
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.black,
-                          size: 27,
+                      const SizedBox(height: 20),
+                      TextFormField(
+                        controller: _regnoController,
+                        decoration: const InputDecoration(
+                          labelText: 'Reg no',
+                          border: OutlineInputBorder(),
                         ),
                       ),
-                    ),
+                      const SizedBox(height: 20),
+                      TextFormField(
+                        controller: _nameController,
+                        decoration: const InputDecoration(
+                          labelText: 'Name',
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      TextFormField(
+                        controller: _titleController,
+                        decoration: const InputDecoration(
+                          labelText: 'Title',
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              TextFormField(
-                controller: _regnoController,
-                decoration: const InputDecoration(
-                  labelText: 'Reg no',
-                  border: OutlineInputBorder(),
                 ),
               ),
               const SizedBox(height: 20),
-              TextFormField(
-                controller: _nameController,
-                decoration: const InputDecoration(
-                  labelText: 'Name',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 20),
-              TextFormField(
-                controller: _titleController,
-                decoration: const InputDecoration(
-                  labelText: 'Title',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              SizedBox(
-                height: 60,
-              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -159,7 +170,7 @@ class _NewstaffState extends State<Newstaff> {
                   'Add',
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
-              )
+              ),
             ],
           ),
         ],

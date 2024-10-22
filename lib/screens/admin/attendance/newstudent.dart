@@ -41,130 +41,141 @@ class _NewstudentState extends State<Newstudent> {
       });
       fileName = p.basename(_profileImage!.path);
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return BackgroundScaffold(
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              Row(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(left: 10),
-                    child: const Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                      size: 30.0,
-                    ),
+  }                   
+@override
+Widget build(BuildContext context) {
+  return BackgroundScaffold(
+    body: Stack(
+      children: [
+        Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(left: 10),
+                  child: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                    size: 30.0,
                   ),
-                  const Text(
-                    'Add New Student',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontStyle: FontStyle.normal,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Roboto',
-                    ),
+                ),
+                const Text(
+                  'Add New Student',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontStyle: FontStyle.normal,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Roboto',
                   ),
-                ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 20), 
+            Card(
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
-              Stack(
-                children: [
-                  Center(
-                    child: GestureDetector(
-                      onTap: _pickImage,
-                      child: CircleAvatar(
-                        radius: 50,
-                        backgroundColor: Colors.blue,
-                        backgroundImage: _profileImage != null
-                            ? FileImage(_profileImage!)
-                            : const AssetImage(
-                                    'assets/images/default_person.png')
-                                as ImageProvider,
-                        child: _profileImage == null
-                            ? const Icon(
-                                Icons.person,
-                                size: 60,
-                                color: Colors.white,
-                              )
-                            : null,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    right: 265,
-                    bottom: 0,
-                    child: GestureDetector(
-                      onTap: _pickImage,
-                      child: const CircleAvatar(
-                        backgroundColor: Color(0xFFFDD51D),
-                        radius: 15,
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.black,
-                          size: 27,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Stack(
+                      children: [
+                        Center(
+                          child: GestureDetector(
+                            onTap: _pickImage,
+                            child: CircleAvatar(
+                              radius: 50,
+                              backgroundColor: Colors.blue,
+                              backgroundImage: _profileImage != null
+                                  ? FileImage(_profileImage!)
+                                  : const AssetImage(
+                                          'assets/images/default_person.png')
+                                      as ImageProvider,
+                              child: _profileImage == null
+                                  ? const Icon(
+                                      Icons.person,
+                                      size: 60,
+                                      color: Colors.white,
+                                    )
+                                  : null,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              TextFormField(
-                controller: _regnoController,
-                decoration: const InputDecoration(
-                  labelText: 'Reg no',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 20),
-              TextFormField(
-                controller: _nameController,
-                decoration: const InputDecoration(
-                  labelText: 'Name',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 20),
-              TextFormField(
-                controller: _titleController,
-                decoration: const InputDecoration(
-                  labelText: 'Title',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              SizedBox(height: 60,),
-               ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Attendancestudent()),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 50, vertical: 15),
+                        Positioned(
+                          right: 233,
+                          bottom: 0,
+                          child: GestureDetector(
+                            onTap: _pickImage,
+                            child: const CircleAvatar(
                               backgroundColor: Color(0xFFFDD51D),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
+                              radius: 15,
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.black,
+                                size: 27,
                               ),
                             ),
-                            child: const Text(
-                              'Add',
-                              style:
-                                  TextStyle(fontSize: 18, color: Colors.white),
-                            ),
-                          )
-            ],
-          ),
-        ],
-      ),
-    );
-  }
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    TextFormField(
+                      controller: _regnoController,
+                      decoration: const InputDecoration(
+                        labelText: 'Reg no',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    TextFormField(
+                      controller: _nameController,
+                      decoration: const InputDecoration(
+                        labelText: 'Name',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    TextFormField(
+                      controller: _titleController,
+                      decoration: const InputDecoration(
+                        labelText: 'Title',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 30), // Add space between the card and the button
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const Attendancestudent()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                backgroundColor: const Color(0xFFFDD51D),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: const Text(
+                'Add',
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+            )
+          ],
+        ),
+      ],
+    ),
+  );
+}
 }
