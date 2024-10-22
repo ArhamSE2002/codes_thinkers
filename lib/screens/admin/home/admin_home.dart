@@ -4,6 +4,7 @@ import 'package:codes_thinkers/screens/admin/attendance/attendencestaff.dart';
 import 'package:codes_thinkers/screens/admin/home/animations.dart';
 import 'package:codes_thinkers/screens/admin/profile/profile.dart';
 import 'package:codes_thinkers/screens/admin/students/srudent_fee.dart';
+import 'package:codes_thinkers/screens/staff/addnewstaff.dart';
 
 import 'package:flutter/material.dart';
 import '../../courses/courses.dart';
@@ -341,7 +342,7 @@ class _AdminHomeState extends State<AdminHome> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Staff()),
+                          MaterialPageRoute(builder: (context) => const Staff()),
                         );
                       },
                       child: Container(
@@ -378,7 +379,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => AdminProfile()),
+                              builder: (context) => const AdminProfile()),
                         );
                       },
                       child: Container(

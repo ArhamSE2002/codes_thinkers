@@ -196,12 +196,12 @@ class _ProjectsState extends State<Projects> {
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),
-                    const SizedBox(height: 20), // Space after the button
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
             ),
-            const SizedBox(height: 20), // Space between two cards
+            const SizedBox(height: 20), 
             Padding(
               padding: const EdgeInsets.symmetric(
                   horizontal: 30.0,
@@ -218,11 +218,11 @@ class _ProjectsState extends State<Projects> {
                       child: Image.asset(
                         'assets/images/post.png',
                         fit: BoxFit.cover,
-                        height: 100, // Image height inside card
+                        height: 100, 
                         width: 100,
                       ),
                     ),
-                    const SizedBox(height: 10), // Space between image and text
+                    const SizedBox(height: 10), 
                     const Text(
                       'Getaway Services',
                       style: TextStyle(
@@ -232,7 +232,7 @@ class _ProjectsState extends State<Projects> {
                       ),
                     ),
                     const SizedBox(
-                        height: 10), // Space between title and "About"
+                        height: 10), 
                     Container(
                       margin: const EdgeInsets.only(right: 400),
                       child: const Text(
@@ -245,7 +245,7 @@ class _ProjectsState extends State<Projects> {
                       ),
                     ),
                     const SizedBox(
-                        height: 10), // Space between "About" and description
+                        height: 10), 
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.0),
                       child: Text(
@@ -259,7 +259,7 @@ class _ProjectsState extends State<Projects> {
                       ),
                     ),
                     const SizedBox(
-                        height: 20), // Space between description and button
+                        height: 20), 
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -281,7 +281,7 @@ class _ProjectsState extends State<Projects> {
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),
-                    const SizedBox(height: 20), // Space after the button
+                    const SizedBox(height: 20), 
                   ],
                 ),
               ),
