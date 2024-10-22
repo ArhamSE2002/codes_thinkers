@@ -95,7 +95,7 @@ class _NewstaffState extends State<Newstaff> {
                     ),
                   ),
                   Positioned(
-                    right: 233,
+                    right: 265,
                     bottom: 0,
                     child: GestureDetector(
                       onTap: _pickImage,

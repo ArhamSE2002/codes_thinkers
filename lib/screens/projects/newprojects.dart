@@ -77,7 +77,7 @@ class _ProjectsState extends State<Projects> {
                 ),
                 const SizedBox(width: 10),
                 const Text(
-                  'Add New Project',
+                  ' Project',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
