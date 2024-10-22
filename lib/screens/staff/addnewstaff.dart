@@ -390,7 +390,7 @@ class _StaffState extends State<Staff> {
                             radius: 50,
                             backgroundColor: Colors.blue,
                             backgroundImage: AssetImage(
-                                'assets/images/default_person.png'), // Simple asset image
+                                'assets/images/bhaloo.jpg'), // Simple asset image
                           ),
                         ),
                       ],
@@ -438,9 +438,9 @@ class _StaffState extends State<Staff> {
                         Center(
                           child: CircleAvatar(
                             radius: 50,
-                            backgroundColor: Colors.blue,
+                             backgroundColor: Colors.blue,
                             backgroundImage: AssetImage(
-                                'assets/images/post.png'), // Simple asset image
+                                'assets/images/motaoo.jpg'), // Simple asset image
                           ),
                         ),
                       ],
@@ -448,6 +448,56 @@ class _StaffState extends State<Staff> {
                     const SizedBox(height: 10),
                     const Text(
                       'Ali',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Text(
+                        "web developer",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
+              ),
+            ),
+             const SizedBox(height: 20),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+              child: Card(
+                elevation: 10,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: const Column(
+                  children: [
+                    Stack(
+                      children: [
+                        Center(
+                          child: CircleAvatar(
+                            radius: 50,
+                            backgroundColor: Colors.blue,
+                            backgroundImage: AssetImage(
+                                'assets/images/churail.jpg'), // Simple asset image
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Amna',
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
