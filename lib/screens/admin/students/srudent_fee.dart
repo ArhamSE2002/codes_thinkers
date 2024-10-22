@@ -206,7 +206,9 @@ class _AttendanceState extends State<Attendance> {
                   child: const Row(
                     children: [
                       Icon(Icons.calendar_month),
-                      Text('This Month',),
+                      Text(
+                        'This Month',
+                      ),
                       SizedBox(
                         width: 2,
                       ),
@@ -215,7 +217,12 @@ class _AttendanceState extends State<Attendance> {
                   ),
                 )),
             const Positioned(
-                left: 410, top: 335, child: Icon(Icons.more_vert_rounded,color: Colors.white,)),
+                left: 410,
+                top: 335,
+                child: Icon(
+                  Icons.more_vert_rounded,
+                  color: Colors.white,
+                )),
             const Positioned(
                 top: 375,
                 left: 340,
@@ -228,23 +235,25 @@ class _AttendanceState extends State<Attendance> {
                 top: 375,
                 child: ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xffB49E26)),
+                      backgroundColor:const Color(0xffB49E26)),
                   onPressed: () {},
                   label: const Text('Paid'),
-                )),Positioned(top: 550,left: 220,
-                  child: IconButton(
-              onPressed: () {
-              
-              },
-              icon: const CircleAvatar(
-                backgroundColor: Color(0xFFFDD51D),radius: 20,
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,size: 25,
-                ),
-              ),
-             
-            ))
+                )),
+            Positioned(
+                top: 550,
+                left: 220,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const CircleAvatar(
+                    backgroundColor: Color(0xFFFDD51D),
+                    radius: 20,
+                    child: Icon(
+                      Icons.add,
+                      color: Colors.white,
+                      size: 25,
+                    ),
+                  ),
+                ))
           ],
         ),
       ),
