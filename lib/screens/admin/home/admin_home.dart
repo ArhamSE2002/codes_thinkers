@@ -8,7 +8,7 @@ import 'package:codes_thinkers/screens/admin/students/srudent_fee.dart';
 import 'package:flutter/material.dart';
 import '../../courses/courses.dart';
 import '../../posts/posts.dart';
-import '../../projects/projects.dart';
+import '../../projects/newprojects.dart';
 import '../../staff/staff.dart';
 import '../profile/admin_profile.dart';
 import '../students/students_data.dart';
