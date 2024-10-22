@@ -5,14 +5,14 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as p;
 import 'package:codes_thinkers/backgroundimage.dart';
 
-class newProject extends StatefulWidget {
-  const newProject({super.key});
+class newstaff extends StatefulWidget {
+  const newstaff({super.key});
 
   @override
-  State<newProject> createState() => _newProjectState();
+  State<newstaff> createState() => _newstaffState();
 }
 
-class _newProjectState extends State<newProject> {
+class _newstaffState extends State<newstaff> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _titlenoController = TextEditingController();
   final TextEditingController _aboutController = TextEditingController();
@@ -58,7 +58,7 @@ class _newProjectState extends State<newProject> {
                   ),
                 ),
                 const Text(
-                  'Add New Project',
+                  'Add New Staff',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
@@ -75,7 +75,7 @@ class _newProjectState extends State<newProject> {
                   child: GestureDetector(
                     onTap: _pickImage,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15), // Circle effect
+                      borderRadius: BorderRadius.circular(100), // Circle effect
                       child: _profileImage != null
                           ? Image.file(
                               _profileImage!,
@@ -119,7 +119,7 @@ class _newProjectState extends State<newProject> {
             TextFormField(
               controller: _titlenoController,
               decoration: const InputDecoration(
-                labelText: 'Title',
+                labelText: 'Name',
                 border: OutlineInputBorder(),
               ),
             ),
@@ -127,10 +127,10 @@ class _newProjectState extends State<newProject> {
             TextFormField(
               controller: _aboutController,
               decoration: const InputDecoration(
-                labelText: 'About',
+                labelText: 'Designation',
                 border: OutlineInputBorder(),
               ),
-              minLines: 3,
+              minLines: 2,
               maxLines: 10,
             ),
             const SizedBox(

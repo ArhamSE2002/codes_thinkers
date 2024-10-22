@@ -268,6 +268,7 @@
 //   }
 // }
 import 'dart:io';
+import 'package:codes_thinkers/screens/staff/staffmember.dart';
 import 'package:path/path.dart' as p;
 import 'package:codes_thinkers/screens/projects/project.dart';
 import 'package:flutter/material.dart';
@@ -282,6 +283,7 @@ class Staff extends StatefulWidget {
 }
 
 class _StaffState extends State<Staff> {
+   final TextEditingController _searchController = TextEditingController();
   File? _profileImage;
   final ImagePicker _picker = ImagePicker();
   String fileName = "";
@@ -326,7 +328,7 @@ class _StaffState extends State<Staff> {
                 ),
               ],
             ),
-            const SizedBox(height: 20), 
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -334,8 +336,7 @@ class _StaffState extends State<Staff> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const newProject()),
+                      MaterialPageRoute(builder: (context) => const newstaff()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -351,65 +352,51 @@ class _StaffState extends State<Staff> {
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
-                const SizedBox(
-                    width: 10), 
+                const SizedBox(width: 10),
               ],
             ),
-            const SizedBox(height: 20), 
+             Container(
+              margin: const EdgeInsets.only(top: 10),
+              width: 400,
+              child: TextField(
+                controller: _searchController,
+                decoration: const InputDecoration(
+                  fillColor: Color(0xFF133B7A),
+                  contentPadding: EdgeInsets.all(12.5),
+                  hintText: 'Search...',
+                  hintStyle: TextStyle(color: Colors.black),
+                  border: InputBorder.none,
+                  prefixIcon: Icon(Icons.search, color: Colors.black, size: 20),
+                ),
+                style: const TextStyle(color: Colors.black),
+                cursorColor: Colors.black,
+              ),
+            ),
+            const SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 30.0,
-                  vertical: 20.0), 
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
               child: Card(
                 elevation: 10,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: Column(
+                child: const Column(
                   children: [
                     Stack(
                       children: [
                         Center(
-                          child: GestureDetector(
-                            onTap: _pickImage,
-                            child: CircleAvatar(
-                              radius: 50,
-                              backgroundColor: Colors.blue,
-                              backgroundImage: _profileImage != null
-                                  ? FileImage(_profileImage!)
-                                  : const AssetImage(
-                                          'assets/images/default_person.png')
-                                      as ImageProvider,
-                              child: _profileImage == null
-                                  ? const Icon(
-                                      Icons.person,
-                                      size: 60,
-                                      color: Colors.white,
-                                    )
-                                  : null,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 233,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: _pickImage,
-                            child: const CircleAvatar(
-                              backgroundColor: Color(0xFFFDD51D),
-                              radius: 15,
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.black,
-                                size: 27,
-                              ),
-                            ),
+                          child: CircleAvatar(
+                            radius: 50,
+                            backgroundColor: Colors.blue,
+                            backgroundImage: AssetImage(
+                                'assets/images/default_person.png'), // Simple asset image
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 10), 
-                    const Text(
+                    SizedBox(height: 10),
+                    Text(
                       'Ali',
                       style: TextStyle(
                         fontSize: 30,
@@ -417,9 +404,8 @@ class _StaffState extends State<Staff> {
                         color: Colors.white,
                       ),
                     ),
-                    const SizedBox(
-                        height: 10), 
-                    const Padding(
+                    SizedBox(height: 10),
+                    Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.0),
                       child: Text(
                         "UI designer",
@@ -431,7 +417,7 @@ class _StaffState extends State<Staff> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -445,45 +431,16 @@ class _StaffState extends State<Staff> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: Column(
+                child: const Column(
                   children: [
                     Stack(
                       children: [
                         Center(
-                          child: GestureDetector(
-                            onTap: _pickImage,
-                            child: CircleAvatar(
-                              radius: 50,
-                              backgroundColor: Colors.blue,
-                              backgroundImage: _profileImage != null
-                                  ? FileImage(_profileImage!)
-                                  : const AssetImage(
-                                          'assets/images/default_person.png')
-                                      as ImageProvider,
-                              child: _profileImage == null
-                                  ? const Icon(
-                                      Icons.person,
-                                      size: 60,
-                                      color: Colors.white,
-                                    )
-                                  : null,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 233,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: _pickImage,
-                            child: const CircleAvatar(
-                              backgroundColor: Color(0xFFFDD51D),
-                              radius: 15,
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.black,
-                                size: 27,
-                              ),
-                            ),
+                          child: CircleAvatar(
+                            radius: 50,
+                            backgroundColor: Colors.blue,
+                            backgroundImage: AssetImage(
+                                'assets/images/post.png'), // Simple asset image
                           ),
                         ),
                       ],
