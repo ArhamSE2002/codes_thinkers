@@ -149,7 +149,7 @@ class _ProjectsState extends State<Projects> {
                     const SizedBox(
                         height: 10), // Space between title and "About"
                     Container(
-                      margin: const EdgeInsets.only(right: 400),
+                      margin: const EdgeInsets.only(right: 300),
                       child: const Text(
                         'About',
                         style: TextStyle(
@@ -234,7 +234,7 @@ class _ProjectsState extends State<Projects> {
                     const SizedBox(
                         height: 10), 
                     Container(
-                      margin: const EdgeInsets.only(right: 400),
+                      margin: const EdgeInsets.only(right: 300),
                       child: const Text(
                         'About',
                         style: TextStyle(
