@@ -34,7 +34,7 @@ class Events extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'Search Event...',
                   filled: true,
-                  fillColor: Color(0xff113674),
+                  fillColor: const Color(0xff113674),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                     borderSide: BorderSide.none,
@@ -47,10 +47,10 @@ class Events extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 320),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => NewEventScreen()));
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => const NewEventScreen()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xffFDD51D),
+                    backgroundColor: const Color(0xffFDD51D),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
