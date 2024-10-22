@@ -18,8 +18,8 @@ class _AttendancestaffState extends State<Attendancestaff> {
     'reg 2',
   ];
   final List<String> _employees = [
-    'emploee 1',
-    'emploee 2',
+    'Emploee 1',
+    'Emploee 2',
   ];
    final List<String> _name = [
     'emploee 1',
@@ -302,7 +302,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15),
                                 child: Image.asset(
-                                  'assets/images/app image.jpg',
+                                  'assets/images/motaoo.jpg',
                                   fit: BoxFit.fill,
                                 ),
                               ),

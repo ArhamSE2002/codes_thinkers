@@ -292,7 +292,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15),
                                 child: Image.asset(
-                                  'assets/images/app image.jpg',
+                                  'assets/images/churail.jpg',
                                   fit: BoxFit.fill,
                                 ),
                               ),
