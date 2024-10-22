@@ -210,7 +210,7 @@ class _AdminHomeState extends State<AdminHome> {
                             ),
                             const SizedBox(height: 5),
                             const Text(
-                              'Posts',
+                              'Events',
                               style: TextStyle(color: Colors.white),
                             ),
                           ],
