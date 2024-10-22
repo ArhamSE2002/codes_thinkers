@@ -1,18 +1,16 @@
 import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/screens/admin/attendance/attendancestudent.dart';
 import 'package:codes_thinkers/screens/admin/attendance/attendencestaff.dart';
+import 'package:codes_thinkers/screens/admin/attendance/suggestions.dart';
 import 'package:codes_thinkers/screens/admin/home/animations.dart';
+import 'package:codes_thinkers/screens/admin/profile/admin_profile.dart';
 import 'package:codes_thinkers/screens/admin/profile/profile.dart';
 import 'package:codes_thinkers/screens/admin/students/srudent_fee.dart';
+import 'package:codes_thinkers/screens/courses/courses.dart';
+import 'package:codes_thinkers/screens/posts/events.dart';
+import 'package:codes_thinkers/screens/projects/newprojects.dart';
 import 'package:codes_thinkers/screens/staff/addnewstaff.dart';
-
 import 'package:flutter/material.dart';
-import '../../courses/courses.dart';
-import '../../posts/posts.dart';
-import '../../projects/newprojects.dart';
-import '../../staff/staff.dart';
-import '../profile/admin_profile.dart';
-import '../students/students_data.dart';
 
 class AdminHome extends StatefulWidget {
   const AdminHome({required this.admin, super.key});
@@ -183,9 +181,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Posts(
-                              admin: widget.admin,
-                            ),
+                            builder: (context) => Events()
                           ),
                         );
                       },
@@ -379,7 +375,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const AdminProfile()),
+                              builder: (context) => const Suggestions()),
                         );
                       },
                       child: Container(
