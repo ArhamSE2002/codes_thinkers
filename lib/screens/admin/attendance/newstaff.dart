@@ -178,3 +178,189 @@ class _NewstaffState extends State<Newstaff> {
     );
   }
 }
+// import 'dart:io';
+// import 'package:codes_thinkers/screens/admin/attendance/attendencestaff.dart';
+// import 'package:flutter/material.dart';
+// import 'package:image_picker/image_picker.dart';
+// import 'package:path/path.dart' as p;
+// import 'package:codes_thinkers/backgroundimage.dart';
+
+// class Newstaff extends StatefulWidget {
+//   const Newstaff({super.key});
+
+//   @override
+//   State<Newstaff> createState() => _NewstaffState();
+// }
+
+// class _NewstaffState extends State<Newstaff> {
+//   final _formKey = GlobalKey<FormState>();
+//   final TextEditingController _regnoController = TextEditingController();
+//   final TextEditingController _nameController = TextEditingController();
+//   final TextEditingController _titleController = TextEditingController();
+
+//   File? _profileImage;
+//   final ImagePicker _picker = ImagePicker();
+//   String fileName = "";
+
+//   @override
+//   void dispose() {
+//     _regnoController.dispose();
+//     _nameController.dispose();
+//     _titleController.dispose();
+//     super.dispose();
+//   }
+
+//   Future<void> _pickImage() async {
+//     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+
+//     if (pickedFile != null) {
+//       setState(() {
+//         _profileImage = File(pickedFile.path);
+//       });
+//       fileName = p.basename(_profileImage!.path);
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     // Get the screen dimensions
+//     final screenWidth = MediaQuery.of(context).size.width;
+//     final screenHeight = MediaQuery.of(context).size.height;
+
+//     return BackgroundScaffold(
+//       body: Stack(
+//         children: [
+//           Column(
+//             children: [
+//               Row(
+//                 children: [
+//                   Container(
+//                     margin: EdgeInsets.only(left: screenWidth * 0.03),
+//                     child: const Icon(
+//                       Icons.arrow_back,
+//                       color: Colors.white,
+//                       size: 30.0,
+//                     ),
+//                   ),
+//                   SizedBox(width: screenWidth * 0.02),
+//                   const Text(
+//                     'Add New Staff',
+//                     style: TextStyle(
+//                       color: Colors.white,
+//                       fontSize: 30,
+//                       fontStyle: FontStyle.normal,
+//                       fontWeight: FontWeight.bold,
+//                       fontFamily: 'Roboto',
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               Card(
+//                 margin: EdgeInsets.all(screenWidth * 0.05),
+//                 shape: RoundedRectangleBorder(
+//                   borderRadius: BorderRadius.circular(10),
+//                 ),
+//                 elevation: 5,
+//                 child: Padding(
+//                   padding: EdgeInsets.all(screenWidth * 0.05),
+//                   child: Column(
+//                     children: [
+//                       Stack(
+//                         children: [
+//                           Center(
+//                             child: GestureDetector(
+//                               onTap: _pickImage,
+//                               child: CircleAvatar(
+//                                 radius: screenWidth * 0.13,
+//                                 backgroundColor: Colors.blue,
+//                                 backgroundImage: _profileImage != null
+//                                     ? FileImage(_profileImage!)
+//                                     : const AssetImage(
+//                                             'assets/images/default_person.png')
+//                                         as ImageProvider,
+//                                 child: _profileImage == null
+//                                     ? Icon(
+//                                         Icons.person,
+//                                         size: screenWidth * 0.16,
+//                                         color: Colors.white,
+//                                       )
+//                                     : null,
+//                               ),
+//                             ),
+//                           ),
+//                           Positioned(
+//                             right: screenWidth * 0.3,
+//                             bottom: 0,
+//                             child: GestureDetector(
+//                               onTap: _pickImage,
+//                               child: CircleAvatar(
+//                                 backgroundColor: const Color(0xFFFDD51D),
+//                                 radius: screenWidth * 0.04,
+//                                 child: Icon(
+//                                   Icons.add,
+//                                   color: Colors.black,
+//                                   size: screenWidth * 0.07,
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                       SizedBox(height: screenHeight * 0.03),
+//                       TextFormField(
+//                         controller: _regnoController,
+//                         decoration: const InputDecoration(
+//                           labelText: 'Reg no',
+//                           border: OutlineInputBorder(),
+//                         ),
+//                       ),
+//                       SizedBox(height: screenHeight * 0.02),
+//                       TextFormField(
+//                         controller: _nameController,
+//                         decoration: const InputDecoration(
+//                           labelText: 'Name',
+//                           border: OutlineInputBorder(),
+//                         ),
+//                       ),
+//                       SizedBox(height: screenHeight * 0.02),
+//                       TextFormField(
+//                         controller: _titleController,
+//                         decoration: const InputDecoration(
+//                           labelText: 'Title',
+//                           border: OutlineInputBorder(),
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//               SizedBox(height: screenHeight * 0.02),
+//               ElevatedButton(
+//                 onPressed: () {
+//                   Navigator.push(
+//                     context,
+//                     MaterialPageRoute(
+//                         builder: (context) => const Attendancestaff()),
+//                   );
+//                 },
+//                 style: ElevatedButton.styleFrom(
+//                   padding: EdgeInsets.symmetric(
+//                       horizontal: screenWidth * 0.15,
+//                       vertical: screenHeight * 0.02),
+//                   backgroundColor: const Color(0xFFFDD51D),
+//                   shape: RoundedRectangleBorder(
+//                     borderRadius: BorderRadius.circular(10),
+//                   ),
+//                 ),
+//                 child: const Text(
+//                   'Add',
+//                   style: TextStyle(fontSize: 18, color: Colors.white),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
