@@ -70,7 +70,7 @@ class _ProfileState extends State<Profile> {
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/back_ground.jpg'),
+                image: AssetImage('assets/images/screenbackground.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
