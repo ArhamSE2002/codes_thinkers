@@ -6,6 +6,7 @@ import 'package:codes_thinkers/screens/admin/home/animations.dart';
 
 import 'package:codes_thinkers/screens/admin/profile/admin_profile.dart';
 import 'package:codes_thinkers/screens/admin/profile/profile.dart';
+import 'package:codes_thinkers/screens/admin/students/srudent_fee.dart';
 import 'package:codes_thinkers/screens/admin/students/students_data.dart';
 import 'package:codes_thinkers/screens/courses/courses.dart';
 import 'package:codes_thinkers/screens/posts/events.dart';
@@ -141,7 +142,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const StudentsData()),
+                              builder: (context) => const Attendance()),
                         );
                       },
                       child: Container(
