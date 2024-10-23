@@ -1,11 +1,12 @@
 import 'package:codes_thinkers/backgroundimage.dart';
-import 'package:codes_thinkers/screens/admin/attendance/attendancestudent.dart';
-import 'package:codes_thinkers/screens/admin/attendance/attendencestaff.dart';
-import 'package:codes_thinkers/screens/admin/attendance/suggestions.dart';
+
+import 'package:codes_thinkers/screens/admin/attendance/attendancetwo.dart';
+
 import 'package:codes_thinkers/screens/admin/home/animations.dart';
+
 import 'package:codes_thinkers/screens/admin/profile/admin_profile.dart';
 import 'package:codes_thinkers/screens/admin/profile/profile.dart';
-import 'package:codes_thinkers/screens/admin/students/srudent_fee.dart';
+import 'package:codes_thinkers/screens/admin/students/students_data.dart';
 import 'package:codes_thinkers/screens/courses/courses.dart';
 import 'package:codes_thinkers/screens/posts/events.dart';
 import 'package:codes_thinkers/screens/projects/newprojects.dart';
@@ -61,7 +62,7 @@ class _AdminHomeState extends State<AdminHome> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(20)),
                                 ),
-                                child: Padding(
+                                child: const Padding(
                                   padding: const EdgeInsets.all(20),
                                   child: FullCircleLoading(),
                                 ),
@@ -81,7 +82,7 @@ class _AdminHomeState extends State<AdminHome> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(20)),
                                 ),
-                                child: Padding(
+                                child: const Padding(
                                   padding: const EdgeInsets.all(20),
                                   child: FullCircleLoading(),
                                 ),
@@ -102,7 +103,8 @@ class _AdminHomeState extends State<AdminHome> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Courses()),
+                          MaterialPageRoute(
+                              builder: (context) => const Courses()),
                         );
                       },
                       child: Container(
@@ -110,7 +112,7 @@ class _AdminHomeState extends State<AdminHome> {
                         height: 100,
                         width: 150,
                         decoration: BoxDecoration(
-                          color: Color(0xFF103068),
+                          color: const Color(0xFF103068),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -139,7 +141,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Attendance()),
+                              builder: (context) => const StudentsData()),
                         );
                       },
                       child: Container(
@@ -147,7 +149,7 @@ class _AdminHomeState extends State<AdminHome> {
                         height: 100,
                         width: 150,
                         decoration: BoxDecoration(
-                          color: Color(0xFF103068),
+                          color: const Color(0xFF103068),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -180,9 +182,7 @@ class _AdminHomeState extends State<AdminHome> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => Events()
-                          ),
+                          MaterialPageRoute(builder: (context) => Events()),
                         );
                       },
                       child: Container(
@@ -218,7 +218,8 @@ class _AdminHomeState extends State<AdminHome> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Projects()),
+                          MaterialPageRoute(
+                              builder: (context) => const Projects()),
                         );
                       },
                       child: Container(
@@ -260,7 +261,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Attendancestaff()),
+                              builder: (context) => const AttendanceScreen()),
                         );
                       },
                       child: Container(
@@ -297,7 +298,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>const Profile()),
+                              builder: (context) => const Profile()),
                         );
                       },
                       child: Container(
@@ -338,7 +339,8 @@ class _AdminHomeState extends State<AdminHome> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Staff()),
+                          MaterialPageRoute(
+                              builder: (context) => const Staff()),
                         );
                       },
                       child: Container(
@@ -375,7 +377,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Suggestions()),
+                              builder: (context) => const AdminProfile()),
                         );
                       },
                       child: Container(

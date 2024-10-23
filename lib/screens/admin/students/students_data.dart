@@ -88,7 +88,7 @@ class _StudentsDataState extends State<StudentsData> {
                 // Display student information (image, name, etc.)
                 return GestureDetector(
                   onTap: () {
-                    log("Tapped on: ${studentData}"); // Log tapped student data
+                    log("Tapped on: $studentData"); // Log tapped student data
                   },
                   child: studentListTile(
                       imageUrl, // Pass the image URL to the custom widget

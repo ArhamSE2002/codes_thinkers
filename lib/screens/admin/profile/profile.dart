@@ -1,4 +1,4 @@
- import 'dart:io';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -78,7 +78,7 @@ class _ProfileState extends State<Profile> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start, // Align to the start (left)
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
                   'Profile',
@@ -88,8 +88,8 @@ class _ProfileState extends State<Profile> {
                     color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 5), 
-                Center( 
+                const SizedBox(height: 5),
+                Center(
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
@@ -136,7 +136,8 @@ class _ProfileState extends State<Profile> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xffFDD51D),
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
@@ -183,7 +184,8 @@ class _ProfileState extends State<Profile> {
                 borderRadius: BorderRadius.circular(30),
                 borderSide: const BorderSide(color: Colors.grey),
               ),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             ),
           ),
         ),

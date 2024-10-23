@@ -1,11 +1,10 @@
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:codes_thinkers/backgroundimage.dart';
+import 'package:codes_thinkers/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../shared/shared_text.dart';
-import '../../theme/theme.dart';
-import '../admin/upload_data/add_course.dart';
 import 'courses_custom_card.dart';
 
 class Courses extends StatefulWidget {
@@ -16,7 +15,8 @@ class Courses extends StatefulWidget {
 }
 
 class _CoursesState extends State<Courses> {
-  final firestoreCollection = FirebaseFirestore.instance.collection('courses'); // Fixed collection name to lowercase
+  final firestoreCollection = FirebaseFirestore.instance
+      .collection('courses'); // Fixed collection name to lowercase
 
   bool admin = false;
 
@@ -37,7 +37,8 @@ class _CoursesState extends State<Courses> {
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
-      appBar: AppBar(backgroundColor: AppColors.secondaryColor,
+      appBar: AppBar(
+        backgroundColor: AppColors.secondaryColor,
         title: const BigText("Courses"),
       ),
       body: const Center(
@@ -72,36 +73,35 @@ class _CoursesState extends State<Courses> {
       //                 ),
       //               );
       //             }
-                  // var docs = snapshot.data!.docs;
-                  // return Expanded(
-                  //   child: ListView.builder(
-                  //     itemCount: docs.length,
-                  //     itemBuilder: (context, index) {
-                  //       if (docs.isEmpty) {
-                  //         return const Center(
-                  //           child: Text("No courses available."),
+      // var docs = snapshot.data!.docs;
+      // return Expanded(
+      //   child: ListView.builder(
+      //     itemCount: docs.length,
+      //     itemBuilder: (context, index) {
+      //       if (docs.isEmpty) {
+      //         return const Center(
+      //           child: Text("No courses available."),
 
-                  //         );
-                  //       }
-                        // Access the required course data
-                        // final course = docs[index];
-                        // return const CustomCardList();
-                        //   imageUrl: course['imageUrl'], // Add imageUrl field
-                        //   title: course['title'],
-                        //   shortDescription: course['shortDec'],
-                        //   duration: course['duration'].toString(),
-                        //   monthlyFee: course['monthlyFee'].toString(), // Updated to monthlyFee
-                        // );
-                  //     },
-          );
-                   
-                }
-
-    //           ),
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // );
+      //         );
+      //       }
+      // Access the required course data
+      // final course = docs[index];
+      // return const CustomCardList();
+      //   imageUrl: course['imageUrl'], // Add imageUrl field
+      //   title: course['title'],
+      //   shortDescription: course['shortDec'],
+      //   duration: course['duration'].toString(),
+      //   monthlyFee: course['monthlyFee'].toString(), // Updated to monthlyFee
+      // );
+      //     },
+    );
   }
+
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   ),
+  // );
+}
 // }

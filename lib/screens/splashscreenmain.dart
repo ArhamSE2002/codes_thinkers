@@ -86,7 +86,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   position: _iconTranslationAnimation, 
                   child: ScaleTransition(
                     scale: _scaleAnimation,  
-                    child: Container(
+                    child: SizedBox(
                       height: screenHeight * 0.06, 
                       width: screenWidth * 0.3,   
                       child: Image.asset('assets/images/Icon.JPG'),
