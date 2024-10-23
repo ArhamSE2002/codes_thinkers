@@ -31,7 +31,7 @@ class _NewEventScreenState extends State<NewEventScreen> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/back_ground.jpg'), 
+            image: AssetImage('assets/images/screenbackground.jpg'), 
             fit: BoxFit.cover,
           ),
         ),
