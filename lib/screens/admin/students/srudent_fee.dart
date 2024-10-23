@@ -216,13 +216,42 @@ class _AttendanceState extends State<Attendance> {
                     ],
                   ),
                 )),
-            const Positioned(
-                left: 410,
-                top: 335,
-                child: Icon(
+            Positioned(
+              left: 410,
+              top: 335,
+              child: PopupMenuButton<String>(
+                icon: const Icon(
                   Icons.more_vert_rounded,
                   color: Colors.white,
-                )),
+                ),
+                onSelected: (String value) {
+                  // Handle selection of the menu item
+                  print(value); // You can do something with the selected value
+                },
+                itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                  const PopupMenuItem<String>(
+                    value: 'Paid',
+                    child: Row(
+                      children: [
+                        Icon(Icons.attach_money, color: Colors.green),
+                        SizedBox(width: 8),
+                        Text('Paid'),
+                      ],
+                    ),
+                  ),
+                  const PopupMenuItem<String>(
+                    value: 'Unpaid',
+                    child: Row(
+                      children: [
+                        Icon(Icons.money_off, color: Colors.red),
+                        SizedBox(width: 8),
+                        Text('Unpaid'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
             const Positioned(
                 top: 375,
                 left: 340,
@@ -235,7 +264,7 @@ class _AttendanceState extends State<Attendance> {
                 top: 375,
                 child: ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor:const Color(0xffB49E26)),
+                      backgroundColor: const Color(0xffB49E26)),
                   onPressed: () {},
                   label: const Text('Paid'),
                 )),
