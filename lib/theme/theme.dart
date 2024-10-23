@@ -12,7 +12,7 @@ class AppColors {
 }
 //images
 class Images {
- static const backgroundImage = AssetImage('assets/images/background thinker.jpg') ;
+ static const backgroundImage = AssetImage('assets/images/screenbackground.jpg') ;
   
   
 }
