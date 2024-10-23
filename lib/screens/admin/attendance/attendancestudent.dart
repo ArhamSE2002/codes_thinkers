@@ -322,7 +322,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                                         color: Colors.white)), // Example role
                               ],
                             ),
-                            const Spacer(),
+                            // const Spacer(),
 
                             ElevatedButton(
                               onPressed: () =>
