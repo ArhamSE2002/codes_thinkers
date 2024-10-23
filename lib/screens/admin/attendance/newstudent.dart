@@ -106,7 +106,7 @@ Widget build(BuildContext context) {
                           ),
                         ),
                         Positioned(
-                          right: 233,
+                          right: 100,
                           bottom: 0,
                           child: GestureDetector(
                             onTap: _pickImage,
