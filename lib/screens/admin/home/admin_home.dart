@@ -1,6 +1,7 @@
 import 'package:codes_thinkers/backgroundimage.dart';
 
 import 'package:codes_thinkers/screens/admin/attendance/attendancetwo.dart';
+import 'package:codes_thinkers/screens/admin/attendance/suggestions.dart';
 
 import 'package:codes_thinkers/screens/admin/home/animations.dart';
 
@@ -378,7 +379,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const AdminProfile()),
+                              builder: (context) => const Suggestions()),
                         );
                       },
                       child: Container(
