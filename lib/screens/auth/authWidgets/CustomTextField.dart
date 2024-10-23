@@ -13,8 +13,8 @@ class CustomTextField extends StatelessWidget {
     required this.label,
     this.isPassword = false,
     this.keyboardType = TextInputType.text,
-    required this.validator,
-    this.icon, // Icon can be null if not provided
+    required this.validator, this.icon,
+  // Icon can be null if not provided
   });
 
   @override

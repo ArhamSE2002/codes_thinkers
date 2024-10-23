@@ -23,7 +23,9 @@ class _ForgetscreenState extends State<Forgetscreen> {
   Widget build(BuildContext context) {
     return BackgroundScaffold(
       appBar: AppBar(
-        title: const Text('Forgot Password'),
+        title: const Text('Forgot Password'),  backgroundColor: const Color(
+          (0xFF133B7A),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
