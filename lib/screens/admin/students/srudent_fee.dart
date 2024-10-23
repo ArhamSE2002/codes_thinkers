@@ -28,7 +28,7 @@ class _AttendanceState extends State<Attendance> {
         width: MediaQuery.sizeOf(context).width,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/back_ground.jpg'),
+            image: AssetImage('assets/images/screenbackground.jpg'),
             fit: BoxFit.fill,
           ),
         ),
