@@ -40,14 +40,14 @@ Padding studentListTile(
           width: 50,
           alignment: Alignment.center,
           color: Colors.green,
-          child: Text('Paid', style: TextStyle(color: Colors.white,fontSize: 20)),
+          child: const Text('Paid', style: TextStyle(color: Colors.white,fontSize: 20)),
         )// Green checkmark for paid status
             : Container(
           height: 25,
           width: 65,
           alignment: Alignment.center,
           color: Colors.red,
-          child: Text('Unpaid', style: TextStyle(color: Colors.white,fontSize: 20)),
+          child: const Text('Unpaid', style: TextStyle(color: Colors.white,fontSize: 20)),
         ), // Optional for unpaid status
       ),
     ),

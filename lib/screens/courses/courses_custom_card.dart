@@ -220,7 +220,7 @@ class _CustomCardListState extends State<CustomCardList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       itemCount: items.length,
       itemBuilder: (context, index) {
         return Padding(
@@ -274,7 +274,7 @@ class _CustomCardListState extends State<CustomCardList> {
                                 color: Colors.white,
                                 shadows: [
                                   Shadow(
-                                    offset: Offset(1.0, 1.0),
+                                    offset: const Offset(1.0, 1.0),
                                     blurRadius: 3.0,
                                     color: Colors.black.withOpacity(0.5),
                                   ),

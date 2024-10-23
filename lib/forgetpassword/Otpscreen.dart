@@ -170,7 +170,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 50, vertical: 15),
-                              backgroundColor: Color(0xFFFDD51D),
+                              backgroundColor: const Color(0xFFFDD51D),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),

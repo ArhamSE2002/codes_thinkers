@@ -6,10 +6,9 @@ class BackgroundScaffold extends StatelessWidget {
   final PreferredSizeWidget? appBar;
 
   const BackgroundScaffold( {
-    Key? key, required this.body, 
+    super.key, required this.body, 
     this.appBar,
-    FloatingActionButton? floatingActionButton})
-    : super(key: key);
+    FloatingActionButton? floatingActionButton});
 
   @override
   Widget build(BuildContext context) {

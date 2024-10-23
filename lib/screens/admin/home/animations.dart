@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class FullCircleLoading extends StatefulWidget {
+  const FullCircleLoading({super.key});
+
   @override
   _FullCircleLoadingState createState() => _FullCircleLoadingState();
 }
@@ -36,7 +38,7 @@ class _FullCircleLoadingState extends State<FullCircleLoading>
       builder: (context, child) {
         return CustomPaint(
           painter: FullCirclePainter(_animation.value),
-          child: Container(
+          child: SizedBox(
             width: 50,
             height: 50,
           ),

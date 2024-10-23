@@ -65,7 +65,7 @@ class _ForgetscreenState extends State<Forgetscreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => OTPVerificationScreen(),
+                        builder: (context) => const OTPVerificationScreen(),
                       ),
                     );
                   }
