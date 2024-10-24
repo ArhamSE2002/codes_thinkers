@@ -355,7 +355,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
                           const Spacer(),
                           
                           Padding(
-                            padding: const EdgeInsets.all(30.0),
+                             padding: const EdgeInsets.only(right: 65),
                             child: ElevatedButton(
                               onPressed: () => _showStatusOptions(context, index),
                               style: ElevatedButton.styleFrom(
