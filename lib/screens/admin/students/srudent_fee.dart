@@ -43,286 +43,335 @@ class _AttendanceState extends State<Attendance> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final isMobile = screenWidth < 500;
+
     return Scaffold(
-      body: Container(
-        height: MediaQuery.sizeOf(context).height,
-        width: MediaQuery.sizeOf(context).width,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/screenbackground.jpg'),
-            fit: BoxFit.fill,
+      body: SingleChildScrollView(
+        child: Container(
+          height: screenHeight,
+          width: screenWidth,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/screenbackground.jpg'),
+              fit: BoxFit.fill,
+            ),
           ),
-        ),
-        child: Stack(
-          children: [
-            if (_isSearching)
+          child: Stack(
+            children: [
+              if (_isSearching)
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: SearchBar(
+                      controller: _searchController,
+                      hintText: 'Search...',
+                      // controller: _searchController,
+                      // decoration: InputDecoration(
+                      // hintText: 'Search...',
+                      //   filled: true,
+                      //   fillColor: const Color(0xff22406F),
+                      //   border: OutlineInputBorder(
+                      //     borderRadius: BorderRadius.circular(30),
+                      //   ),
+                      //   suffixIcon: Padding(
+                      //     padding: const EdgeInsets.all(8.0),
+                      //     child: IconButton(
+                      //       icon: const Icon(Icons.clear),
+                      //       onPressed: _toggleSearch,
+                      //     ),
+                      //   ),
+                      // ),
+                    ),
+                  ),
+                ),
+              Positioned(
+                top: screenHeight * 0.02,
+                right: screenWidth * 0.05,
+                child: IconButton(
+                  icon: const Padding(
+                    padding: EdgeInsets.only(top: 30),
+                    child: Icon(
+                      Icons.search,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  ),
+                  onPressed: _toggleSearch,
+                ),
+              ),
+              Positioned(
+                top: screenHeight * 0.06,
+                left: screenWidth * 0.05,
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 55),
+                  child: Text(
+                    'Students',
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                ),
+              ),
+              Positioned(
+                  left: 80,
+                  top: 150,
+                  child: Container(
+                      height: 160,
+                      width: 200,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        color: Color(0xff1164AD),
+                      ))),
+              Positioned(
+                  left: 110,
+                  top: 165,
+                  child: Container(
+                      height: 120,
+                      width: 150,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        color: Colors.white,
+                      ))),
+              const Positioned(
+                top: 175,
+                left: 135,
+                child: CustomPaint(
+                  child: HalfColoredRing(),
+                ),
+              ),
+              const Positioned(
+                top: 290,
+                left: 145,
+                child: Text(
+                  'Paid/Unpaid',
+                  style: TextStyle(color: Color(0xffFDD51D)),
+                ),
+              ),
+              Positioned(
+                left: screenWidth * 0.05,
+                top: screenHeight * 0.4,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20, left: 12),
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xff22406F)),
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.today_outlined,
+                          color: Color(0xff8596B0),
+                        ),
+                        label: const SizedBox.shrink(),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 150,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: isPaid
+                                ? const Color(0xffB49E26)
+                                : const Color(0xff22406F)),
+                        onPressed: () {
+                          setState(() {
+                            isPaid = !isPaid;
+                          });
+                        },
+                        icon: const SizedBox.shrink(),
+                        label: Text(
+                          isPaid ? 'Paid' : 'Unpaid',
+                          style: const TextStyle(color: Color(0xff8596B0)),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                top: screenHeight * 0.45,
+                left: screenWidth * 0.05,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 40),
+                  child: Card(
+                    color: const Color(0xff142E63),
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: SizedBox(
+                      width: screenWidth * 0.9,
+                      height: screenHeight * 0.12,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: screenWidth * 0.1,
+                top: screenHeight * 0.47,
+                child: const Padding(
+                  padding: const EdgeInsets.only(top: 38),
+                  child: const CircleAvatar(
+                    radius: 30,
+                    backgroundImage: AssetImage('assets/images/avator.jpg'),
+                  ),
+                ),
+              ),
               Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: TextField(
-                  controller: _searchController,
-                  decoration: InputDecoration(
-                    hintText: 'Search...',
-                    filled: true,
-                    fillColor: Colors.white.withOpacity(0.8),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    suffixIcon: IconButton(
-                      icon: const Icon(Icons.clear),
-                      onPressed: _toggleSearch,
+                padding: const EdgeInsets.only(top: 390, left: 100),
+                child: Positioned(
+                  top: screenHeight * 0.47,
+                  left: screenWidth * 0.25,
+                  child: const Text(
+                    'Ali Hassan',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 415, left: 100),
+                child: Positioned(
+                  top: screenHeight * 0.5,
+                  left: screenWidth * 0.25,
+                  child: const Text(
+                    'Reg#',
+                    style: TextStyle(fontSize: 12, color: Colors.white),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 430, left: 100),
+                child: Positioned(
+                  top: screenHeight * 0.52,
+                  left: screenWidth * 0.25,
+                  child: const Text(
+                    '101',
+                    style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 385, left: 195),
+                child: Positioned(
+                  child: GestureDetector(
+                    onTap: () => _selectDate(context),
+                    child: Container(
+                      height: 30,
+                      width: 125,
+                      decoration: BoxDecoration(
+                          color: const Color(0xff7494AF),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.calendar_month),
+                          Text(
+                            selectedDate,
+                          ),
+                          const SizedBox(
+                            width: 2,
+                          ),
+                          const Icon(Icons.arrow_drop_down)
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            Positioned(
-              top: 20,
-              right: 30,
-              child: IconButton(
-                icon: const Icon(
-                  Icons.search,
-                  color: Colors.white,
-                  size: 30,
-                ),
-                onPressed: _toggleSearch,
-              ),
-            ),
-            const Positioned(
-              top: 60,
-              left: 20,
-              child: Text(
-                'Students',
-                style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-            ),
-            Positioned(
-              left: 160,
-              top: 100,
-              child: Container(
-                height: 160,
-                width: 200,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: const Color(0xff1164AD)),
-              ),
-            ),
-            const Positioned(
-              top: 240,
-              left: 220,
-              child: Text(
-                'Paid/Unpaid',
-                style: TextStyle(color: Color(0xffFDD51D)),
-              ),
-            ),
-            Positioned(
-              left: 180,
-              top: 120,
-              child: Container(
-                height: 120,
-                width: 160,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: const Color(0xffEAEAEA)),
-              ),
-            ),
-            const Positioned(
-              top: 130,
-              left: 215,
-              child: CustomPaint(
-                child: HalfColoredRing(),
-              ),
-            ),
-            Positioned(
-              left: 60,
-              top: 280,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xff22406F)),
-                    onPressed: () {},
-                    label: const Icon(
-                      Icons.today_outlined,
-                      color: Color(0xff8596B0),
+              Padding(
+                padding: const EdgeInsets.only(left: 310, top: 375),
+                child: Positioned(
+                  left: screenWidth * 0.88,
+                  top: screenHeight * 0.47,
+                  child: PopupMenuButton<String>(
+                    icon: const Icon(
+                      Icons.more_vert_rounded,
+                      color: Colors.white,
                     ),
-                  ),
-                  const SizedBox(
-                    width: 60,
-                  ),
-                  ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: isPaid
-                            ? const Color(0xffB49E26)
-                            : const Color(0xff22406F)),
-                    onPressed: () {
+                    onSelected: (String value) {
                       setState(() {
-                        isPaid = !isPaid;
+                        if (value == 'Paid') {
+                          paymentStatus = 'Paid';
+                          buttonColor = Colors.green;
+                        } else if (value == 'Unpaid') {
+                          paymentStatus = 'Unpaid';
+                          buttonColor = Colors.red;
+                        }
                       });
                     },
-                    label: Text(
-                      isPaid ? 'Paid' : 'Unpaid',
-                      style: const TextStyle(color: Color(0xff8596B0)),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 60,
-                  ),
-                ],
-              ),
-            ),
-            Positioned(
-              top: 320,
-              left: 16,
-              child: Card(
-                color: const Color(0xff142E63),
-                elevation: 4,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const SizedBox(
-                  width: 450,
-                  height: 90,
-                ),
-              ),
-            ),
-            const Positioned(
-              left: 30,
-              top: 335,
-              child: CircleAvatar(
-                radius: 30,
-                backgroundImage: AssetImage('assets/images/avator.jpg'),
-              ),
-            ),
-            const Positioned(
-              top: 335,
-              left: 95,
-              child: Text(
-                'Ali Hassan',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-            ),
-            const Positioned(
-              top: 360,
-              left: 95,
-              child: Text(
-                'Reg#',
-                style: TextStyle(fontSize: 12, color: Colors.white),
-              ),
-            ),
-            const Positioned(
-              top: 378,
-              left: 90,
-              child: Text(
-                '101',
-                style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-            ),
-            Positioned(
-              left: 280,
-              top: 340,
-              child: GestureDetector(
-                onTap: () => _selectDate(context),
-                child: Container(
-                  height: 30,
-                  width: 130,
-                  decoration: BoxDecoration(
-                      color: const Color(0xff7494AF),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.calendar_month),
-                      Text(
-                        selectedDate,
+                    itemBuilder: (BuildContext context) =>
+                        <PopupMenuEntry<String>>[
+                      const PopupMenuItem<String>(
+                        value: 'Paid',
+                        child: Row(
+                          children: [
+                            Icon(Icons.attach_money, color: Colors.green),
+                            SizedBox(width: 8),
+                            Text('Paid'),
+                          ],
+                        ),
                       ),
-                      const SizedBox(
-                        width: 2,
+                      const PopupMenuItem<String>(
+                        value: 'Unpaid',
+                        child: Row(
+                          children: [
+                            Icon(Icons.money_off, color: Colors.red),
+                            SizedBox(width: 8),
+                            Text('Unpaid'),
+                          ],
+                        ),
                       ),
-                      const Icon(Icons.arrow_drop_down)
                     ],
                   ),
                 ),
               ),
-            ),
-            Positioned(
-              left: 410,
-              top: 335,
-              child: PopupMenuButton<String>(
-                icon: const Icon(
-                  Icons.more_vert_rounded,
-                  color: Colors.white,
+              Padding(
+                padding: const EdgeInsets.only(top: 420, left: 220),
+                child: Positioned(
+                  left: screenWidth * 0.75,
+                  top: screenHeight * 0.53,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: buttonColor,
+                    ),
+                    onPressed: () {},
+                    icon: const Icon(Icons.check),
+                    label: Text(paymentStatus),
+                  ),
                 ),
-                onSelected: (String value) {
-                  setState(() {
-                    if (value == 'Paid') {
-                      paymentStatus = 'Paid';
-                      buttonColor = Colors.green;
-                    } else if (value == 'Unpaid') {
-                      paymentStatus = 'Unpaid';
-                      buttonColor = Colors.red;
-                    }
-                  });
-                },
-                itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                  const PopupMenuItem<String>(
-                    value: 'Paid',
-                    child: Row(
-                      children: [
-                        Icon(Icons.attach_money, color: Colors.green),
-                        SizedBox(width: 8),
-                        Text('Paid'),
-                      ],
-                    ),
-                  ),
-                  const PopupMenuItem<String>(
-                    value: 'Unpaid',
-                    child: Row(
-                      children: [
-                        Icon(Icons.money_off, color: Colors.red),
-                        SizedBox(width: 8),
-                        Text('Unpaid'),
-                      ],
-                    ),
-                  ),
-                ],
               ),
-            ),
-            Positioned(
-              left: 350,
-              top: 375,
-              child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: buttonColor,
-                ),
-                onPressed: () {},
-                icon: const Icon(Icons.check),
-                label: Text(paymentStatus),
-              ),
-            ),
-            Positioned(
-                top: 550,
-                left: 220,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const CircleAvatar(
-                    backgroundColor: Color(0xFFFDD51D),
-                    radius: 20,
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                      size: 25,
+              Positioned(
+                  top: screenHeight * 0.75,
+                  left: screenWidth * 0.45,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 90),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const CircleAvatar(
+                        backgroundColor: Color(0xFFFDD51D),
+                        radius: 20,
+                        child: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 25,
+                        ),
+                      ),
                     ),
-                  ),
-                )),
-          ],
+                  )),
+            ],
+          ),
         ),
       ),
     );
