@@ -186,11 +186,11 @@ class _AttendancestudentState extends State<Attendancestudent> {
                   fillColor: Color(0xFF133B7A),
                   contentPadding: EdgeInsets.all(12.5),
                   hintText: 'Search...',
-                  hintStyle: TextStyle(color: Colors.black),
+                  hintStyle: TextStyle(color: Colors.white),
                   border: InputBorder.none,
-                  prefixIcon: Icon(Icons.search, color: Colors.black, size: 20),
+                  prefixIcon: Icon(Icons.search, color: Colors.white, size: 20),
                 ),
-                style: const TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.white),
                 cursorColor: Colors.black,
               ),
             ),
@@ -238,7 +238,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  margin: const EdgeInsets.only(top: 10),
+                  // margin: const EdgeInsets.only(top: 10),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -260,7 +260,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 10),
+                  // margin: const EdgeInsets.only(top: 10),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -283,7 +283,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
+            // const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: _filteredEmployees.length,
@@ -345,7 +345,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                             ),
                             const Spacer(),
                             Padding(
-                              padding: const EdgeInsets.all(30.0),
+                               padding: const EdgeInsets.only(right: 65),
                               child: ElevatedButton(
                                 onPressed: () =>
                                     _showStatusOptions(context, index),
