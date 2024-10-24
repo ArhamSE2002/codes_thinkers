@@ -1,8 +1,9 @@
-
 import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/screens/admin/attendance/attendancestudent.dart';
 import 'package:codes_thinkers/screens/admin/attendance/newstaff.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:path/path.dart';
 
 class Attendancestaff extends StatefulWidget {
   const Attendancestaff({super.key});
@@ -24,7 +25,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
   ];
   late List<String> _filteredEmployees;
   final TextEditingController _searchController = TextEditingController();
-
+  String selectedDate = ' Select date';
   @override
   void initState() {
     super.initState();
@@ -134,6 +135,19 @@ class _AttendancestaffState extends State<Attendancestaff> {
     );
   }
 
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2020),
+        lastDate: DateTime(3120));
+    if (picked != null) {
+      setState(() {
+        selectedDate = DateFormat('dd_MM_yyy').format(picked);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -182,33 +196,55 @@ class _AttendancestaffState extends State<Attendancestaff> {
                 cursorColor: Colors.black,
               ),
             ),
-            Row(
-              children: [
-                Container(
-                    margin: EdgeInsets.only(
-                      top: screenHeight * 0.02,
-                      left: screenWidth * 0.4,
-                    ),
-                    child: const Text(
-                      '17-oct-2024',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
+            const SizedBox(
+              height: 10,
+            ),
+          Container(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 16),
+              margin: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.05,
+              ),
+              child: GestureDetector(
+                onTap: () => _selectDate(context),
+                child: Container(
+                  height: 30,
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  decoration: BoxDecoration(
+                      color: const Color(0xFF133B7A),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Flexible(child: 
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.calendar_month,
+                            color: Colors.white,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            selectedDate,
+                            style: const TextStyle(color: Colors.white, fontSize: 16,
+                              overflow: TextOverflow.ellipsis,),
+                          ),
+                        ],
                       ),
-                    )),
-                    Spacer(),
-                Container(
-                  margin: EdgeInsets.only(top: screenHeight * 0.02),
-                  child: const Icon(
-                    Icons.dataset,
-                    color: Colors.grey,
-                    size: 40.0,
+                      ),
+                      const Icon(
+                        Icons.arrow_drop_down,
+                        color: Colors.white,
+                      )
+                    ],
                   ),
                 ),
-              ],
+              ),
             ),
+
+            //     Container(
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -319,24 +355,20 @@ class _AttendancestaffState extends State<Attendancestaff> {
                           ),
                           const Spacer(),
                           ElevatedButton(
-                             onPressed: () =>
-                                  _showStatusOptions(context, index),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    _getButtonColor(_statuses[index]),
-                              ),
-                              child: Text(
-                                _statuses[index],
-                                style: TextStyle(
-                                    color: _getTextColor(_statuses[index])),
-                              ),
+                            onPressed: () => _showStatusOptions(context, index),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  _getButtonColor(_statuses[index]),
                             ),
-                          ],
-                        ),
+                            child: Text(
+                              _statuses[index],
+                              style: TextStyle(
+                                  color: _getTextColor(_statuses[index])),
+                            ),
+                          ),
+                        ],
                       ),
-
-                  
-                    
+                    ),
                   );
                 },
               ),
@@ -349,13 +381,14 @@ class _AttendancestaffState extends State<Attendancestaff> {
                 );
               },
               icon: const CircleAvatar(
-                backgroundColor: Color(0xFFFDD51D),radius: 30,
+                backgroundColor: Color(0xFFFDD51D),
+                radius: 30,
                 child: Icon(
                   Icons.add,
-                  color: Colors.white,size: 30,
+                  color: Colors.white,
+                  size: 30,
                 ),
               ),
-             
             )
           ],
         ),
