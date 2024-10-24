@@ -12,7 +12,7 @@ class Attendancestudent extends StatefulWidget {
 }
 
 class _AttendancestudentState extends State<Attendancestudent> {
-  final List<String> _statuses = ['Select Status', 'Select Status'];
+  final List<String> _statuses = [' Status', ' Status'];
   final List<String> _employees = [
     'First Student',
     'Second Student',
@@ -157,7 +157,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
             Row(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(top: 10),
+                  margin: const EdgeInsets.only(top: 40),
                   child: const Icon(
                     Icons.arrow_back,
                     color: Colors.white,
@@ -165,12 +165,12 @@ class _AttendancestudentState extends State<Attendancestudent> {
                   ),
                 ),
                 const SizedBox(width: 10),
-                Container(margin: const EdgeInsets.only(top: 10),
+                Container(margin: const EdgeInsets.only(top: 40),
                   child: const Text(
                     'Attendance',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 30,
+                      fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -344,17 +344,20 @@ class _AttendancestudentState extends State<Attendancestudent> {
                               ],
                             ),
                             const Spacer(),
-                            ElevatedButton(
-                              onPressed: () =>
-                                  _showStatusOptions(context, index),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    _getButtonColor(_statuses[index]),
-                              ),
-                              child: Text(
-                                _statuses[index],
-                                style: TextStyle(
-                                    color: _getTextColor(_statuses[index])),
+                            Padding(
+                              padding: const EdgeInsets.all(30.0),
+                              child: ElevatedButton(
+                                onPressed: () =>
+                                    _showStatusOptions(context, index),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      _getButtonColor(_statuses[index]),
+                                ),
+                                child: Text(
+                                  _statuses[index],
+                                  style: TextStyle(
+                                      color: _getTextColor(_statuses[index])),
+                                ),
                               ),
                             ),
                           ],
