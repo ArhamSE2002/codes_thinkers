@@ -504,7 +504,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
 
   @override
   Widget build(BuildContext context) {
-    // Fetch screen size dynamically
+   
     final screenSize = MediaQuery.of(context).size;
     
     return BackgroundScaffold(
@@ -534,7 +534,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
             ),
             Container(
               margin: const EdgeInsets.only(top: 10),
-              width: screenSize.width * 0.9, // Dynamically adjust width
+              width: screenSize.width * 0.9, 
               child: TextField(
                 controller: _searchController,
                 decoration: const InputDecoration(
@@ -554,7 +554,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                 Container(
                   margin: EdgeInsets.only(
                     top: 8,
-                    left: screenSize.width * 0.4, // Center text on larger screens
+                    left: screenSize.width * 0.4, 
                   ),
                   child: const Text(
                     '17-oct-2024',
@@ -634,7 +634,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                             vertical: 15, horizontal: 16),
                         margin: EdgeInsets.symmetric(
                           horizontal: screenSize.width * 0.05,
-                        ), // Adjust horizontally
+                        ), 
                         decoration: BoxDecoration(
                           color: const Color(0xFF13316A),
                           borderRadius: BorderRadius.circular(8),
@@ -653,7 +653,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                                     fontSize: 24, color: Colors.white)),
                             const SizedBox(width: 35),
                             Container(
-                              height: screenSize.height * 0.1, // Responsive image size
+                              height: screenSize.height * 0.1, 
                               width: screenSize.height * 0.1,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15),
