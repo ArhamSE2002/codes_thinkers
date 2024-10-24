@@ -13,7 +13,7 @@ class Attendancestaff extends StatefulWidget {
 }
 
 class _AttendancestaffState extends State<Attendancestaff> {
-  final List<String> _statuses = ['Select Status', 'Select Status'];
+  final List<String> _statuses = [' Status', ' Status'];
 
   final List<String> _reg = [
     'reg 1',
@@ -160,19 +160,19 @@ class _AttendancestaffState extends State<Attendancestaff> {
             Row(
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: screenWidth * 0.03),
+                  margin: EdgeInsets.only(top: 40),
                   child: const Icon(
                     Icons.arrow_back,
                     color: Colors.white,
-                    size: 30.0,
+                    size: 20.0,
                   ),
                 ),
-                Container(
+                Container(  margin: EdgeInsets.only(top: 40),
                     child: const Text(
                   'Attendance',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 30,
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Roboto',
                   ),
@@ -197,13 +197,14 @@ class _AttendancestaffState extends State<Attendancestaff> {
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 5,
             ),
           Container(
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 16),
-              margin: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.05,
-              ),
+              padding: const EdgeInsets.symmetric(
+                            vertical: 15, horizontal: 16),
+                        margin: EdgeInsets.symmetric(
+                          horizontal: screenWidth * 0.05,
+                        ),
               child: GestureDetector(
                 onTap: () => _selectDate(context),
                 child: Container(
@@ -215,7 +216,6 @@ class _AttendancestaffState extends State<Attendancestaff> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Flexible(child: 
                       Row(
                         children: [
                           const Icon(
@@ -229,9 +229,8 @@ class _AttendancestaffState extends State<Attendancestaff> {
                             selectedDate,
                             style: const TextStyle(color: Colors.white, fontSize: 16,
                               overflow: TextOverflow.ellipsis,),
-                          ),
+                          )
                         ],
-                      ),
                       ),
                       const Icon(
                         Icons.arrow_drop_down,
@@ -243,7 +242,6 @@ class _AttendancestaffState extends State<Attendancestaff> {
               ),
             ),
 
-            //     Container(
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -294,18 +292,19 @@ class _AttendancestaffState extends State<Attendancestaff> {
                     )),
               ],
             ),
-            SizedBox(height: screenHeight * 0.02),
+            SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: _filteredEmployees.length,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(
-                        vertical: screenHeight * 0.02,
-                        horizontal: screenWidth * 0.05),
-                    child: Container(
+                  return Column(children: [
+                    Container(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 15, horizontal: 16),
+                            vertical: 15, horizontal: 16),
+                        margin: EdgeInsets.symmetric(
+                          horizontal: screenWidth * 0.05,
+                        ),
+                   
                       decoration: BoxDecoration(
                         color: const Color(0xFF13316A),
                         borderRadius: BorderRadius.circular(8),
@@ -314,7 +313,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
                             color: Colors.white.withOpacity(0.5),
                             spreadRadius: 1,
                             blurRadius: 5,
-                          ),
+                          )
                         ],
                       ),
                       child: Row(
@@ -334,7 +333,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
                               ),
                             ),
                           ),
-                          SizedBox(width: screenWidth * 0.05),
+                          const SizedBox(width:10),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -343,32 +342,36 @@ class _AttendancestaffState extends State<Attendancestaff> {
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white)),
-                              SizedBox(height: screenHeight * 0.01),
+                               SizedBox(height: 20),
                               const Text('RegNo#1',
                                   style: TextStyle(
                                       fontSize: 18, color: Colors.white)),
-                              SizedBox(height: screenHeight * 0.01),
+                              SizedBox(height: 20),
                               const Text('Graphic Designer',
                                   style: TextStyle(
                                       fontSize: 14, color: Colors.white)),
                             ],
                           ),
                           const Spacer(),
-                          ElevatedButton(
-                            onPressed: () => _showStatusOptions(context, index),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  _getButtonColor(_statuses[index]),
-                            ),
-                            child: Text(
-                              _statuses[index],
-                              style: TextStyle(
-                                  color: _getTextColor(_statuses[index])),
+                          
+                          Padding(
+                            padding: const EdgeInsets.all(30.0),
+                            child: ElevatedButton(
+                              onPressed: () => _showStatusOptions(context, index),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    _getButtonColor(_statuses[index]),
+                              ),
+                              child: Text(
+                                _statuses[index],
+                                style: TextStyle(
+                                    color: _getTextColor(_statuses[index])),
+                              ),
                             ),
                           ),
                         ],
                       ),
-                    ),
+                    ),]
                   );
                 },
               ),

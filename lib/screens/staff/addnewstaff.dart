@@ -39,21 +39,23 @@ class _StaffState extends State<Staff> {
             Row(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(left: 10),
+                  margin: const EdgeInsets.only(top: 30),
                   child: const Icon(
                     Icons.arrow_back,
                     color: Colors.white,
-                    size: 30.0,
+                    size: 20.0,
                   ),
                 ),
                 const SizedBox(width: 10),
-                const Text(
-                  'Staff',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Roboto',
+                Container(  margin: const EdgeInsets.only(top: 30),
+                  child: const Text(
+                    'Staff',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Roboto',
+                    ),
                   ),
                 ),
               ],

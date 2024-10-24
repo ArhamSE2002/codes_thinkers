@@ -50,21 +50,23 @@ class _newProjectState extends State<newProject> {
             Row(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(left: 10),
+                  margin: const EdgeInsets.only(top: 30),
                   child: const Icon(
                     Icons.arrow_back,
                     color: Colors.white,
-                    size: 30.0,
+                    size: 20.0,
                   ),
                 ),
-                const Text(
-                  'Add New Project',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontStyle: FontStyle.normal,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Roboto',
+                Container(   margin: const EdgeInsets.only(top: 30),
+                  child: const Text(
+                    'Add New Project',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Roboto',
+                    ),
                   ),
                 ),
               ],
