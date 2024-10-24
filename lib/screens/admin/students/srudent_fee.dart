@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Attendance extends StatefulWidget {
   const Attendance({super.key});
@@ -8,8 +9,14 @@ class Attendance extends StatefulWidget {
 }
 
 class _AttendanceState extends State<Attendance> {
+  String paymentStatus = 'Unpaid';
+  Color buttonColor = Colors.red;
+
   bool _isSearching = false;
   final TextEditingController _searchController = TextEditingController();
+
+  bool isPaid = false;
+  String selectedDate = 'This Month';
 
   void _toggleSearch() {
     setState(() {
@@ -18,6 +25,20 @@ class _AttendanceState extends State<Attendance> {
         _searchController.clear();
       }
     });
+  }
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2020),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null) {
+      setState(() {
+        selectedDate = DateFormat('MMM yyyy').format(picked);
+      });
+    }
   }
 
   @override
@@ -66,99 +87,107 @@ class _AttendanceState extends State<Attendance> {
               ),
             ),
             const Positioned(
-                top: 60,
-                left: 20,
-                child: Text(
-                  'Students',
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                )),
+              top: 60,
+              left: 20,
+              child: Text(
+                'Students',
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+            ),
             Positioned(
-                left: 160,
-                top: 100,
-                child: Container(
-                  height: 160,
-                  width: 200,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: const Color(0xff1164AD)),
-                )),
-            const Positioned(
-                top: 240,
-                left: 220,
-                child: Text(
-                  'Paid/Unpaid',
-                  style: TextStyle(color: Color(0xffFDD51D)),
-                )),
-            Positioned(
-                left: 180,
-                top: 120,
-                child: Container(
-                  height: 120,
-                  width: 160,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: const Color(0xffEAEAEA)),
-                )),
-            const Positioned(
-                top: 130,
-                left: 215,
-                child: CustomPaint(
-                  child: HalfColoredRing(),
-                )),
-            Positioned(
-                left: 60,
-                top: 280,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xff22406F)),
-                      onPressed: () {},
-                      label: const Icon(
-                        Icons.ac_unit,
-                        color: Color(0xff8596B0),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 60,
-                    ),
-                    ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff22406F)),
-                        onPressed: () {},
-                        label: const Text(
-                          'Paid',
-                          style: TextStyle(color: Color(0xff8596B0)),
-                        )),
-                    const SizedBox(
-                      width: 60,
-                    ),
-                    ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff22406F)),
-                        onPressed: () {},
-                        label: const Text('Unpaid',
-                            style: TextStyle(color: Color(0xff8596B0))))
-                  ],
-                )),
-            Positioned(
-                top: 320,
-                left: 16,
-                child: Card(
-                  color: Color(0xff142E63),
-                  elevation: 4,
-                  shape: RoundedRectangleBorder(
+              left: 160,
+              top: 100,
+              child: Container(
+                height: 160,
+                width: 200,
+                decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
+                    color: const Color(0xff1164AD)),
+              ),
+            ),
+            const Positioned(
+              top: 240,
+              left: 220,
+              child: Text(
+                'Paid/Unpaid',
+                style: TextStyle(color: Color(0xffFDD51D)),
+              ),
+            ),
+            Positioned(
+              left: 180,
+              top: 120,
+              child: Container(
+                height: 120,
+                width: 160,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: const Color(0xffEAEAEA)),
+              ),
+            ),
+            const Positioned(
+              top: 130,
+              left: 215,
+              child: CustomPaint(
+                child: HalfColoredRing(),
+              ),
+            ),
+            Positioned(
+              left: 60,
+              top: 280,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xff22406F)),
+                    onPressed: () {},
+                    label: const Icon(
+                      Icons.today_outlined,
+                      color: Color(0xff8596B0),
+                    ),
                   ),
-                  child: const SizedBox(
-                    width: 450,
-                    height: 90,
+                  const SizedBox(
+                    width: 60,
                   ),
-                )),
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: isPaid
+                            ? const Color(0xffB49E26)
+                            : const Color(0xff22406F)),
+                    onPressed: () {
+                      setState(() {
+                        isPaid = !isPaid;
+                      });
+                    },
+                    label: Text(
+                      isPaid ? 'Paid' : 'Unpaid',
+                      style: const TextStyle(color: Color(0xff8596B0)),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 60,
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              top: 320,
+              left: 16,
+              child: Card(
+                color: const Color(0xff142E63),
+                elevation: 4,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const SizedBox(
+                  width: 450,
+                  height: 90,
+                ),
+              ),
+            ),
             const Positioned(
               left: 30,
               top: 335,
@@ -168,54 +197,61 @@ class _AttendanceState extends State<Attendance> {
               ),
             ),
             const Positioned(
-                top: 335,
-                left: 95,
-                child: Text(
-                  'Ali Hassan',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                )),
+              top: 335,
+              left: 95,
+              child: Text(
+                'Ali Hassan',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+            ),
             const Positioned(
-                top: 360,
-                left: 95,
-                child: Text(
-                  'Reg#',
-                  style: TextStyle(fontSize: 12, color: Colors.white),
-                )),
+              top: 360,
+              left: 95,
+              child: Text(
+                'Reg#',
+                style: TextStyle(fontSize: 12, color: Colors.white),
+              ),
+            ),
             const Positioned(
-                top: 378,
-                left: 90,
-                child: Text(
-                  '101',
-                  style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                )),
+              top: 378,
+              left: 90,
+              child: Text(
+                '101',
+                style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+            ),
             Positioned(
-                left: 280,
-                top: 330,
+              left: 280,
+              top: 340,
+              child: GestureDetector(
+                onTap: () => _selectDate(context),
                 child: Container(
                   height: 30,
                   width: 130,
                   decoration: BoxDecoration(
                       color: const Color(0xff7494AF),
                       borderRadius: BorderRadius.circular(10)),
-                  child: const Row(
+                  child: Row(
                     children: [
-                      Icon(Icons.calendar_month),
+                      const Icon(Icons.calendar_month),
                       Text(
-                        'This Month',
+                        selectedDate,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 2,
                       ),
-                      Icon(Icons.arrow_drop_down)
+                      const Icon(Icons.arrow_drop_down)
                     ],
                   ),
-                )),
+                ),
+              ),
+            ),
             Positioned(
               left: 410,
               top: 335,
@@ -225,8 +261,15 @@ class _AttendanceState extends State<Attendance> {
                   color: Colors.white,
                 ),
                 onSelected: (String value) {
-                  // Handle selection of the menu item
-                  print(value); // You can do something with the selected value
+                  setState(() {
+                    if (value == 'Paid') {
+                      paymentStatus = 'Paid';
+                      buttonColor = Colors.green;
+                    } else if (value == 'Unpaid') {
+                      paymentStatus = 'Unpaid';
+                      buttonColor = Colors.red;
+                    }
+                  });
                 },
                 itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
                   const PopupMenuItem<String>(
@@ -252,22 +295,18 @@ class _AttendanceState extends State<Attendance> {
                 ],
               ),
             ),
-            const Positioned(
-                top: 375,
-                left: 340,
-                child: Icon(
-                  Icons.done,
-                  size: 30,
-                )),
             Positioned(
-                left: 380,
-                top: 375,
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xffB49E26)),
-                  onPressed: () {},
-                  label: const Text('Paid'),
-                )),
+              left: 350,
+              top: 375,
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: buttonColor,
+                ),
+                onPressed: () {},
+                icon: const Icon(Icons.check),
+                label: Text(paymentStatus),
+              ),
+            ),
             Positioned(
                 top: 550,
                 left: 220,
@@ -282,7 +321,7 @@ class _AttendanceState extends State<Attendance> {
                       size: 25,
                     ),
                   ),
-                ))
+                )),
           ],
         ),
       ),
