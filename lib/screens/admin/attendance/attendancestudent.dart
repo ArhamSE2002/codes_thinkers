@@ -20,7 +20,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
   late List<String> _filteredEmployees;
   final TextEditingController _searchController = TextEditingController();
   String selectedDate = 'Select date';
-  late bool resizeToAvoidBottomInset;
+  
   @override
   void initState() {
     super.initState();
@@ -138,7 +138,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
       lastDate: DateTime(2101),
       
     );
-       resizeToAvoidBottomInset=true;
+      
     if (picked != null) {
       setState(() {
         selectedDate = DateFormat('dd-MM-yyyy').format(picked);
@@ -157,20 +157,22 @@ class _AttendancestudentState extends State<Attendancestudent> {
             Row(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(left: 10),
+                  margin: const EdgeInsets.only(top: 10),
                   child: const Icon(
                     Icons.arrow_back,
                     color: Colors.white,
-                    size: 30.0,
+                    size: 20.0,
                   ),
                 ),
                 const SizedBox(width: 10),
-                const Text(
-                  'Attendance',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
+                Container(margin: const EdgeInsets.only(top: 10),
+                  child: const Text(
+                    'Attendance',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],
