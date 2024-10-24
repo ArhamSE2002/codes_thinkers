@@ -13,7 +13,7 @@ import 'package:codes_thinkers/screens/admin/students/students_data.dart';
 import 'package:codes_thinkers/screens/courses/courses.dart';
 import 'package:codes_thinkers/screens/posts/events.dart';
 import 'package:codes_thinkers/screens/projects/newprojects.dart';
-import 'package:codes_thinkers/screens/staff/addnewstaff.dart';
+import 'package:codes_thinkers/screens/staff/staffmember.dart';
 import 'package:flutter/material.dart';
 
 class AdminHome extends StatefulWidget {

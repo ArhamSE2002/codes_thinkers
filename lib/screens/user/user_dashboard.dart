@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 
-import 'package:codes_thinkers/screens/staff/addnewstaff.dart';
+import 'package:codes_thinkers/screens/staff/staffmember.dart';
 import 'package:codes_thinkers/screens/user/userProfile/userProfile.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';

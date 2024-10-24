@@ -111,7 +111,7 @@ class _newProjectState extends State<newProject> {
                           ),
                         ),
                         Positioned(
-                          right: 160,
+                          right: 133,
                           bottom: 0,
                           child: GestureDetector(
                             onTap: _pickImage,
