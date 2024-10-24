@@ -1,14 +1,17 @@
+import 'package:codes_thinkers/screens/admin/attendance/newstaff.dart';
+import 'package:codes_thinkers/screens/admin/attendance/newstudent.dart';
+import 'package:codes_thinkers/screens/admin/students/new_studentfee.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class Attendance extends StatefulWidget {
-  const Attendance({super.key});
+class Attendancestd extends StatefulWidget {
+  const Attendancestd({super.key});
 
   @override
   _AttendanceState createState() => _AttendanceState();
 }
 
-class _AttendanceState extends State<Attendance> {
+class _AttendanceState extends State<Attendancestd> {
   String paymentStatus = 'Unpaid';
   Color buttonColor = Colors.red;
 
@@ -358,7 +361,13 @@ class _AttendanceState extends State<Attendance> {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 90),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Newstudent1(),
+                            ));
+                      },
                       icon: const CircleAvatar(
                         backgroundColor: Color(0xFFFDD51D),
                         radius: 20,

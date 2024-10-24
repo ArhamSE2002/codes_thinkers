@@ -65,7 +65,7 @@ class _AdminHomeState extends State<AdminHome> {
                               const Courses(),
                               'Student',
                               'assets/images/students.png',
-                              const Attendance()),
+                              const Attendancestd()),
                           const SizedBox(height: 20),
                           _buildGridRow(
                               context,
