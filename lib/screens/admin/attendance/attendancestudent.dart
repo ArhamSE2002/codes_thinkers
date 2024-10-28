@@ -396,8 +396,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
             )
           ],
         ),
-      ]
-      ),
+      ]),
     );
   }
 }
