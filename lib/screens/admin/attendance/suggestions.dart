@@ -21,7 +21,7 @@ class Suggestions extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
               ),
-              Expanded(
+              const Expanded(
                 child: const Text(
                   'How To Improve?',
                   style: TextStyle(color: Colors.white),
