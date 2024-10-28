@@ -158,43 +158,43 @@ class _CustomCardListState extends State<CustomCardList> {
       "image": "assets/images/app image.jpg",
       "title": "App Development",
       "Course duration": "6 Month",
-      "fee": "7000"
+      "fee": "7500 per month"
     },
     {
       "image": "assets/images/Digitalimage.jpg",
       "title": "Digital Market",
       "Course duration": "6 Month",
-      'fee': '6000'
+      'fee': '6500 per month'
     },
     {
       "image": "assets/images/web image.jpg",
       "title": "Web Development",
       "Course duration": "6 Month",
-      'fee': '7000'
+      'fee': '7500 per month'
     },
     {
       "image": "assets/images/ui designer.jpg",
       "title": "UX /&UI designer",
       "Course duration": "6 Month",
-      'fee': '6000'
+      'fee': '6500 per month'
     },
     {
       "image": "assets/images/seo.jpg",
       "title": "SEO",
       "Course duration": "6 Month",
-      'fee': '6000'
+      'fee': '6500 per month'
     },
     {
       "image": "assets/images/web hosting.jpg",
       "title": "Web Hosting",
       "Course duration": "6 Month",
-      'fee': '6000'
+      'fee': '6500 per month'
     },
     {
       "image": "assets/images/wordpress.jpg",
       "title": "Word press",
       "Course duration": "6 Month",
-      'fee': '7000'
+      'fee': '6500 per month'
     },
   ];
 

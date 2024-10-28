@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:codes_thinkers/theme/theme.dart';
 
 class BackgroundScaffold extends StatelessWidget {
-  final Widget body;
+   final Widget body;
   final PreferredSizeWidget? appBar;
 
   const BackgroundScaffold( {
-    super.key, required this.body, 
+    super.key, 
+     required this.body, 
     this.appBar,
-    FloatingActionButton? floatingActionButton});
+    FloatingActionButton? floatingActionButton, });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class BackgroundScaffold extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: body, 
+        // child: body, 
       ),
     );
   }

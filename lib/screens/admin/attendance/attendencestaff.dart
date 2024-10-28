@@ -352,7 +352,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
                                       fontSize: 14, color: Colors.white)),
                             ],
                           ),
-                          const Spacer(),Padding(
+                        Padding(
   padding: const EdgeInsets.only(right: 10), // Reduced padding for responsiveness
   child: ConstrainedBox(
     constraints: BoxConstraints(
@@ -379,11 +379,22 @@ class _AttendancestaffState extends State<Attendancestaff> {
           
           
         
-      ]),
-              )  ]
-              );}),),]),]),);
+      ]
+      ),
+      ) 
+       ]
+              );
+              }
+              ),
+              ),
+              ]
+              ),
+              ]
+              ),
+              );
               
-                }} 
+                }
+                } 
   
   
 

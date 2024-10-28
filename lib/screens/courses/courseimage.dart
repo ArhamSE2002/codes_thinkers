@@ -7,7 +7,7 @@ class Courseimage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
-      body:Center(
+       body:Center(
         child: Container( 
         decoration: const BoxDecoration(
           image: DecorationImage(
