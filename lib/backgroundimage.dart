@@ -22,7 +22,7 @@ class BackgroundScaffold extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        // child: body, 
+         child: body, 
       ),
     );
   }

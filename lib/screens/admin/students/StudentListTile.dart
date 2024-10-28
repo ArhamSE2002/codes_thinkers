@@ -1,4 +1,3 @@
-import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:flutter/material.dart';
 
 import '../../../theme/theme.dart';
