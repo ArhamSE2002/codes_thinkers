@@ -20,7 +20,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
   late List<String> _filteredEmployees;
   final TextEditingController _searchController = TextEditingController();
   String selectedDate = 'Select date';
-  
+
   @override
   void initState() {
     super.initState();
@@ -136,9 +136,8 @@ class _AttendancestudentState extends State<Attendancestudent> {
       initialDate: DateTime.now(),
       firstDate: DateTime(2020),
       lastDate: DateTime(2101),
-      
     );
-      
+
     if (picked != null) {
       setState(() {
         selectedDate = DateFormat('dd-MM-yyyy').format(picked);
@@ -149,7 +148,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    
+
     return BackgroundScaffold(
       body: Stack(children: [
         Column(
@@ -165,7 +164,8 @@ class _AttendancestudentState extends State<Attendancestudent> {
                   ),
                 ),
                 const SizedBox(width: 10),
-                Container(margin: const EdgeInsets.only(top: 40),
+                Container(
+                  margin: const EdgeInsets.only(top: 40),
                   child: const Text(
                     'Attendance',
                     style: TextStyle(
@@ -198,11 +198,10 @@ class _AttendancestudentState extends State<Attendancestudent> {
               height: 10,
             ),
             Container(
-               padding: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 16),
-                        margin: EdgeInsets.symmetric(
-                          horizontal: screenSize.width * 0.05,
-                        ), 
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 16),
+              margin: EdgeInsets.symmetric(
+                horizontal: screenSize.width * 0.05,
+              ),
               child: GestureDetector(
                 onTap: () => _selectDate(context),
                 child: Container(
@@ -313,7 +312,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                                 style: const TextStyle(
                                     fontSize: 24, color: Colors.white)),
                             const SizedBox(width: 35),
-                            Container(
+                            SizedBox(
                               height: screenSize.height * 0.1,
                               width: screenSize.height * 0.1,
                               child: ClipRRect(
@@ -345,7 +344,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                             ),
                             const Spacer(),
                             Padding(
-                               padding: const EdgeInsets.only(right: 65),
+                              padding: const EdgeInsets.only(right: 65),
                               child: ElevatedButton(
                                 onPressed: () =>
                                     _showStatusOptions(context, index),

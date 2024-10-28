@@ -1,5 +1,3 @@
-import 'package:codes_thinkers/screens/admin/attendance/newstaff.dart';
-import 'package:codes_thinkers/screens/admin/attendance/newstudent.dart';
 import 'package:codes_thinkers/screens/admin/students/new_studentfee.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -71,22 +69,6 @@ class _AttendanceState extends State<Attendancestd> {
                     child: SearchBar(
                       controller: _searchController,
                       hintText: 'Search...',
-                      // controller: _searchController,
-                      // decoration: InputDecoration(
-                      // hintText: 'Search...',
-                      //   filled: true,
-                      //   fillColor: const Color(0xff22406F),
-                      //   border: OutlineInputBorder(
-                      //     borderRadius: BorderRadius.circular(30),
-                      //   ),
-                      //   suffixIcon: Padding(
-                      //     padding: const EdgeInsets.all(8.0),
-                      //     child: IconButton(
-                      //       icon: const Icon(Icons.clear),
-                      //       onPressed: _toggleSearch,
-                      //     ),
-                      //   ),
-                      // ),
                     ),
                   ),
                 ),
@@ -220,8 +202,8 @@ class _AttendanceState extends State<Attendancestd> {
                 left: screenWidth * 0.1,
                 top: screenHeight * 0.47,
                 child: const Padding(
-                  padding: const EdgeInsets.only(top: 38),
-                  child: const CircleAvatar(
+                  padding: EdgeInsets.only(top: 38),
+                  child: CircleAvatar(
                     radius: 30,
                     backgroundImage: AssetImage('assets/images/avator.jpg'),
                   ),
@@ -365,7 +347,7 @@ class _AttendanceState extends State<Attendancestd> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Newstudent1(),
+                              builder: (context) => const Newstudent1(),
                             ));
                       },
                       icon: const CircleAvatar(
@@ -390,7 +372,7 @@ class _AttendanceState extends State<Attendancestd> {
 class HalfColoredRing extends StatelessWidget {
   final double size;
 
-  const HalfColoredRing({Key? key, this.size = 100}) : super(key: key);
+  const HalfColoredRing({super.key, this.size = 100});
 
   @override
   Widget build(BuildContext context) {

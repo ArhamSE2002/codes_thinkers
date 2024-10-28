@@ -47,7 +47,8 @@ class _StaffState extends State<Staff> {
                   ),
                 ),
                 const SizedBox(width: 10),
-                Container(  margin: const EdgeInsets.only(top: 30),
+                Container(
+                  margin: const EdgeInsets.only(top: 30),
                   child: const Text(
                     'Staff',
                     style: TextStyle(
@@ -68,7 +69,8 @@ class _StaffState extends State<Staff> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const NewStaff1()),
+                      MaterialPageRoute(
+                          builder: (context) => const NewStaff1()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -177,8 +179,8 @@ class _StaffState extends State<Staff> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 10),
-                    const Text(
+                    SizedBox(height: 10),
+                    Text(
                       'Ali',
                       style: TextStyle(
                         fontSize: 30,
@@ -186,8 +188,8 @@ class _StaffState extends State<Staff> {
                         color: Colors.white,
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    const Padding(
+                    SizedBox(height: 10),
+                    Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.0),
                       child: Text(
                         "web developer",
@@ -199,7 +201,7 @@ class _StaffState extends State<Staff> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -227,8 +229,8 @@ class _StaffState extends State<Staff> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 10),
-                    const Text(
+                    SizedBox(height: 10),
+                    Text(
                       'Amna',
                       style: TextStyle(
                         fontSize: 30,
@@ -236,8 +238,8 @@ class _StaffState extends State<Staff> {
                         color: Colors.white,
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    const Padding(
+                    SizedBox(height: 10),
+                    Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.0),
                       child: Text(
                         "App developer",
@@ -249,7 +251,7 @@ class _StaffState extends State<Staff> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20),
                   ],
                 ),
               ),

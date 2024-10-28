@@ -4,37 +4,47 @@ class Suggestions extends StatelessWidget {
   const Suggestions({super.key});
 
   void _showSurveyDialog(BuildContext context) {
-    
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: Color(0xff2F52A4),
+          backgroundColor: const Color(0xff2F52A4),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                icon: const Icon(Icons.close,color: Colors.white,),
+                icon: const Icon(
+                  Icons.close,
+                  color: Colors.white,
+                ),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
-              const Text('How Can We Improve?',style: TextStyle(color: Colors.white),),
+              const Text(
+                'How Can We Improve?',
+                style: TextStyle(color: Colors.white),
+              ),
               const SizedBox(width: 48),
             ],
           ),
           content: const TextField(
             decoration: InputDecoration(
-              hintText: 'Enter your suggestions here...',fillColor: Colors.white
-            ),
+                hintText: 'Enter your suggestions here...',
+                fillColor: Colors.white),
           ),
           actions: [
-            TextButton(style: ElevatedButton.styleFrom(backgroundColor: Color(0xffFDD51D)),
+            TextButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xffFDD51D)),
               onPressed: () {
                 Navigator.of(context).pop();
                 _showSubmissionDialog(context);
               },
-              child: const Text('Post',style: TextStyle(color: Colors.black),),
+              child: const Text(
+                'Post',
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ],
         );
@@ -42,42 +52,41 @@ class Suggestions extends StatelessWidget {
     );
   }
 
-  
   void _showSubmissionDialog(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: Color(0xff2F52A4),
-        title: const Column(
-          children: [
-             Icon(
-              Icons.check_circle,
-              color: Color(0xffFDD51D),
-              size: 60,
-            ),
-             SizedBox(height: 10),
-            Text(
-              'Submitted Successfully!',
-              style: TextStyle(color: Colors.white),
-              textAlign: TextAlign.center,
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: const Color(0xff2F52A4),
+          title: const Column(
+            children: [
+              Icon(
+                Icons.check_circle,
+                color: Color(0xffFDD51D),
+                size: 60,
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Submitted Successfully!',
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xffFDD51D)),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK', style: TextStyle(color: Colors.black)),
             ),
           ],
-        ),
-        actions: [
-          TextButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Color(0xffFDD51D)),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('OK', style: TextStyle(color: Colors.black)),
-          ),
-        ],
-      );
-    },
-  );
-}
-
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +116,7 @@ class Suggestions extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'Search...',
                   filled: true,
-                  fillColor: Color(0xff143270),
+                  fillColor: const Color(0xff143270),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                     borderSide: BorderSide.none,
@@ -117,10 +126,10 @@ class Suggestions extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Center(
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: Card(
-                    color: Color(0xff143270),
+                    color: const Color(0xff143270),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -151,7 +160,7 @@ class Suggestions extends StatelessWidget {
                           const SizedBox(height: 10),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xffFDD51D)),
+                                backgroundColor: const Color(0xffFDD51D)),
                             onPressed: () => _showSurveyDialog(context),
                             child: const Text(
                               'Take Survey',
@@ -169,7 +178,7 @@ class Suggestions extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: Card(
-                    color: Color(0xff143270),
+                    color: const Color(0xff143270),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -200,7 +209,7 @@ class Suggestions extends StatelessWidget {
                           const SizedBox(height: 10),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xffFDD51D)),
+                                backgroundColor: const Color(0xffFDD51D)),
                             onPressed: () => _showSurveyDialog(context),
                             child: const Text(
                               'Take Survey',
@@ -215,8 +224,9 @@ class Suggestions extends StatelessWidget {
               ),
               const SizedBox(
                 height: 5,
-              ),Center(child: 
-              IconButton(
+              ),
+              Center(
+                  child: IconButton(
                 onPressed: () {},
                 icon: const CircleAvatar(
                   backgroundColor: Color(0xFFFDD51D),
@@ -227,8 +237,8 @@ class Suggestions extends StatelessWidget {
                     size: 30,
                   ),
                 ),
-              )
-          )],
+              ))
+            ],
           ),
         ),
       ),

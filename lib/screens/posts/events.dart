@@ -1,7 +1,5 @@
-
 import 'package:codes_thinkers/screens/posts/new_event.dart';
 import 'package:flutter/material.dart';
-
 
 class Events extends StatelessWidget {
   const Events({super.key});
@@ -17,19 +15,21 @@ class Events extends StatelessWidget {
           ),
         ),
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.only(
+            top: 40,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Events',
+                '   Events',
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 15),
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Search Event...',
@@ -42,12 +42,15 @@ class Events extends StatelessWidget {
                   suffixIcon: const Icon(Icons.search),
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.only(left: 320),
+                padding: const EdgeInsets.only(left: 220),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => const NewEventScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NewEventScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xffFDD51D),
@@ -55,21 +58,23 @@ class Events extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  child: const Text('Add New',),
+                  child: const Text(
+                    'Add New',
+                  ),
                 ),
               ),
-              const SizedBox(height: 16),
-             const EventCard(
+              const SizedBox(height: 12),
+              const EventCard(
                 name: 'Ali Hassan',
                 rollNumber: 'Reg# 101',
                 imageUrl: 'assets/images/image.jpg',
               ),
-            const  EventCard(
+              const EventCard(
                 name: 'Shahnawaz',
                 rollNumber: 'Reg# 102',
                 imageUrl: 'assets/images/image.jpg',
               ),
-             const EventCard(
+              const EventCard(
                 name: 'Mamoon Rasheed',
                 rollNumber: 'Reg# 103',
                 imageUrl: 'assets/images/image.jpg',
@@ -88,15 +93,16 @@ class EventCard extends StatelessWidget {
   final String imageUrl;
 
   const EventCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.rollNumber,
     required this.imageUrl,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Card(color: Color(0xff132F69),
+    return Card(
+      color: const Color(0xff132F69),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
       ),
@@ -122,7 +128,8 @@ class EventCard extends StatelessWidget {
                         Text(
                           name,
                           style: const TextStyle(
-                            fontSize: 18,color: Colors.white,
+                            fontSize: 18,
+                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -137,12 +144,34 @@ class EventCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                IconButton(
-                  icon: const Icon(Icons.more_vert,color: Colors.white,),
-                  onPressed: () {
-                  
-                  },
-                ),
+                PopupMenuButton<String>(
+                    icon: const Icon(
+                      Icons.more_vert,
+                    ),
+                    itemBuilder: (BuildContext context) =>
+                        <PopupMenuEntry<String>>[
+                          const PopupMenuItem<String>(
+                            value: 'Delete',
+                            child: Row(
+                              children: [
+                                Icon(Icons.delete, color: Colors.blue),
+                                SizedBox(width: 8),
+                                Text(
+                                  'Delete',
+                                ),
+                              ],
+                            ),
+                          ),
+                        ])
+                // IconButton(
+                //   icon: const Icon(
+                //     Icons.more_vert,
+                //     color: Colors.white,
+                //   ),
+                //   onPressed: () {
+
+                //   },
+                // ),
               ],
             ),
             const SizedBox(height: 10),
@@ -160,16 +189,15 @@ class EventCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 IconButton(
-                  icon: const Icon(Icons.thumb_up,color: Colors.white,),
-                  onPressed: () {
-                  
-                  },
+                  icon: const Icon(
+                    Icons.thumb_up,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {},
                 ),
                 IconButton(
-                  icon: const Icon(Icons.comment,color: Colors.white),
-                  onPressed: () {
-                   
-                  },
+                  icon: const Icon(Icons.comment, color: Colors.white),
+                  onPressed: () {},
                 ),
               ],
             ),

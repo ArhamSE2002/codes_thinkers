@@ -195,5 +195,5 @@ class _ProfileState extends State<Profile> {
 }
 
 void main() {
-  runApp(MaterialApp(home: Profile()));
+  runApp(const MaterialApp(home: Profile()));
 }

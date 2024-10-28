@@ -1,9 +1,7 @@
-
 import 'dart:io';
 import 'package:codes_thinkers/screens/posts/events.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
 
 class NewEventScreen extends StatefulWidget {
   const NewEventScreen({super.key});
@@ -31,21 +29,24 @@ class _NewEventScreenState extends State<NewEventScreen> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/screenbackground.jpg'), 
+            image: AssetImage('assets/images/screenbackground.jpg'),
             fit: BoxFit.cover,
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(16.0), 
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Add New Event',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+              Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: const Text(
+                  'Add New Event',
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
@@ -93,8 +94,8 @@ class _NewEventScreenState extends State<NewEventScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: TextField(
-                    minLines: 6, 
-                    maxLines: 10, 
+                    minLines: 6,
+                    maxLines: 10,
                     decoration: InputDecoration(
                       hintText: 'Type your description here...',
                       border: OutlineInputBorder(
@@ -111,12 +112,15 @@ class _NewEventScreenState extends State<NewEventScreen> {
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => Events()));
-                 
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Events()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xffFDD51D), 
-                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    backgroundColor: const Color(0xffFDD51D),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 10),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),

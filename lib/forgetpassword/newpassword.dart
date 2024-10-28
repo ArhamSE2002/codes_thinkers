@@ -13,11 +13,13 @@ class Forgetscreen1 extends StatefulWidget {
 class _Forgetscreen1State extends State<Forgetscreen1> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _newPasswordController = TextEditingController();
-  final TextEditingController _confirmedPasswordController = TextEditingController();
-  final TextEditingController _currentPasswordController = TextEditingController();
-   bool _obscureText = true;
-    bool _obscureText1 = true;
-     bool _obscureText2 = true;
+  final TextEditingController _confirmedPasswordController =
+      TextEditingController();
+  final TextEditingController _currentPasswordController =
+      TextEditingController();
+  bool _obscureText = true;
+  bool _obscureText1 = true;
+  bool _obscureText2 = true;
   @override
   void dispose() {
     _newPasswordController.dispose();
@@ -59,69 +61,66 @@ class _Forgetscreen1State extends State<Forgetscreen1> {
                 obscuringCharacter: '.',
                 decoration: InputDecoration(
                   labelText: 'Enter Current password',
-                  border: const OutlineInputBorder(), 
+                  border: const OutlineInputBorder(),
                   suffixIcon: IconButton(
-          icon: Icon(
-            _obscureText ? Icons.visibility : Icons.visibility_off,size: 15,
-          ),
-          onPressed: () {
-
-            setState(() {
-              _obscureText = !_obscureText;
-            });
-          },
-        ),
+                    icon: Icon(
+                      _obscureText ? Icons.visibility : Icons.visibility_off,
+                      size: 15,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                  ),
                 ),
               ),
               const SizedBox(height: 5),
-              
-
-     TextFormField(
-      controller: _newPasswordController,
-      obscureText: _obscureText1, 
-      obscuringCharacter: '.',
-      maxLength: 8,
-      decoration: InputDecoration(
-        labelText: 'Enter new password',
-        border: const OutlineInputBorder(),
-        suffixIcon: IconButton(
-          icon: Icon(
-            _obscureText1 ? Icons.visibility : Icons.visibility_off, 
-            size: 15,
-          ),
-          onPressed: () {
-            setState(() {
-              _obscureText1 = !_obscureText1;
-            });
-          },
-        ),
-      ),
-    ),
-        
+              TextFormField(
+                controller: _newPasswordController,
+                obscureText: _obscureText1,
+                obscuringCharacter: '.',
+                maxLength: 8,
+                decoration: InputDecoration(
+                  labelText: 'Enter new password',
+                  border: const OutlineInputBorder(),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscureText1 ? Icons.visibility : Icons.visibility_off,
+                      size: 15,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureText1 = !_obscureText1;
+                      });
+                    },
+                  ),
+                ),
+              ),
               const SizedBox(height: 5),
               TextFormField(
                 controller: _confirmedPasswordController,
-                 obscureText: _obscureText2,
+                obscureText: _obscureText2,
                 obscuringCharacter: '.',
                 maxLength: 8,
                 decoration: InputDecoration(
                   labelText: 'Confirmed pasword',
                   border: const OutlineInputBorder(),
-                    suffixIcon: IconButton(
-          icon: Icon(
-            _obscureText2 ? Icons.visibility : Icons.visibility_off,size: 15,
-          ),
-          onPressed: () {
-
-            setState(() {
-              _obscureText2 = !_obscureText2;
-            });
-          },
-        ),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscureText2 ? Icons.visibility : Icons.visibility_off,
+                      size: 15,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureText2 = !_obscureText2;
+                      });
+                    },
+                  ),
                 ),
               ),
               const SizedBox(height: 5),
-               ElevatedButton(
+              ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     Navigator.push(
@@ -135,7 +134,7 @@ class _Forgetscreen1State extends State<Forgetscreen1> {
                 style: ElevatedButton.styleFrom(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                  backgroundColor: Color(0xFFFDD51D),
+                  backgroundColor: const Color(0xFFFDD51D),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -144,7 +143,8 @@ class _Forgetscreen1State extends State<Forgetscreen1> {
                   'Change password',
                   style: TextStyle(fontSize: 15),
                 ),
-              ),const SizedBox(height: 10),
+              ),
+              const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
@@ -176,6 +176,3 @@ class _Forgetscreen1State extends State<Forgetscreen1> {
     );
   }
 }
-
-
-

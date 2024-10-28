@@ -58,7 +58,8 @@ class _NewstaffState extends State<Newstaff> {
                       size: 20.0,
                     ),
                   ),
-                  Container( margin: const EdgeInsets.only(top: 30),
+                  Container(
+                    margin: const EdgeInsets.only(top: 30),
                     child: const Text(
                       'Add New Staff',
                       style: TextStyle(
@@ -163,7 +164,7 @@ class _NewstaffState extends State<Newstaff> {
                 style: ElevatedButton.styleFrom(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                  backgroundColor: Color(0xFFFDD51D),
+                  backgroundColor: const Color(0xFFFDD51D),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),

@@ -3,7 +3,6 @@ import 'package:codes_thinkers/screens/admin/attendance/attendancestudent.dart';
 import 'package:codes_thinkers/screens/admin/attendance/newstaff.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:path/path.dart';
 
 class Attendancestaff extends StatefulWidget {
   const Attendancestaff({super.key});
@@ -160,23 +159,24 @@ class _AttendancestaffState extends State<Attendancestaff> {
             Row(
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: 40),
+                  margin: const EdgeInsets.only(top: 40),
                   child: const Icon(
                     Icons.arrow_back,
                     color: Colors.white,
                     size: 20.0,
                   ),
                 ),
-                Container(  margin: EdgeInsets.only(top: 40),
+                Container(
+                    margin: const EdgeInsets.only(top: 40),
                     child: const Text(
-                  'Attendance',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Roboto',
-                  ),
-                )),
+                      'Attendance',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Roboto',
+                      ),
+                    )),
               ],
             ),
             Container(
@@ -199,12 +199,11 @@ class _AttendancestaffState extends State<Attendancestaff> {
             const SizedBox(
               height: 5,
             ),
-          Container(
-              padding: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 16),
-                        margin: EdgeInsets.symmetric(
-                          horizontal: screenWidth * 0.05,
-                        ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 16),
+              margin: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.05,
+              ),
               child: GestureDetector(
                 onTap: () => _selectDate(context),
                 child: Container(
@@ -227,8 +226,11 @@ class _AttendancestaffState extends State<Attendancestaff> {
                           ),
                           Text(
                             selectedDate,
-                            style: const TextStyle(color: Colors.white, fontSize: 16,
-                              overflow: TextOverflow.ellipsis,),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           )
                         ],
                       ),
@@ -241,8 +243,6 @@ class _AttendancestaffState extends State<Attendancestaff> {
                 ),
               ),
             ),
-
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -292,7 +292,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
                     )),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: _filteredEmployees.length,
@@ -300,11 +300,10 @@ class _AttendancestaffState extends State<Attendancestaff> {
                   return Column(children: [
                     Container(
                       padding: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 16),
-                        margin: EdgeInsets.symmetric(
-                          horizontal: screenWidth * 0.05,
-                        ),
-                   
+                          vertical: 15, horizontal: 16),
+                      margin: EdgeInsets.symmetric(
+                        horizontal: screenWidth * 0.05,
+                      ),
                       decoration: BoxDecoration(
                         color: const Color(0xFF13316A),
                         borderRadius: BorderRadius.circular(8),
@@ -322,7 +321,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
                               style: const TextStyle(
                                   fontSize: 24, color: Colors.white)),
                           SizedBox(width: screenWidth * 0.08),
-                          Container(
+                          SizedBox(
                             height: screenHeight * 0.12,
                             width: screenWidth * 0.2,
                             child: ClipRRect(
@@ -333,7 +332,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
                               ),
                             ),
                           ),
-                          const SizedBox(width:10),
+                          const SizedBox(width: 10),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -342,22 +341,22 @@ class _AttendancestaffState extends State<Attendancestaff> {
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white)),
-                               SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               const Text('RegNo#1',
                                   style: TextStyle(
                                       fontSize: 18, color: Colors.white)),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               const Text('Graphic Designer',
                                   style: TextStyle(
                                       fontSize: 14, color: Colors.white)),
                             ],
                           ),
                           const Spacer(),
-                          
                           Padding(
-                             padding: const EdgeInsets.only(right: 65),
+                            padding: const EdgeInsets.only(right: 65),
                             child: ElevatedButton(
-                              onPressed: () => _showStatusOptions(context, index),
+                              onPressed: () =>
+                                  _showStatusOptions(context, index),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
                                     _getButtonColor(_statuses[index]),
@@ -371,8 +370,8 @@ class _AttendancestaffState extends State<Attendancestaff> {
                           ),
                         ],
                       ),
-                    ),]
-                  );
+                    ),
+                  ]);
                 },
               ),
             ),

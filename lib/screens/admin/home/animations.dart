@@ -38,7 +38,7 @@ class _FullCircleLoadingState extends State<FullCircleLoading>
       builder: (context, child) {
         return CustomPaint(
           painter: FullCirclePainter(_animation.value),
-          child: SizedBox(
+          child: const SizedBox(
             width: 50,
             height: 50,
           ),
