@@ -25,13 +25,43 @@ class Suggestions extends StatelessWidget {
                 'How Can We Improve?',
                 style: TextStyle(color: Colors.white),
               ),
-              const SizedBox(width: 48),
+              const SizedBox(width: 4),
             ],
           ),
-          content: const TextField(
-            decoration: InputDecoration(
-                hintText: 'Enter your suggestions here...',
-                fillColor: Colors.white),
+          content: const SizedBox(
+            width: 400,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Students:',
+                  style: TextStyle(color: Colors.white),
+                ),
+                const TextField(
+                  maxLines: 2,
+                  decoration: InputDecoration(
+                    hintText: 'Enter your suggestions here...',
+                    fillColor: Colors.white,
+                    filled: true,
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Staff:',
+                  style: TextStyle(color: Colors.white),
+                ),
+                const TextField(
+                  maxLines: 2,
+                  decoration: InputDecoration(
+                    hintText: 'Enter your suggestions here...',
+                    fillColor: Colors.white,
+                    filled: true,
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ],
+            ),
           ),
           actions: [
             TextButton(
@@ -103,12 +133,15 @@ class Suggestions extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Suggestions',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+              const Padding(
+                padding: EdgeInsets.only(top: 35),
+                child: Text(
+                  'Suggestions',
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               const SizedBox(height: 20),

@@ -308,49 +308,59 @@ class _AttendancestudentState extends State<Attendancestudent> {
                         ),
                         child: Row(
                           children: [
-                            Text('${1 + index}',
-                                style: const TextStyle(
-                                    fontSize: 24, color: Colors.white)),
-                            const SizedBox(width: 35),
-                            SizedBox(
-                              height: screenSize.height * 0.1,
-                              width: screenSize.height * 0.1,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(15),
-                                child: Image.asset(
-                                  'assets/images/churail.jpg',
-                                  fit: BoxFit.fill,
+                            Expanded(
+                              flex: 1,
+                              child: Text('${1 + index}',
+                                  style: const TextStyle(
+                                      fontSize: 24, color: Colors.white)),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              flex: 2,
+                              child: Container(
+                                height: screenSize.height * 0.1,
+                                width: screenSize.height * 0.1,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Image.asset(
+                                    'assets/images/churail.jpg',
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ),
                             ),
                             const SizedBox(width: 10),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(_filteredEmployees[index],
-                                    style: const TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                const SizedBox(height: 20),
-                                const Text('RegNo#1',
-                                    style: TextStyle(
-                                        fontSize: 18, color: Colors.white)),
-                                const SizedBox(height: 20),
-                                const Text('Graphic Designer',
-                                    style: TextStyle(
-                                        fontSize: 14, color: Colors.white)),
-                              ],
+                            Expanded(
+                              flex: 4,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(_filteredEmployees[index],
+                                      style: const TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  const SizedBox(height: 5),
+                                  const Text('RegNo#1',
+                                      style: TextStyle(
+                                          fontSize: 18, color: Colors.white)),
+                                  const SizedBox(height: 5),
+                                  const Text('Graphic Designer',
+                                      style: TextStyle(
+                                          fontSize: 14, color: Colors.white)),
+                                ],
+                              ),
                             ),
-                            const Spacer(),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 65),
+                            Expanded(
+                              flex: 2,
                               child: ElevatedButton(
                                 onPressed: () =>
                                     _showStatusOptions(context, index),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor:
                                       _getButtonColor(_statuses[index]),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8), // Adjust padding
                                 ),
                                 child: Text(
                                   _statuses[index],

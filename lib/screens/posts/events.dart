@@ -163,15 +163,6 @@ class EventCard extends StatelessWidget {
                             ),
                           ),
                         ])
-                // IconButton(
-                //   icon: const Icon(
-                //     Icons.more_vert,
-                //     color: Colors.white,
-                //   ),
-                //   onPressed: () {
-
-                //   },
-                // ),
               ],
             ),
             const SizedBox(height: 10),

@@ -38,9 +38,9 @@ class _NewEventScreenState extends State<NewEventScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 30),
-                child: const Text(
+              const Padding(
+                padding: EdgeInsets.only(top: 30),
+                child: Text(
                   'Add New Event',
                   style: TextStyle(
                     fontSize: 25,
@@ -86,24 +86,26 @@ class _NewEventScreenState extends State<NewEventScreen> {
                 ),
               ),
               const SizedBox(height: 6),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                elevation: 4,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: TextField(
-                    minLines: 6,
-                    maxLines: 10,
-                    decoration: InputDecoration(
-                      hintText: 'Type your description here...',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide.none,
+              Expanded(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  elevation: 4,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextField(
+                      minLines: 6,
+                      maxLines: null,
+                      decoration: InputDecoration(
+                        hintText: 'Type your description here...',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          borderSide: BorderSide.none,
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey[200],
                       ),
-                      filled: true,
-                      fillColor: Colors.grey[200],
                     ),
                   ),
                 ),
@@ -113,14 +115,16 @@ class _NewEventScreenState extends State<NewEventScreen> {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Events()));
+                      context,
+                      MaterialPageRoute(builder: (context) => const Events()),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xffFDD51D),
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 10),
+                      horizontal: 30,
+                      vertical: 10,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),

@@ -154,147 +154,146 @@ class _AttendancestaffState extends State<Attendancestaff> {
 
     return BackgroundScaffold(
       body: Stack(children: [
-        Column(
-          children: [
-            Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 40),
-                  child: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                    size: 20.0,
-                  ),
+        Column(children: [
+          Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(top: 40),
+                child: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                  size: 20.0,
                 ),
-                Container(
-                    margin: const EdgeInsets.only(top: 40),
+              ),
+              Container(
+                  margin: const EdgeInsets.only(top: 40),
+                  child: const Text(
+                    'Attendance',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Roboto',
+                    ),
+                  )),
+            ],
+          ),
+          Container(
+            margin: EdgeInsets.only(top: screenHeight * 0.02),
+            width: screenWidth * 0.9,
+            child: TextField(
+              controller: _searchController,
+              decoration: const InputDecoration(
+                fillColor: Color(0xFF133B7A),
+                contentPadding: EdgeInsets.all(12.5),
+                hintText: 'Search...',
+                hintStyle: TextStyle(color: Colors.black),
+                border: InputBorder.none,
+                prefixIcon: Icon(Icons.search, color: Colors.black, size: 20),
+              ),
+              style: const TextStyle(color: Colors.black),
+              cursorColor: Colors.black,
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 16),
+            margin: EdgeInsets.symmetric(
+              horizontal: screenWidth * 0.05,
+            ),
+            child: GestureDetector(
+              onTap: () => _selectDate(context),
+              child: Container(
+                height: 30,
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                decoration: BoxDecoration(
+                    color: const Color(0xFF133B7A),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.calendar_month,
+                          color: Colors.white,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          selectedDate,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        )
+                      ],
+                    ),
+                    const Icon(
+                      Icons.arrow_drop_down,
+                      color: Colors.white,
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                  margin: EdgeInsets.only(top: screenHeight * 0.02),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Attendancestudent()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFFDD51D),
+                        foregroundColor: Colors.white),
                     child: const Text(
-                      'Attendance',
+                      "Student",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
                         fontFamily: 'Roboto',
                       ),
-                    )),
-              ],
-            ),
-            Container(
-              margin: EdgeInsets.only(top: screenHeight * 0.02),
-              width: screenWidth * 0.9,
-              child: TextField(
-                controller: _searchController,
-                decoration: const InputDecoration(
-                  fillColor: Color(0xFF133B7A),
-                  contentPadding: EdgeInsets.all(12.5),
-                  hintText: 'Search...',
-                  hintStyle: TextStyle(color: Colors.black),
-                  border: InputBorder.none,
-                  prefixIcon: Icon(Icons.search, color: Colors.black, size: 20),
-                ),
-                style: const TextStyle(color: Colors.black),
-                cursorColor: Colors.black,
-              ),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 16),
-              margin: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.05,
-              ),
-              child: GestureDetector(
-                onTap: () => _selectDate(context),
-                child: Container(
-                  height: 30,
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  decoration: BoxDecoration(
-                      color: const Color(0xFF133B7A),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.calendar_month,
-                            color: Colors.white,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            selectedDate,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          )
-                        ],
-                      ),
-                      const Icon(
-                        Icons.arrow_drop_down,
+                    ),
+                  )),
+              Container(
+                  margin: EdgeInsets.only(top: screenHeight * 0.02),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Attendancestaff()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFFDD51D),
+                        foregroundColor: Colors.white),
+                    child: const Text(
+                      "Staff",
+                      style: TextStyle(
                         color: Colors.white,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                    margin: EdgeInsets.only(top: screenHeight * 0.02),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Attendancestudent()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFFDD51D),
-                          foregroundColor: Colors.white),
-                      child: const Text(
-                        "Student",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontFamily: 'Roboto',
-                        ),
+                        fontSize: 20,
+                        fontFamily: 'Roboto',
                       ),
-                    )),
-                Container(
-                    margin: EdgeInsets.only(top: screenHeight * 0.02),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Attendancestaff()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFFDD51D),
-                          foregroundColor: Colors.white),
-                      child: const Text(
-                        "Staff",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontFamily: 'Roboto',
-                        ),
-                      ),
-                    )),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Expanded(
-              child: ListView.builder(
+                    ),
+                  )),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Expanded(
+            child: ListView.builder(
                 itemCount: _filteredEmployees.length,
                 itemBuilder: (context, index) {
                   return Column(children: [
@@ -315,85 +314,78 @@ class _AttendancestaffState extends State<Attendancestaff> {
                           )
                         ],
                       ),
-                      child: Row(
-                        children: [
-                          Text('${1 + index}',
-                              style: const TextStyle(
-                                  fontSize: 24, color: Colors.white)),
-                          SizedBox(width: screenWidth * 0.08),
-                          SizedBox(
-                            height: screenHeight * 0.12,
-                            width: screenWidth * 0.2,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: Image.asset(
-                                'assets/images/motaoo.jpg',
-                                fit: BoxFit.fill,
-                              ),
+                      child: Row(children: [
+                        Text('${1 + index}',
+                            style: const TextStyle(
+                                fontSize: 24, color: Colors.white)),
+                        SizedBox(width: screenWidth * 0.08),
+                        SizedBox(
+                          height: screenHeight * 0.12,
+                          width: screenWidth * 0.2,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.asset(
+                              'assets/images/motaoo.jpg',
+                              fit: BoxFit.fill,
                             ),
                           ),
-                          const SizedBox(width: 10),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(_filteredEmployees[index],
-                                  style: const TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                              const SizedBox(height: 20),
-                              const Text('RegNo#1',
-                                  style: TextStyle(
-                                      fontSize: 18, color: Colors.white)),
-                              const SizedBox(height: 20),
-                              const Text('Graphic Designer',
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.white)),
-                            ],
-                          ),
-                          const Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 65),
+                        ),
+                        const SizedBox(width: 10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(_filteredEmployees[index],
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            const SizedBox(height: 20),
+                            const Text('RegNo#1',
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.white)),
+                            const SizedBox(height: 20),
+                            const Text('Graphic Designer',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.white)),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              right: 10), // Reduced padding for responsiveness
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(
+                              minWidth: screenWidth *
+                                  0.2, // Minimum width relative to screen size
+                              maxWidth: screenWidth *
+                                  0.25, // Maximum width relative to screen size
+                            ),
                             child: ElevatedButton(
                               onPressed: () =>
                                   _showStatusOptions(context, index),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
                                     _getButtonColor(_statuses[index]),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal:
+                                        8), // Control padding inside the button
                               ),
-                              child: Text(
-                                _statuses[index],
-                                style: TextStyle(
-                                    color: _getTextColor(_statuses[index])),
+                              child: FittedBox(
+                                // Ensures text fits within button without overflow
+                                child: Text(
+                                  _statuses[index],
+                                  style: TextStyle(
+                                      color: _getTextColor(_statuses[index])),
+                                ),
                               ),
                             ),
                           ),
-                        ],
-                      ),
-                    ),
+                        ),
+                      ]),
+                    )
                   ]);
-                },
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Newstaff()),
-                );
-              },
-              icon: const CircleAvatar(
-                backgroundColor: Color(0xFFFDD51D),
-                radius: 30,
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,
-                  size: 30,
-                ),
-              ),
-            )
-          ],
-        ),
+                }),
+          ),
+        ]),
       ]),
     );
   }
