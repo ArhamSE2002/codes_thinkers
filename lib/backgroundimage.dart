@@ -22,11 +22,10 @@ class BackgroundScaffold extends StatelessWidget {
             fit: BoxFit.fill,
           ),
         ),
-<<<<<<< HEAD
+
         child: body,
-=======
-         child: body, 
->>>>>>> 6995bd291b1ba97e6e0c4e6d691e2151bae355ee
+
+      
       ),
     );
   }
