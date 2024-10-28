@@ -3,6 +3,10 @@ import 'package:codes_thinkers/screens/admin/attendance/attendancestudent.dart';
 import 'package:codes_thinkers/screens/admin/attendance/newstaff.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 501047a95197d6ac6f22ccc07ddbc5909370ed7d
 
 class Attendancestaff extends StatefulWidget {
   const Attendancestaff({super.key});
@@ -234,6 +238,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
                           )
                         ],
                       ),
+<<<<<<< HEAD
                       const Icon(
                         Icons.arrow_drop_down,
                         color: Colors.white,
@@ -371,6 +376,14 @@ class _AttendancestaffState extends State<Attendancestaff> {
                         //           }
 
                         child: Row(
+=======
+
+                     
+                      
+                            
+                    
+                          child: Row(
+>>>>>>> 501047a95197d6ac6f22ccc07ddbc5909370ed7d
                           children: [
                             Expanded(
                               flex: 1,
@@ -382,12 +395,12 @@ class _AttendancestaffState extends State<Attendancestaff> {
                             Expanded(
                               flex: 2,
                               child: Container(
-                                height: screenHeight * 0.1,
-                                width: screenWidth * 0.1,
+                                height:  screenHeight* 0.1,
+                                width: screenHeight * 0.1,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
                                   child: Image.asset(
-                                    'assets/images/motaoo.jpg',
+                                    'assets/images/churail.jpg',
                                     fit: BoxFit.fill,
                                   ),
                                 ),
@@ -436,12 +449,10 @@ class _AttendancestaffState extends State<Attendancestaff> {
                           ],
                         ),
                       ),
-                    ],
-                  );
-                },
-              ),
-            ),
-            IconButton(
+                    
+                  
+                
+               IconButton(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -457,6 +468,7 @@ class _AttendancestaffState extends State<Attendancestaff> {
                   size: 30,
                 ),
               ),
+<<<<<<< HEAD
             )
           ],
         ),
@@ -464,3 +476,13 @@ class _AttendancestaffState extends State<Attendancestaff> {
     );
   }
 }
+=======
+            )]);
+  }))])]));
+          
+  }}
+
+                           
+                  
+    
+>>>>>>> 501047a95197d6ac6f22ccc07ddbc5909370ed7d
