@@ -352,50 +352,39 @@ class _AttendancestaffState extends State<Attendancestaff> {
                                       fontSize: 14, color: Colors.white)),
                             ],
                           ),
-                          const Spacer(),
-                          
-                          Padding(
-                             padding: const EdgeInsets.only(right: 65),
-                            child: ElevatedButton(
-                              onPressed: () => _showStatusOptions(context, index),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    _getButtonColor(_statuses[index]),
-                              ),
-                              child: Text(
-                                _statuses[index],
-                                style: TextStyle(
-                                    color: _getTextColor(_statuses[index])),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),]
-                  );
-                },
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Newstaff()),
-                );
-              },
-              icon: const CircleAvatar(
-                backgroundColor: Color(0xFFFDD51D),
-                radius: 30,
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,
-                  size: 30,
-                ),
-              ),
-            )
-          ],
+                          const Spacer(),Padding(
+  padding: const EdgeInsets.only(right: 10), // Reduced padding for responsiveness
+  child: ConstrainedBox(
+    constraints: BoxConstraints(
+      minWidth: screenWidth * 0.2,  // Minimum width relative to screen size
+      maxWidth: screenWidth * 0.25, // Maximum width relative to screen size
+    ),
+    child: ElevatedButton(
+      onPressed: () => _showStatusOptions(context, index),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: _getButtonColor(_statuses[index]),
+        padding: const EdgeInsets.symmetric(horizontal: 8), // Control padding inside the button
+      ),
+      child: FittedBox( // Ensures text fits within button without overflow
+        child: Text(
+          _statuses[index],
+          style: TextStyle(color: _getTextColor(_statuses[index])),
         ),
+      ),
+    ),
+  ),
+),
+
+                          
+          
+          
+        
       ]),
-    );
-  }
-}
+              )  ]
+              );}),),]),]),);
+              
+                }} 
+  
+  
+
+                  
