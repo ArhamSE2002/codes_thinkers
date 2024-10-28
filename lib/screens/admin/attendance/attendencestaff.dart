@@ -3,10 +3,7 @@ import 'package:codes_thinkers/screens/admin/attendance/attendancestudent.dart';
 import 'package:codes_thinkers/screens/admin/attendance/newstaff.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-<<<<<<< HEAD
-=======
 
->>>>>>> 6995bd291b1ba97e6e0c4e6d691e2151bae355ee
 
 class Attendancestaff extends StatefulWidget {
   const Attendancestaff({super.key});
@@ -318,125 +315,12 @@ class _AttendancestaffState extends State<Attendancestaff> {
                           )
                         ],
                       ),
-<<<<<<< HEAD
-                      child: Row(children: [
-                        Text('${1 + index}',
-                            style: const TextStyle(
-                                fontSize: 24, color: Colors.white)),
-                        SizedBox(width: screenWidth * 0.08),
-                        SizedBox(
-                          height: screenHeight * 0.12,
-                          width: screenWidth * 0.2,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image.asset(
-                              'assets/images/motaoo.jpg',
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(_filteredEmployees[index],
-                                style: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            const SizedBox(height: 20),
-                            const Text('RegNo#1',
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.white)),
-                            const SizedBox(height: 20),
-                            const Text('Graphic Designer',
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.white)),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              right: 10), // Reduced padding for responsiveness
-                          child: ConstrainedBox(
-                            constraints: BoxConstraints(
-                              minWidth: screenWidth *
-                                  0.2, // Minimum width relative to screen size
-                              maxWidth: screenWidth *
-                                  0.25, // Maximum width relative to screen size
-                            ),
-                            child: ElevatedButton(
-                              onPressed: () =>
-                                  _showStatusOptions(context, index),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    _getButtonColor(_statuses[index]),
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal:
-                                        8), // Control padding inside the button
-                              ),
-                              child: FittedBox(
-                                // Ensures text fits within button without overflow
-=======
-                      // child: Row(
-                      //   children: [
-                      //     Text('${1 + index}',
-                      //         style: const TextStyle(
-                      //             fontSize: 24, color: Colors.white)),
-                      //     SizedBox(width: screenWidth * 0.08),
-                      //     Container(
-                      //       height: screenHeight * 0.12,
-                      //       width: screenWidth * 0.2,
-                      //       child: ClipRRect(
-                      //         borderRadius: BorderRadius.circular(15),
-                      //         child: Image.asset(
-                      //           'assets/images/motaoo.jpg',
-                      //           fit: BoxFit.fill,
-                      //         ),
-                      //       ),
-                      //     ),
-                      //     const SizedBox(width:10),
-                      //     Column(
-                      //       crossAxisAlignment: CrossAxisAlignment.start,
-                      //       children: [
-                      //         Text(_filteredEmployees[index],
-                      //             style: const TextStyle(
-                      //                 fontSize: 20,
-                      //                 fontWeight: FontWeight.bold,
-                      //                 color: Colors.white)),
-                      //          SizedBox(height: 20),
-                      //         const Text('RegNo#1',
-                          //         style: TextStyle(
-                          //             fontSize: 18, color: Colors.white)),
-                          //     SizedBox(height: 20),
-                          //     const Text('Graphic Designer',
-                          //         style: TextStyle(
-                          //             fontSize: 14, color: Colors.white)),
-                          //   ],
-                          // ),
-                    
 
-                          
-          
-          
-        
-      // ]
-      // ),
-      // ) 
-      //  ]
-      //         );
-      //         }
-      //         ),
-      //         ),
-      //         ]
-      //         ),
-      //         ]
-      //         ),
-      //         );
-              
-      //           }
-      //           } 
-  
-   child: Row(
+                     
+                      
+                            
+                    
+                          child: Row(
                           children: [
                             Expanded(
                               flex: 1,
@@ -448,12 +332,12 @@ class _AttendancestaffState extends State<Attendancestaff> {
                             Expanded(
                               flex: 2,
                               child: Container(
-                                height: screenHeight * 0.1,
-                                width: screenWidth * 0.1,
+                                height:  screenHeight* 0.1,
+                                width: screenHeight * 0.1,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
                                   child: Image.asset(
-                                    'assets/images/motaoo.jpg',
+                                    'assets/images/churail.jpg',
                                     fit: BoxFit.fill,
                                   ),
                                 ),
@@ -492,7 +376,6 @@ class _AttendancestaffState extends State<Attendancestaff> {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 8), // Adjust padding
                                 ),
->>>>>>> 6995bd291b1ba97e6e0c4e6d691e2151bae355ee
                                 child: Text(
                                   _statuses[index],
                                   style: TextStyle(
@@ -500,29 +383,13 @@ class _AttendancestaffState extends State<Attendancestaff> {
                                 ),
                               ),
                             ),
-<<<<<<< HEAD
-                          ),
-                        ),
-                      ]),
-                    )
-                  ]);
-                }),
-          ),
-        ]),
-      ]),
-    );
-  }
-}
-=======
                           ],
                         ),
                       ),
-                    ],
-                  );
-                },
-              ),
-            ),
-            IconButton(
+                    
+                  
+                
+               IconButton(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -538,15 +405,11 @@ class _AttendancestaffState extends State<Attendancestaff> {
                   size: 30,
                 ),
               ),
-            )
-          ],
-        ),
-      ]
-      ),
-    );
-  }
-}
+            )]);
+  }))])]));
+          
+  }}
 
-
+                           
                   
->>>>>>> 6995bd291b1ba97e6e0c4e6d691e2151bae355ee
+    

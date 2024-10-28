@@ -51,12 +51,12 @@ class _NewstaffState extends State<Newstaff> {
             child: Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-<<<<<<< HEAD
+
                   image: AssetImage('assets/images/screenbackground.jpg'), // Set your background image path here
-=======
-                  image: AssetImage(
-                      'assets/images/background_image.png'), // Set your background image path here
->>>>>>> 7949f629f5eb34c53de85c86c95dc443ae96c9cf
+
+                  // image: AssetImage(
+                  //     'assets/images/background_image.png'), // Set your background image path here
+
                   fit: BoxFit.cover,
                 ),
               ),
