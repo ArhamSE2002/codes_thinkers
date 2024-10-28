@@ -10,7 +10,7 @@ class Suggestions extends StatelessWidget {
         return AlertDialog(
           backgroundColor: const Color(0xff2F52A4),
           title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               IconButton(
                 icon: const Icon(
@@ -21,9 +21,12 @@ class Suggestions extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
               ),
-              const Text(
-                'How Can We Improve?',
-                style: TextStyle(color: Colors.white),
+              Expanded(
+                child: const Text(
+                  'How To Improve?',
+                  style: TextStyle(color: Colors.white),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
               const SizedBox(width: 4),
             ],
