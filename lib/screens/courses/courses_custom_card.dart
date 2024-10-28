@@ -142,6 +142,7 @@
 // }
 //
 
+import 'package:codes_thinkers/screens/courses/courseimage.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardList extends StatefulWidget {
@@ -156,48 +157,59 @@ class _CustomCardListState extends State<CustomCardList> {
     {
       "image": "assets/images/app image.jpg",
       "title": "App Development",
-      "Course duration": "6 Month"
+      "Course duration": "6 Month",
+      "fee": "7000"
     },
     {
       "image": "assets/images/Digitalimage.jpg",
       "title": "Digital Market",
-      "Course duration": "6 Month"
+      "Course duration": "6 Month",
+      'fee': '6000'
     },
     {
       "image": "assets/images/web image.jpg",
       "title": "Web Development",
-      "Course duration": "6 Month"
+      "Course duration": "6 Month",
+      'fee': '7000'
     },
     {
       "image": "assets/images/ui designer.jpg",
       "title": "UX /&UI designer",
-      "Course duration": "6 Month"
+      "Course duration": "6 Month",
+      'fee': '6000'
     },
     {
       "image": "assets/images/seo.jpg",
       "title": "SEO",
-      "Course duration": "6 Month"
+      "Course duration": "6 Month",
+      'fee': '6000'
     },
     {
       "image": "assets/images/web hosting.jpg",
       "title": "Web Hosting",
-      "Course duration": "6 Month"
+      "Course duration": "6 Month",
+      'fee': '6000'
     },
-     {
+    {
       "image": "assets/images/wordpress.jpg",
       "title": "Word press",
-      "Course duration": "6 Month"
+      "Course duration": "6 Month",
+      'fee': '7000'
     },
   ];
 
-  void _showCourseDetails(String title, String Courseduration) {
+  void _showCourseDetails(String title, String duration, String fee) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Course Details'),
+          title: const Text(
+            'Course Details',
+            style: TextStyle(
+                fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+          ),
           content: Text(
-            '$title\nCourse duration: $Courseduration',
+            '\nTitle:$title\nCourse duration: $duration\nFee:$fee',
             style: const TextStyle(
                 color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
           ),
@@ -228,7 +240,6 @@ class _CustomCardListState extends State<CustomCardList> {
           child: Stack(
             clipBehavior: Clip.none,
             children: [
-              
               // Card with full image
               Card(
                 elevation: 5,
@@ -310,7 +321,7 @@ class _CustomCardListState extends State<CustomCardList> {
                   child: Column(children: [
                     ElevatedButton(
                       onPressed: () {
-                        print("Start button pressed");
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>const Courseimage()));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue,
@@ -342,8 +353,10 @@ class _CustomCardListState extends State<CustomCardList> {
                           size: 15,
                         ),
                         onPressed: () {
-                          _showCourseDetails(items[index]["title"]!,
-                              items[index]["Course duration"]!);
+                          _showCourseDetails(
+                              items[index]["title"]!,
+                              items[index]["Course duration"]!,
+                              items[index]["fee"]!);
                         },
                       ),
                     ),
