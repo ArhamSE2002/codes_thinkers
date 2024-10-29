@@ -61,7 +61,7 @@ class _CustomCardListState extends State<CustomCardList> {
       "Course duration": "6 Month",
       'fee': '6500 per month'
     }, {
-      "image": "assets/images/portfolio.jpg",
+      "image": "assets/images/portfolio.png",
       "title": "portfolio",
       "Course duration": "6 Month",
       'fee': '6500 per month'
@@ -71,7 +71,7 @@ class _CustomCardListState extends State<CustomCardList> {
       "Course duration": "6 Month",
       'fee': '6500 per month'
     }, {
-      "image": "assets/images/Flutter.jpg",
+      "image": "assets/images/Flutter.png",
       "title": "Flutter development",
       "Course duration": "6 Month",
       'fee': '6500 per month'
