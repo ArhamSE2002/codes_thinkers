@@ -146,118 +146,109 @@ class _AttendancestaffState extends State<Attendancestaff> {
       });
     }
   }
+@override
+Widget build(BuildContext context) {
+  final screenWidth = MediaQuery.of(context).size.width;
+  final screenHeight = MediaQuery.of(context).size.height;
 
-  @override
-  Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    return BackgroundScaffold(
-        body: Stack(children: [
-      Column(children: [
-        Row(
+  return BackgroundScaffold(
+    body: Stack(
+      children: [
+        Column(
           children: [
+            Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(top: 40),
+                  child: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                    size: 20.0,
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 40),
+                  child: const Text(
+                    'Attendance',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
+                ),
+              ],
+            ),
             Container(
-              margin: const EdgeInsets.only(top: 40),
-              child: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-                size: 20.0,
+              margin: EdgeInsets.only(top: screenHeight * 0.02),
+              width: screenWidth * 0.9,
+              child: TextField(
+                controller: _searchController,
+                decoration: const InputDecoration(
+                  fillColor: Color(0xFF133B7A),
+                  contentPadding: EdgeInsets.all(12.5),
+                  hintText: 'Search...',
+                  hintStyle: TextStyle(color: Colors.black),
+                  border: InputBorder.none,
+                  prefixIcon: Icon(Icons.search, color: Colors.black, size: 20),
+                ),
+                style: const TextStyle(color: Colors.black),
+                cursorColor: Colors.black,
               ),
             ),
+            const SizedBox(height: 5),
             Container(
-                margin: const EdgeInsets.only(top: 40),
-                child: const Text(
-                  'Attendance',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Roboto',
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 16),
+              margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+              child: GestureDetector(
+                onTap: () => _selectDate(context),
+                child: Container(
+                  height: 30,
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF133B7A),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                )),
-          ],
-        ),
-        Container(
-          margin: EdgeInsets.only(top: screenHeight * 0.02),
-          width: screenWidth * 0.9,
-          child: TextField(
-            controller: _searchController,
-            decoration: const InputDecoration(
-              fillColor: Color(0xFF133B7A),
-              contentPadding: EdgeInsets.all(12.5),
-              hintText: 'Search...',
-              hintStyle: TextStyle(color: Colors.black),
-              border: InputBorder.none,
-              prefixIcon: Icon(Icons.search, color: Colors.black, size: 20),
-            ),
-            style: const TextStyle(color: Colors.black),
-            cursorColor: Colors.black,
-          ),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 16),
-          margin: EdgeInsets.symmetric(
-            horizontal: screenWidth * 0.05,
-          ),
-          child: GestureDetector(
-            onTap: () => _selectDate(context),
-            child: Container(
-              height: 30,
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              decoration: BoxDecoration(
-                  color: const Color(0xFF133B7A),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(
-                        Icons.calendar_month,
-                        color: Colors.white,
+                      Row(
+                        children: [
+                          const Icon(Icons.calendar_month, color: Colors.white),
+                          const SizedBox(width: 10),
+                          Text(
+                            selectedDate,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        selectedDate,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      )
+                      const Icon(Icons.arrow_drop_down, color: Colors.white),
                     ],
                   ),
-                  const Icon(
-                    Icons.arrow_drop_down,
-                    color: Colors.white,
-                  )
-                ],
+                ),
               ),
             ),
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-                margin: EdgeInsets.only(top: screenHeight * 0.02),
-                child: ElevatedButton(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const Attendancestudent()),
+                        builder: (context) => const Attendancestudent(),
+                      ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFFDD51D),
-                      foregroundColor: Colors.white),
+                    backgroundColor: const Color(0xFFFDD51D),
+                    foregroundColor: Colors.white,
+                  ),
                   child: const Text(
                     "Student",
                     style: TextStyle(
@@ -266,20 +257,20 @@ class _AttendancestaffState extends State<Attendancestaff> {
                       fontFamily: 'Roboto',
                     ),
                   ),
-                )),
-            Container(
-                margin: EdgeInsets.only(top: screenHeight * 0.02),
-                child: ElevatedButton(
+                ),
+                ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const Attendancestaff()),
+                        builder: (context) => const Attendancestaff(),
+                      ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFFDD51D),
-                      foregroundColor: Colors.white),
+                    backgroundColor: const Color(0xFFFDD51D),
+                    foregroundColor: Colors.white,
+                  ),
                   child: const Text(
                     "Staff",
                     style: TextStyle(
@@ -288,19 +279,21 @@ class _AttendancestaffState extends State<Attendancestaff> {
                       fontFamily: 'Roboto',
                     ),
                   ),
-                )),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Expanded(
-            child: ListView.builder(
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Expanded(
+              child: ListView.builder(
                 itemCount: _filteredEmployees.length,
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 16),
+                          vertical: 15,
+                          horizontal: 16,
+                        ),
                         margin: EdgeInsets.symmetric(
                           horizontal: screenWidth * 0.05,
                         ),
@@ -319,9 +312,13 @@ class _AttendancestaffState extends State<Attendancestaff> {
                           children: [
                             Expanded(
                               flex: 1,
-                              child: Text('${1 + index}',
-                                  style: const TextStyle(
-                                      fontSize: 24, color: Colors.white)),
+                              child: Text(
+                                '${1 + index}',
+                                style: const TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                             const SizedBox(width: 10),
                             Expanded(
@@ -344,19 +341,30 @@ class _AttendancestaffState extends State<Attendancestaff> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(_filteredEmployees[index],
-                                      style: const TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white)),
+                                  Text(
+                                    _filteredEmployees[index],
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                   const SizedBox(height: 5),
-                                  const Text('RegNo#1',
-                                      style: TextStyle(
-                                          fontSize: 18, color: Colors.white)),
+                                  const Text(
+                                    'RegNo#1',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                   const SizedBox(height: 5),
-                                  const Text('Graphic Designer',
-                                      style: TextStyle(
-                                          fontSize: 14, color: Colors.white)),
+                                  const Text(
+                                    'Graphic Designer',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -374,35 +382,302 @@ class _AttendancestaffState extends State<Attendancestaff> {
                                 child: Text(
                                   _statuses[index],
                                   style: TextStyle(
-                                      color: _getTextColor(_statuses[index])),
+                                    color: _getTextColor(_statuses[index]),
+                                  ),
                                 ),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      IconButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Newstaff()),
-                          );
-                        },
-                        icon: const CircleAvatar(
-                          backgroundColor: Color(0xFFFDD51D),
-                          radius: 30,
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.white,
-                            size: 30,
-                          ),
-                        ),
-                      )
                     ],
                   );
-                }))
-      ])
-    ]));
-  }
+                },
+              ),
+            ),
+            // The "+" icon button after the ListView
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Newstaff(),
+                  ),
+                );
+              },
+              icon: const CircleAvatar(
+                backgroundColor: Color(0xFFFDD51D),
+                radius: 30,
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                  size: 30,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
 }
+}
+//   @override
+//   Widget build(BuildContext context) {
+//     final screenWidth = MediaQuery.of(context).size.width;
+//     final screenHeight = MediaQuery.of(context).size.height;
+
+//     return BackgroundScaffold(
+//         body: Stack(children: [
+//       Column(children: [
+//         Row(
+//           children: [
+//             Container(
+//               margin: const EdgeInsets.only(top: 40),
+//               child: const Icon(
+//                 Icons.arrow_back,
+//                 color: Colors.white,
+//                 size: 20.0,
+//               ),
+//             ),
+//             Container(
+//                 margin: const EdgeInsets.only(top: 40),
+//                 child: const Text(
+//                   'Attendance',
+//                   style: TextStyle(
+//                     color: Colors.white,
+//                     fontSize: 25,
+//                     fontWeight: FontWeight.bold,
+//                     fontFamily: 'Roboto',
+//                   ),
+//                 )),
+//           ],
+//         ),
+//         Container(
+//           margin: EdgeInsets.only(top: screenHeight * 0.02),
+//           width: screenWidth * 0.9,
+//           child: TextField(
+//             controller: _searchController,
+//             decoration: const InputDecoration(
+//               fillColor: Color(0xFF133B7A),
+//               contentPadding: EdgeInsets.all(12.5),
+//               hintText: 'Search...',
+//               hintStyle: TextStyle(color: Colors.black),
+//               border: InputBorder.none,
+//               prefixIcon: Icon(Icons.search, color: Colors.black, size: 20),
+//             ),
+//             style: const TextStyle(color: Colors.black),
+//             cursorColor: Colors.black,
+//           ),
+//         ),
+//         const SizedBox(
+//           height: 5,
+//         ),
+//         Container(
+//           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 16),
+//           margin: EdgeInsets.symmetric(
+//             horizontal: screenWidth * 0.05,
+//           ),
+//           child: GestureDetector(
+//             onTap: () => _selectDate(context),
+//             child: Container(
+//               height: 30,
+//               padding: const EdgeInsets.symmetric(horizontal: 15),
+//               decoration: BoxDecoration(
+//                   color: const Color(0xFF133B7A),
+//                   borderRadius: BorderRadius.circular(10)),
+//               child: Row(
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                   Row(
+//                     children: [
+//                       const Icon(
+//                         Icons.calendar_month,
+//                         color: Colors.white,
+//                       ),
+//                       const SizedBox(
+//                         width: 10,
+//                       ),
+//                       Text(
+//                         selectedDate,
+//                         style: const TextStyle(
+//                           color: Colors.white,
+//                           fontSize: 16,
+//                           overflow: TextOverflow.ellipsis,
+//                         ),
+//                       )
+//                     ],
+//                   ),
+//                   const Icon(
+//                     Icons.arrow_drop_down,
+//                     color: Colors.white,
+//                   )
+//                 ],
+//               ),
+//             ),
+//           ),
+//         ),
+//         Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//           children: [
+//             Container(
+//                 margin: EdgeInsets.only(top: screenHeight * 0.02),
+//                 child: ElevatedButton(
+//                   onPressed: () {
+//                     Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => const Attendancestudent()),
+//                     );
+//                   },
+//                   style: ElevatedButton.styleFrom(
+//                       backgroundColor: const Color(0xFFFDD51D),
+//                       foregroundColor: Colors.white),
+//                   child: const Text(
+//                     "Student",
+//                     style: TextStyle(
+//                       color: Colors.white,
+//                       fontSize: 20,
+//                       fontFamily: 'Roboto',
+//                     ),
+//                   ),
+//                 )),
+//             Container(
+//                 margin: EdgeInsets.only(top: screenHeight * 0.02),
+//                 child: ElevatedButton(
+//                   onPressed: () {
+//                     Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => const Attendancestaff()),
+//                     );
+//                   },
+//                   style: ElevatedButton.styleFrom(
+//                       backgroundColor: const Color(0xFFFDD51D),
+//                       foregroundColor: Colors.white),
+//                   child: const Text(
+//                     "Staff",
+//                     style: TextStyle(
+//                       color: Colors.white,
+//                       fontSize: 20,
+//                       fontFamily: 'Roboto',
+//                     ),
+//                   ),
+//                 )),
+//           ],
+//         ),
+//         const SizedBox(height: 10),
+//         Expanded(
+//             child: ListView.builder(
+//                 itemCount: _filteredEmployees.length,
+//                 itemBuilder: (context, index) {
+//                   return Column(
+//                     children: [
+//                       Container(
+//                         padding: const EdgeInsets.symmetric(
+//                             vertical: 15, horizontal: 16),
+//                         margin: EdgeInsets.symmetric(
+//                           horizontal: screenWidth * 0.05,
+//                         ),
+//                         decoration: BoxDecoration(
+//                           color: const Color(0xFF13316A),
+//                           borderRadius: BorderRadius.circular(8),
+//                           boxShadow: [
+//                             BoxShadow(
+//                               color: Colors.white.withOpacity(0.5),
+//                               spreadRadius: 1,
+//                               blurRadius: 5,
+//                             )
+//                           ],
+//                         ),
+//                         child: Row(
+//                           children: [
+//                             Expanded(
+//                               flex: 1,
+//                               child: Text('${1 + index}',
+//                                   style: const TextStyle(
+//                                       fontSize: 24, color: Colors.white)),
+//                             ),
+//                             const SizedBox(width: 10),
+//                             Expanded(
+//                               flex: 2,
+//                               child: Container(
+//                                 height: screenHeight * 0.1,
+//                                 width: screenHeight * 0.1,
+//                                 child: ClipRRect(
+//                                   borderRadius: BorderRadius.circular(15),
+//                                   child: Image.asset(
+//                                     'assets/images/churail.jpg',
+//                                     fit: BoxFit.fill,
+//                                   ),
+//                                 ),
+//                               ),
+//                             ),
+//                             const SizedBox(width: 10),
+//                             Expanded(
+//                               flex: 4,
+//                               child: Column(
+//                                 crossAxisAlignment: CrossAxisAlignment.start,
+//                                 children: [
+//                                   Text(_filteredEmployees[index],
+//                                       style: const TextStyle(
+//                                           fontSize: 20,
+//                                           fontWeight: FontWeight.bold,
+//                                           color: Colors.white)),
+//                                   const SizedBox(height: 5),
+//                                   const Text('RegNo#1',
+//                                       style: TextStyle(
+//                                           fontSize: 18, color: Colors.white)),
+//                                   const SizedBox(height: 5),
+//                                   const Text('Graphic Designer',
+//                                       style: TextStyle(
+//                                           fontSize: 14, color: Colors.white)),
+//                                 ],
+//                               ),
+//                             ),
+//                             Expanded(
+//                               flex: 2,
+//                               child: ElevatedButton(
+//                                 onPressed: () =>
+//                                     _showStatusOptions(context, index),
+//                                 style: ElevatedButton.styleFrom(
+//                                   backgroundColor:
+//                                       _getButtonColor(_statuses[index]),
+//                                   padding: const EdgeInsets.symmetric(
+//                                       horizontal: 8), // Adjust padding
+//                                 ),
+//                                 child: Text(
+//                                   _statuses[index],
+//                                   style: TextStyle(
+//                                       color: _getTextColor(_statuses[index])),
+//                                 ),
+//                               ),
+//                             ),
+//                           ],
+//                         ),
+//                       ),
+//                       IconButton(
+//                         onPressed: () {
+//                           Navigator.push(
+//                             context,
+//                             MaterialPageRoute(
+//                                 builder: (context) => const Newstaff()),
+//                           );
+//                         },
+//                         icon: const CircleAvatar(
+//                           backgroundColor: Color(0xFFFDD51D),
+//                           radius: 30,
+//                           child: Icon(
+//                             Icons.add,
+//                             color: Colors.white,
+//                             size: 30,
+//                           ),
+//                         ),
+//                       )
+//                     ],
+//                   );
+//                 }))
+//       ])
+//     ]));
+//   }
+// }
