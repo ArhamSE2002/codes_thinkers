@@ -192,16 +192,20 @@ class _ProjectsState extends State<Projects> {
                     ),
                     const SizedBox(
                         height: 10), 
-                    Container(
-                      margin: const EdgeInsets.only(right: 300),
-                      child: const Text(
-                        'About',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFFFDD51D),
+                    Row(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(right: 100),
+                          child: const Text(
+                            'About',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFFFDD51D),
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                     const SizedBox(
                         height: 10), 
