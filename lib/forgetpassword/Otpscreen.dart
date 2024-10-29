@@ -70,8 +70,13 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                             pinTheme: PinTheme(
                               activeFillColor: Colors.blue,
                               shape: PinCodeFieldShape.box,
+<<<<<<< HEAD
+                              fieldHeight: 50, // Adjusted height
+                              fieldWidth: 50, // Adjusted width
+=======
                               fieldHeight: 45, // Adjusted height
                               fieldWidth: 40, // Adjusted width
+>>>>>>> b6a28fa4ef8df1f204f4a1ad131566792c033d18
                               borderRadius: BorderRadius.circular(10),
                               activeColor: Colors.black,
                               inactiveColor: Colors.grey,
