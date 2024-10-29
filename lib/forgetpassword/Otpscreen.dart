@@ -90,16 +90,16 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
-                                    backgroundColor: const Color(0xFF1446AB),
+                                    backgroundColor: Colors.white,
                                     title: Row(
                                       children: [
                                         Center(
                                           child: Container(
                                               margin: const EdgeInsets.only(
-                                                  left: 150),
+                                                  left: 10),
                                               child: const Icon(
                                                   Icons.check_circle,
-                                                  size: 100,
+                                                  size: 80,
                                                   color: Color(0xFF1B96EA))),
                                         ),
                                         const SizedBox(width: 10),
