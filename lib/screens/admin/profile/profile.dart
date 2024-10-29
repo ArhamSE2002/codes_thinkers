@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:codes_thinkers/screens/admin/home/admin_home.dart';
+import 'package:codes_thinkers/screens/admin/profile/admin_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -136,6 +138,11 @@ class _ProfileState extends State<Profile> {
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AdminProfile(),
+                          ));
                       print('Button pressed');
                     },
                     style: ElevatedButton.styleFrom(
@@ -147,7 +154,7 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     child: const Text(
-                      'Edit',
+                      'Logout',
                       style: TextStyle(fontSize: 16),
                     ),
                   ),
