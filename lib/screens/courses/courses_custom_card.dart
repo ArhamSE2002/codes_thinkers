@@ -108,7 +108,7 @@ class _CustomCardListState extends State<CustomCardList> {
       'fee': '6500 per month'
     },
     {
-      "image": "assets/images/graphicc.jpg",
+      "image": "assets/images/graphi.png",
       "title": "Graphic Designing",
       "Course duration": "6 Month",
       'fee': '6500 per month'
