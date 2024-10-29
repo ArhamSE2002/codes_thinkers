@@ -21,7 +21,7 @@ class _CustomCardListState extends State<CustomCardList> {
     },
     {
       "image": "assets/images/Digitalimage.jpg",
-      "title": "Digital Market",
+      "title": "Digital Marketing",
       "Course duration": "6 Month",
       'fee': '6500 per month'
     },
@@ -33,7 +33,7 @@ class _CustomCardListState extends State<CustomCardList> {
     },
     {
       "image": "assets/images/ui designer.jpg",
-      "title": "UX /&UI designer",
+      "title": "UX /&UI designing",
       "Course duration": "6 Month",
       'fee': '6500 per month'
     },
@@ -51,7 +51,7 @@ class _CustomCardListState extends State<CustomCardList> {
     },
     {
       "image": "assets/images/wordpress.jpg",
-      "title": "Word press",
+      "title": "WordPress",
       "Course duration": "6 Month",
       'fee': '6500 per month'
     },
@@ -62,12 +62,12 @@ class _CustomCardListState extends State<CustomCardList> {
       'fee': '6500 per month'
     }, {
       "image": "assets/images/portfolio.png",
-      "title": "portfolio",
+      "title": "Portfolio",
       "Course duration": "6 Month",
       'fee': '6500 per month'
     }, {
       "image": "assets/images/python.jpg",
-      "title": "python",
+      "title": "Python",
       "Course duration": "6 Month",
       'fee': '6500 per month'
     }, {
@@ -76,53 +76,40 @@ class _CustomCardListState extends State<CustomCardList> {
       "Course duration": "6 Month",
       'fee': '6500 per month'
     }, {
-      "image": "assets/images/wordpress.jpg",
-      "title": "Word press",
+      "image": "assets/images/webdesigning.jpg",
+      "title": "Web Designing",
       "Course duration": "6 Month",
       'fee': '6500 per month'
     }, {
-      "image": "assets/images/wordpress.jpg",
-      "title": "Word press",
+      "image": "assets/images/laravel.jpg",
+      "title": "Laravel",
       "Course duration": "6 Month",
       'fee': '6500 per month'
     }, {
-      "image": "assets/images/wordpress.jpg",
-      "title": "Word press",
+      "image": "assets/images/datatyping.jpg",
+      "title": "Data Entery",
       "Course duration": "6 Month",
       'fee': '6500 per month'
     }, {
-      "image": "assets/images/wordpress.jpg",
-      "title": "Word press",
+      "image": "assets/images/contentwritting.jpg",
+      "title": "Content Writting",
       "Course duration": "6 Month",
       'fee': '6500 per month'
     }, {
-      "image": "assets/images/wordpress.jpg",
-      "title": "Word press",
+      "image": "assets/images/anderiod.jpg",
+      "title": "Anderiod Development",
       "Course duration": "6 Month",
       'fee': '6500 per month'
-    }, {
-      "image": "assets/images/wordpress.jpg",
-      "title": "Word press",
+    },
+    {
+      "image": "assets/images/2D 3D.jpg",
+      "title": "2D3D Animation",
       "Course duration": "6 Month",
       'fee': '6500 per month'
-    }, {
-      "image": "assets/images/wordpress.jpg",
-      "title": "Word press",
-      "Course duration": "6 Month",
-      'fee': '6500 per month'
-    }, {
-      "image": "assets/images/wordpress.jpg",
-      "title": "Word press",
-      "Course duration": "6 Month",
-      'fee': '6500 per month'
-    }, {
-      "image": "assets/images/wordpress.jpg",
-      "title": "Word press",
-      "Course duration": "6 Month",
-      'fee': '6500 per month'
-    }, {
-      "image": "assets/images/wordpress.jpg",
-      "title": "Word press",
+    },
+    {
+      "image": "assets/images/graphicc.jpg",
+      "title": "Graphic Designing",
       "Course duration": "6 Month",
       'fee': '6500 per month'
     },
