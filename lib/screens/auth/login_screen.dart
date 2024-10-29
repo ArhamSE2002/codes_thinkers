@@ -170,7 +170,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     );
                   },
-                  child: const Text('Forgot Password?'),
+                  child: Column(
+                    children: [
+                      Container(margin: EdgeInsets.only(top: 20),
+                        child: const Text('Forgot Password?')),
+                    ],
+                  ),
                 ),
               ],
             ),

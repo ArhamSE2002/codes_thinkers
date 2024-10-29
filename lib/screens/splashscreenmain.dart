@@ -72,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
           width: screenWidth,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/backgroundscreen.JPG'),
+              image: AssetImage('assets/images/backgroundscreen.jpg'),
               fit: BoxFit.fill,
             ),
           ),
@@ -89,7 +89,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     child: SizedBox(
                       height: screenHeight * 0.06, 
                       width: screenWidth * 0.3,   
-                      child: Image.asset('assets/images/Icon.JPG'),
+                      child: Image.asset('assets/images/Icon.JPJ'),
                     ),
                   ),
                 ),
