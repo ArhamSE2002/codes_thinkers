@@ -18,7 +18,7 @@ class _StaffState extends State<Staff> {
   final ImagePicker _picker = ImagePicker();
   String fileName = "";
 
-  // Pick Image from Gallery
+  
   Future<void> _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 
@@ -124,7 +124,7 @@ class _StaffState extends State<Staff> {
                             radius: 50,
                             backgroundColor: Colors.blue,
                             backgroundImage: AssetImage(
-                                'assets/images/bhaloo.jpg'), // Simple asset image
+                                'assets/images/bhaloo.jpg'), 
                           ),
                         ),
                       ],
@@ -174,7 +174,7 @@ class _StaffState extends State<Staff> {
                             radius: 50,
                             backgroundColor: Colors.blue,
                             backgroundImage: AssetImage(
-                                'assets/images/motaoo.jpg'), // Simple asset image
+                                'assets/images/motaoo.jpg'), 
                           ),
                         ),
                       ],
@@ -224,7 +224,7 @@ class _StaffState extends State<Staff> {
                             radius: 50,
                             backgroundColor: Colors.blue,
                             backgroundImage: AssetImage(
-                                'assets/images/churail.jpg'), // Simple asset image
+                                'assets/images/churail.jpg'), 
                           ),
                         ),
                       ],

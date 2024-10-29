@@ -1,6 +1,3 @@
-
-
-
 import 'package:codes_thinkers/screens/courses/courseimage.dart';
 import 'package:flutter/material.dart';
 
@@ -55,47 +52,55 @@ class _CustomCardListState extends State<CustomCardList> {
       "Course duration": "6 Month",
       'fee': '6500 per month'
     },
-     {
+    {
       "image": "assets/images/lead generation.jpg",
       "title": "Lead generation",
       "Course duration": "6 Month",
       'fee': '6500 per month'
-    }, {
+    },
+    {
       "image": "assets/images/portfolio.png",
       "title": "Portfolio",
       "Course duration": "6 Month",
       'fee': '6500 per month'
-    }, {
+    },
+    {
       "image": "assets/images/python.jpg",
       "title": "Python",
       "Course duration": "6 Month",
       'fee': '7500 per month'
-    }, {
+    },
+    {
       "image": "assets/images/Flutter.png",
       "title": "Flutter development",
       "Course duration": "6 Month",
       'fee': '7500 per month'
-    }, {
+    },
+    {
       "image": "assets/images/webdesigning.jpg",
       "title": "Web Designing",
       "Course duration": "6 Month",
       'fee': '6500 per month'
-    }, {
+    },
+    {
       "image": "assets/images/laravel.jpg",
       "title": "Laravel",
       "Course duration": "6 Month",
       'fee': '6500 per month'
-    }, {
+    },
+    {
       "image": "assets/images/datatyping.jpg",
       "title": "Data Entery",
       "Course duration": "6 Month",
       'fee': '6500 per month'
-    }, {
+    },
+    {
       "image": "assets/images/contentwritting.jpg",
       "title": "Content Writting",
       "Course duration": "6 Month",
       'fee': '6500 per month'
-    }, {
+    },
+    {
       "image": "assets/images/anderiod.jpg",
       "title": "Anderiod Development",
       "Course duration": "6 Month",
@@ -238,7 +243,10 @@ class _CustomCardListState extends State<CustomCardList> {
                   child: Column(children: [
                     ElevatedButton(
                       onPressed: () {
-                     Navigator.push(context, MaterialPageRoute(builder: (context)=>const Courseimage()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Courseimage()));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue,

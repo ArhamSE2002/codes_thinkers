@@ -31,7 +31,7 @@ class _NewstudentState extends State<Newstudent> {
     super.dispose();
   }
 
-  // Pick Image from Gallery
+  
   Future<void> _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 

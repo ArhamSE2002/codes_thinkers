@@ -28,7 +28,7 @@ class _NewStaff1State extends State<NewStaff1> {
     super.dispose();
   }
 
-  // Pick Image from Gallery
+  
   Future<void> _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 

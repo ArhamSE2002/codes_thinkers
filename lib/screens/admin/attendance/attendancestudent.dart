@@ -237,7 +237,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  // margin: const EdgeInsets.only(top: 10),
+                  
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -259,7 +259,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                   ),
                 ),
                 Container(
-                  // margin: const EdgeInsets.only(top: 10),
+                  
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -282,7 +282,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                 ),
               ],
             ),
-            // const SizedBox(height: 10),
+            
             Expanded(
               child: ListView.builder(
                 itemCount: _filteredEmployees.length,
@@ -360,7 +360,7 @@ class _AttendancestudentState extends State<Attendancestudent> {
                                   backgroundColor:
                                       _getButtonColor(_statuses[index]),
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 8), // Adjust padding
+                                      horizontal: 8), 
                                 ),
                                 child: Text(
                                   _statuses[index],
