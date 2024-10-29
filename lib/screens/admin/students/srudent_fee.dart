@@ -1,3 +1,4 @@
+import 'package:codes_thinkers/screens/admin/students/chalaan_student.dart';
 import 'package:codes_thinkers/screens/admin/students/new_studentfee.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -137,29 +138,40 @@ class _AttendanceState extends State<Attendancestd> {
                 ),
               ),
               Positioned(
-                left: screenWidth * 0.05,
+                left: screenWidth * 0.0001,
                 top: screenHeight * 0.4,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 20, left: 12),
+                      padding: const EdgeInsets.only(
+                        top: 20,
+                        left: 12,
+                      ),
                       child: ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xff22406F)),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => StudentChalaan(),
+                              ));
+                        },
                         icon: const Icon(
                           Icons.today_outlined,
                           color: Color(0xff8596B0),
                         ),
-                        label: const SizedBox.shrink(),
+                        label: const Text('Upload Challan'),
                       ),
                     ),
                     const SizedBox(
-                      width: 150,
+                      width: 80,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 20),
+                      padding: const EdgeInsets.only(
+                        top: 20,
+                      ),
                       child: ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: isPaid
