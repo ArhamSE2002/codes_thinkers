@@ -106,7 +106,7 @@ class _ProjectsState extends State<Projects> {
                     Row(
                       children: [
                         Container(
-                          margin: const EdgeInsets.only(right: 200),
+                          margin: const EdgeInsets.only(right: 100),
                           child: const Text(
                             'About',
                             style: TextStyle(
