@@ -1,5 +1,6 @@
 
 import 'dart:io';
+import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/screens/admin/attendance/attendencestaff.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -40,64 +41,44 @@ class _NewstaffState extends State<Newstaff> {
       fileName = p.basename(_profileImage!.path);
     }
   }
-
-  @override
+ @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          // Full-screen background image
-          Positioned.fill(
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-
-                  image: AssetImage('assets/images/screenbackground.jpg'), // Set your background image path here
-
-                  // image: AssetImage(
-                  //     'assets/images/background_image.png'), // Set your background image path here
-
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-          SingleChildScrollView(
-            child: Column(
+    return BackgroundScaffold(
+      body: Stack(children: [
+        Column(
+          children: [
+            Row(
               children: [
-                Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(top: 30),
-                      child: const Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                        size: 20.0,
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 30),
-                      child: const Text(
-                        'Add New Staff',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Roboto',
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Card(
-                  margin: const EdgeInsets.all(20),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                Container(
+                  margin: const EdgeInsets.only(top: 30),
+                  child: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                    size: 20.0,
                   ),
-                  elevation: 5,
+                ),
+                Container( margin: const EdgeInsets.only(top: 30),
+                  child: const Text(
+                    'Add New Staff',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Card(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Column(
                       children: [
                         Stack(
@@ -105,26 +86,30 @@ class _NewstaffState extends State<Newstaff> {
                             Center(
                               child: GestureDetector(
                                 onTap: _pickImage,
-                                child: CircleAvatar(
-                                  radius: 50,
-                                  backgroundColor: Colors.blue,
-                                  backgroundImage: _profileImage != null
-                                      ? FileImage(_profileImage!)
-                                      : const AssetImage(
-                                              'assets/images/default_person.png')
-                                          as ImageProvider,
-                                  child: _profileImage == null
-                                      ? const Icon(
-                                          Icons.person,
-                                          size: 60,
-                                          color: Colors.white,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(100),
+                                  child: _profileImage != null
+                                      ? Image.file(
+                                          _profileImage!,
+                                          width: 100,
+                                          height: 100,
+                                          fit: BoxFit.cover,
                                         )
-                                      : null,
+                                      : Container(
+                                          width: 100,
+                                          height: 100,
+                                          color: Colors.blue,
+                                          child: const Icon(
+                                            Icons.person,
+                                            size: 60,
+                                            color: Colors.white,
+                                          ),
+                                        ),
                                 ),
                               ),
                             ),
                             Positioned(
-                              right: 133,
+                              right: 0,
                               bottom: 0,
                               child: GestureDetector(
                                 onTap: _pickImage,
@@ -143,59 +128,220 @@ class _NewstaffState extends State<Newstaff> {
                         ),
                         const SizedBox(height: 20),
                         TextFormField(
-                          controller: _regnoController,
-                          decoration: const InputDecoration(
-                            labelText: 'Reg no',
-                            border: OutlineInputBorder(),
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        TextFormField(
                           controller: _nameController,
                           decoration: const InputDecoration(
                             labelText: 'Name',
                             border: OutlineInputBorder(),
                           ),
                         ),
-                        const SizedBox(height: 20),
+                           const SizedBox(height: 20),
                         TextFormField(
                           controller: _titleController,
+                          decoration: const InputDecoration(
+                            labelText: 'RegNo',
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        TextFormField(
+                          controller: _regnoController,
                           decoration: const InputDecoration(
                             labelText: 'Title',
                             border: OutlineInputBorder(),
                           ),
+                          minLines: 1,
+                          maxLines: 2,
                         ),
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Attendancestaff()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 15),
-                    backgroundColor: Color(0xFFFDD51D),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: const Text(
-                    'Add',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        ],
-      ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const Attendancestaff()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                backgroundColor: const Color(0xFFFDD51D),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: const Text(
+                'Add',
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ]),
     );
   }
 }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Stack(
+//         children: [
+//           // Full-screen background image
+//           Positioned.fill(
+//             child: Container(
+//               decoration: const BoxDecoration(
+//                 image: DecorationImage(
+
+//                   image: AssetImage('assets/images/screenbackground.jpg'), // Set your background image path here
+
+//                   // image: AssetImage(
+//                   //     'assets/imaground_image.png'), // Set your background image path here
+
+//                   fit: BoxFit.cover,
+//                 ),
+//               ),
+//             ),
+//           ),
+//           SingleChildScrollView(
+//             child: Column(
+//               children: [
+//                 Row(
+//                   children: [
+//                     Container(
+//                       margin: const EdgeInsets.only(top: 30),
+//                       child: const Icon(
+//                         Icons.arrow_back,
+//                         color: Colors.white,
+//                         size: 20.0,
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: const EdgeInsets.only(top: 30),
+//                       child: const Text(
+//                         'Add New Staff',
+//                         style: TextStyle(
+//                           color: Colors.white,
+//                           fontSize: 25,
+//                           fontStyle: FontStyle.normal,
+//                           fontWeight: FontWeight.bold,
+//                           fontFamily: 'Roboto',
+//                         ),
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//                 Card(
+//                   margin: const EdgeInsets.all(20),
+//                   shape: RoundedRectangleBorder(
+//                     borderRadius: BorderRadius.circular(10),
+//                   ),
+//                   elevation: 5,
+//                   child: Padding(
+//                     padding: const EdgeInsets.all(20.0),
+//                     child: Column(
+//                       children: [
+//                         Stack(
+//                           children: [
+//                             Center(
+//                               child: GestureDetector(
+//                                 onTap: _pickImage,
+//                                 child: CircleAvatar(
+//                                   radius: 50,
+//                                   backgroundColor: Colors.blue,
+//                                   backgroundImage: _profileImage != null
+//                                       ? FileImage(_profileImage!)
+//                                       : const AssetImage(
+//                                               'assets/images/default_person.png')
+//                                           as ImageProvider,
+//                                   child: _profileImage == null
+//                                       ? const Icon(
+//                                           Icons.person,
+//                                           size: 60,
+//                                           color: Colors.white,
+//                                         )
+//                                       : null,
+//                                 ),
+//                               ),
+//                             ),
+//                             Positioned(
+//                               right: 133,
+//                               bottom: 0,
+//                               child: GestureDetector(
+//                                 onTap: _pickImage,
+//                                 child: const CircleAvatar(
+//                                   backgroundColor: Color(0xFFFDD51D),
+//                                   radius: 15,
+//                                   child: Icon(
+//                                     Icons.add,
+//                                     color: Colors.black,
+//                                     size: 27,
+//                                   ),
+//                                 ),
+//                               ),
+//                             ),
+//                           ],
+//                         ),
+//                         const SizedBox(height: 20),
+//                         TextFormField(
+//                           controller: _regnoController,
+//                           decoration: const InputDecoration(
+//                             labelText: 'Reg no',
+//                             border: OutlineInputBorder(),
+//                           ),
+//                         ),
+//                         const SizedBox(height: 20),
+//                         TextFormField(
+//                           controller: _nameController,
+//                           decoration: const InputDecoration(
+//                             labelText: 'Name',
+//                             border: OutlineInputBorder(),
+//                           ),
+//                         ),
+//                         const SizedBox(height: 20),
+//                         TextFormField(
+//                           controller: _titleController,
+//                           decoration: const InputDecoration(
+//                             labelText: 'Title',
+//                             border: OutlineInputBorder(),
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 ),
+//                 const SizedBox(height: 20),
+//                 ElevatedButton(
+//                   onPressed: () {
+//                     Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => const Attendancestaff()),
+//                     );
+//                   },
+//                   style: ElevatedButton.styleFrom(
+//                     padding: const EdgeInsets.symmetric(
+//                         horizontal: 50, vertical: 15),
+//                     backgroundColor: Color(0xFFFDD51D),
+//                     shape: RoundedRectangleBorder(
+//                       borderRadius: BorderRadius.circular(10),
+//                     ),
+//                   ),
+//                   child: const Text(
+//                     'Add',
+//                     style: TextStyle(fontSize: 18, color: Colors.white),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
