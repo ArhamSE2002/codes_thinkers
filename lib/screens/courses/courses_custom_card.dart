@@ -69,12 +69,12 @@ class _CustomCardListState extends State<CustomCardList> {
       "image": "assets/images/python.jpg",
       "title": "Python",
       "Course duration": "6 Month",
-      'fee': '6500 per month'
+      'fee': '7500 per month'
     }, {
       "image": "assets/images/Flutter.png",
       "title": "Flutter development",
       "Course duration": "6 Month",
-      'fee': '6500 per month'
+      'fee': '7500 per month'
     }, {
       "image": "assets/images/webdesigning.jpg",
       "title": "Web Designing",
