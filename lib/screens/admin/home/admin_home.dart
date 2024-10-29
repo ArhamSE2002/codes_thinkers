@@ -74,7 +74,7 @@ class _AdminHomeState extends State<AdminHome> {
                               'assets/images/post.png',
                               const Events(),
                               'Projects',
-                              'assets/images/portfolio-management.png',
+                              'assets/images/project.png',
                               const Projects()),
                           const SizedBox(height: 20),
                           _buildGridRow(
