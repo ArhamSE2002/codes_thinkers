@@ -56,7 +56,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                             style: TextStyle(fontSize: 16, color: Colors.white),
                             textAlign: TextAlign.center,
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 10),
 
                           // PinCodeTextField for OTP Input
                           PinCodeTextField(
@@ -70,8 +70,8 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                             pinTheme: PinTheme(
                               activeFillColor: Colors.blue,
                               shape: PinCodeFieldShape.box,
-                              fieldHeight: 55, // Adjusted height
-                              fieldWidth: 50, // Adjusted width
+                              fieldHeight: 45, // Adjusted height
+                              fieldWidth: 40, // Adjusted width
                               borderRadius: BorderRadius.circular(10),
                               activeColor: Colors.black,
                               inactiveColor: Colors.grey,
