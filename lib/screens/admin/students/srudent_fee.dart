@@ -1,5 +1,6 @@
 import 'package:codes_thinkers/screens/admin/students/chalaan_student.dart';
 import 'package:codes_thinkers/screens/admin/students/new_studentfee.dart';
+import 'package:codes_thinkers/shared/shared_text.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -50,6 +51,10 @@ class _AttendanceState extends State<Attendancestd> {
     final isMobile = screenWidth < 500;
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xff22406F),
+        title: const BigText("Students"),
+      ),
       body: SingleChildScrollView(
         child: Container(
           height: screenHeight,
@@ -86,20 +91,6 @@ class _AttendanceState extends State<Attendancestd> {
                     ),
                   ),
                   onPressed: _toggleSearch,
-                ),
-              ),
-              Positioned(
-                top: screenHeight * 0.06,
-                left: screenWidth * 0.05,
-                child: const Padding(
-                  padding: EdgeInsets.only(top: 55),
-                  child: Text(
-                    'Students',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
                 ),
               ),
               Positioned(

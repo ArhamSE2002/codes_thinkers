@@ -1,3 +1,4 @@
+import 'package:codes_thinkers/shared/shared_text.dart';
 import 'package:flutter/material.dart';
 
 class Suggestions extends StatelessWidget {
@@ -124,6 +125,11 @@ class Suggestions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        bottomOpacity: BorderSide.strokeAlignCenter,
+        title: const BigText("Suggestions"),
+        backgroundColor: Color(0xff22406F),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -136,23 +142,12 @@ class Suggestions extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 35),
-                child: Text(
-                  'Suggestions',
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
               const SizedBox(height: 20),
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Search...',
                   filled: true,
-                  fillColor: const Color(0xff143270),
+                  fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                     borderSide: BorderSide.none,

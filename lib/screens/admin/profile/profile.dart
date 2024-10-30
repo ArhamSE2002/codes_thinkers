@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:codes_thinkers/screens/admin/home/admin_home.dart';
 import 'package:codes_thinkers/screens/admin/profile/admin_profile.dart';
+import 'package:codes_thinkers/shared/shared_text.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -65,6 +66,10 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xff22406F),
+        title: const BigText("Profile"),
+      ),
       resizeToAvoidBottomInset: true,
       body: Stack(
         children: [
@@ -83,17 +88,6 @@ class _ProfileState extends State<Profile> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Text(
-                    'Profile',
-                    style: TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
                 const SizedBox(height: 5),
                 Center(
                   child: Stack(
