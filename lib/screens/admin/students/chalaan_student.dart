@@ -1,4 +1,5 @@
 import 'package:codes_thinkers/screens/admin/students/srudent_fee.dart';
+import 'package:codes_thinkers/shared/shared_text.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -61,6 +62,11 @@ class _StudentChalaanState extends State<StudentChalaan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        bottomOpacity: BorderSide.strokeAlignCenter,
+        title: const BigText("Upload Challan"),
+        backgroundColor: Color(0xff22406F),
+      ),
       body: Stack(
         children: [
           Container(
@@ -73,18 +79,6 @@ class _StudentChalaanState extends State<StudentChalaan> {
           ),
           Column(
             children: [
-              Container(
-                margin: const EdgeInsets.only(top: 50),
-                child: const Text(
-                  'Upload Challan',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Roboto',
-                  ),
-                ),
-              ),
               const SizedBox(height: 50),
               GestureDetector(
                 onTap: _showImageSourceSelection,
@@ -94,18 +88,18 @@ class _StudentChalaanState extends State<StudentChalaan> {
                     height: 400,
                     width: 300,
                     decoration: BoxDecoration(
-                        color: Colors.amberAccent,
+                        color: Color(0xff22406F),
                         borderRadius: BorderRadius.circular(20)),
                     child: _selectedImage == null
                         ? const Padding(
-                            padding: EdgeInsets.only(left: 250, top: 350),
+                            padding: EdgeInsets.only(left: 20, top: 0),
                             child: Icon(
                               Icons.add,
                               color: Colors.black,
-                              size: 50,
+                              size: 70,
                             ),
                           )
-                        : ClipOval(
+                        : Container(
                             child: Image.file(
                               File(_selectedImage!.path),
                               fit: BoxFit.cover,
@@ -119,7 +113,7 @@ class _StudentChalaanState extends State<StudentChalaan> {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 600, left: 120),
+            padding: const EdgeInsets.only(top: 500, left: 120),
             child: Column(
               children: [
                 ElevatedButton.icon(
