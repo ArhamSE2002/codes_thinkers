@@ -1,4 +1,5 @@
 import 'package:codes_thinkers/screens/posts/new_event.dart';
+import 'package:codes_thinkers/shared/shared_text.dart';
 import 'package:flutter/material.dart';
 
 class Events extends StatelessWidget {
@@ -7,6 +8,11 @@ class Events extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        bottomOpacity: BorderSide.strokeAlignCenter,
+        title: const BigText("Events"),
+        backgroundColor: Color(0xff22406F),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -21,20 +27,12 @@ class Events extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                '   Events',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
               const SizedBox(height: 15),
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Search Event...',
                   filled: true,
-                  fillColor: const Color(0xff113674),
+                  fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                     borderSide: BorderSide.none,
@@ -53,7 +51,7 @@ class Events extends StatelessWidget {
                             builder: (context) => const NewEventScreen()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xffFDD51D),
+                    backgroundColor: const Color(0xFF133B7A),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),

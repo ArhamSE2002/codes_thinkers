@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:codes_thinkers/screens/posts/events.dart';
+import 'package:codes_thinkers/shared/shared_text.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -26,6 +27,11 @@ class _NewEventScreenState extends State<NewEventScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        bottomOpacity: BorderSide.strokeAlignCenter,
+        title: const BigText("Add new event"),
+        backgroundColor: Color(0xff22406F),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -38,17 +44,6 @@ class _NewEventScreenState extends State<NewEventScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 30),
-                child: Text(
-                  'Add New Event',
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
               const SizedBox(height: 20),
               Center(
                 child: GestureDetector(

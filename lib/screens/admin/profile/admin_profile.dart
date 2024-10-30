@@ -18,7 +18,9 @@ class _AdminProfileState extends State<AdminProfile> {
   Widget build(BuildContext context) {
     return BackgroundScaffold(
         appBar: AppBar(
+          bottomOpacity: BorderSide.strokeAlignCenter,
           title: const BigText("Profile"),
+          backgroundColor: Color(0xff22406F),
         ),
         body: Center(
           child: ElevatedButton(
