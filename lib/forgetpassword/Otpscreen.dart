@@ -120,7 +120,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                                         child: const Text(
                                           'OK',
                                           style: TextStyle(
-                                              color: Color(0xFF1446AB),
+                                              color: Color(0xFF1B96EA),
                                               fontSize: 35,
                                               fontWeight: FontWeight.bold),
                                         ),
