@@ -19,7 +19,7 @@ class _CustomCardListState extends State<CustomCardList> {
     {
       "image": "assets/images/Digitalimage.jpg",
       "title": "Digital Marketing",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '6500 per month'
     },
     {
@@ -31,43 +31,43 @@ class _CustomCardListState extends State<CustomCardList> {
     {
       "image": "assets/images/ui designer.jpg",
       "title": "UX /&UI designing",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '6500 per month'
     },
     {
       "image": "assets/images/seo.jpg",
       "title": "SEO",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '6500 per month'
     },
     {
       "image": "assets/images/web hosting.jpg",
       "title": "Web Hosting",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '6500 per month'
     },
     {
       "image": "assets/images/wordpress.jpg",
       "title": "WordPress",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '6500 per month'
     },
     {
       "image": "assets/images/lead generation.jpg",
       "title": "Lead generation",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '6500 per month'
     },
     {
       "image": "assets/images/portfolio.png",
       "title": "Portfolio",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '6500 per month'
     },
     {
       "image": "assets/images/python.jpg",
       "title": "Python",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '7500 per month'
     },
     {
@@ -79,13 +79,13 @@ class _CustomCardListState extends State<CustomCardList> {
     {
       "image": "assets/images/webdesigning.jpg",
       "title": "Web Designing",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '6500 per month'
     },
     {
       "image": "assets/images/laravel.jpg",
       "title": "Laravel",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '6500 per month'
     },
     {
@@ -97,7 +97,7 @@ class _CustomCardListState extends State<CustomCardList> {
     {
       "image": "assets/images/contentwritting.jpg",
       "title": "Content Writting",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '6500 per month'
     },
     {
@@ -109,13 +109,13 @@ class _CustomCardListState extends State<CustomCardList> {
     {
       "image": "assets/images/2D 3D.jpg",
       "title": "2D3D Animation",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '6500 per month'
     },
     {
       "image": "assets/images/graphi.png",
       "title": "Graphic Designing",
-      "Course duration": "6 Month",
+      "Course duration": "3 Month",
       'fee': '6500 per month'
     },
   ];

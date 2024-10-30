@@ -1,6 +1,8 @@
 
 import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/screens/auth/login_screen.dart';
+import 'package:codes_thinkers/shared/shared_text.dart';
+import 'package:codes_thinkers/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class Forgetscreen1 extends StatefulWidget {
@@ -31,8 +33,8 @@ class _Forgetscreen1State extends State<Forgetscreen1> {
   Widget build(BuildContext context) {
     return BackgroundScaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF133B7A),
-        title: const Text('Forgot Password'),
+        backgroundColor:AppColors.secondaryColor,
+      title: const BigText("Forgot password"),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

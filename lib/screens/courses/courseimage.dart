@@ -11,7 +11,7 @@ class Courseimage extends StatelessWidget {
         child: Container( 
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/imagecourse.jpg'),
+            image: AssetImage('assets/images/imagecourse1.png'),
             fit: BoxFit.fill,
           ),
         ),

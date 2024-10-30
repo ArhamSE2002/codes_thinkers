@@ -1,3 +1,5 @@
+import 'package:codes_thinkers/shared/shared_text.dart';
+import 'package:codes_thinkers/theme/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:codes_thinkers/forgetpassword/newpassword.dart';
 import 'package:flutter/material.dart';
@@ -24,10 +26,8 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
   Widget build(BuildContext context) {
     return BackgroundScaffold(
         appBar: AppBar(
-          title: const Text("OTP Verification"),
-          backgroundColor: const Color(
-            (0xFF133B7A),
-          ),
+          backgroundColor: AppColors.secondaryColor,
+          title: const BigText("OTP Verification"),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16),
@@ -58,7 +58,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                           ),
                           const SizedBox(height: 10),
 
-                          // PinCodeTextField for OTP Input
+                          
                           PinCodeTextField(
                             enableActiveFill: true,
                             appContext: context,
@@ -70,10 +70,10 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                             pinTheme: PinTheme(
                               activeFillColor: Colors.blue,
                               shape: PinCodeFieldShape.box,
-// Adjusted width
 
-                              fieldHeight: 45, // Adjusted height
-                              fieldWidth: 40, // Adjusted width
+
+                              fieldHeight: 45, 
+                              fieldWidth: 40, 
 
                               borderRadius: BorderRadius.circular(10),
                               activeColor: Colors.black,

@@ -89,7 +89,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     child: SizedBox(
                       height: screenHeight * 0.06, 
                       width: screenWidth * 0.3,   
-                      child: Image.asset('assets/images/Icon.JPJ'),
+                      child: Image.asset('assets/images/icon.JPG'),
                     ),
                   ),
                 ),

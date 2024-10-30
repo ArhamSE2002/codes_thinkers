@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:codes_thinkers/screens/staff/addstaff.dart';
+import 'package:codes_thinkers/shared/shared_text.dart';
+import 'package:codes_thinkers/theme/theme.dart';
 import 'package:path/path.dart' as p;
 import 'package:flutter/material.dart';
 import 'package:codes_thinkers/backgroundimage.dart';
@@ -18,7 +20,6 @@ class _StaffState extends State<Staff> {
   final ImagePicker _picker = ImagePicker();
   String fileName = "";
 
-  
   Future<void> _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 
@@ -33,34 +34,13 @@ class _StaffState extends State<Staff> {
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
+      appBar: AppBar(
+        backgroundColor: AppColors.secondaryColor,
+        title: const BigText("Staff"),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  child: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                    size: 20.0,
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  child: const Text(
-                    'Staff',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Roboto',
-                    ),
-                  ),
-                ),
-              ],
-            ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -76,7 +56,7 @@ class _StaffState extends State<Staff> {
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 50, vertical: 15),
-                    backgroundColor: const Color(0xFFFDD51D),
+                    backgroundColor: const Color(0xFF133B7A),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -95,7 +75,7 @@ class _StaffState extends State<Staff> {
               child: TextField(
                 controller: _searchController,
                 decoration: const InputDecoration(
-                  fillColor: Color(0xFF133B7A),
+                  fillColor: Colors.white,
                   contentPadding: EdgeInsets.all(12.5),
                   hintText: 'Search...',
                   hintStyle: TextStyle(color: Colors.black),
@@ -123,8 +103,8 @@ class _StaffState extends State<Staff> {
                           child: CircleAvatar(
                             radius: 50,
                             backgroundColor: Colors.blue,
-                            backgroundImage: AssetImage(
-                                'assets/images/bhaloo.jpg'), 
+                            backgroundImage:
+                                AssetImage('assets/images/bhaloo.jpg'),
                           ),
                         ),
                       ],
@@ -173,8 +153,8 @@ class _StaffState extends State<Staff> {
                           child: CircleAvatar(
                             radius: 50,
                             backgroundColor: Colors.blue,
-                            backgroundImage: AssetImage(
-                                'assets/images/motaoo.jpg'), 
+                            backgroundImage:
+                                AssetImage('assets/images/motaoo.jpg'),
                           ),
                         ),
                       ],
@@ -223,8 +203,8 @@ class _StaffState extends State<Staff> {
                           child: CircleAvatar(
                             radius: 50,
                             backgroundColor: Colors.blue,
-                            backgroundImage: AssetImage(
-                                'assets/images/churail.jpg'), 
+                            backgroundImage:
+                                AssetImage('assets/images/churail.jpg'),
                           ),
                         ),
                       ],

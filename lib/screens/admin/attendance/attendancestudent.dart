@@ -1,6 +1,8 @@
 import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/screens/admin/attendance/attendencestaff.dart';
 import 'package:codes_thinkers/screens/admin/attendance/newstudent.dart';
+import 'package:codes_thinkers/shared/shared_text.dart';
+import 'package:codes_thinkers/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -14,8 +16,8 @@ class Attendancestudent extends StatefulWidget {
 class _AttendancestudentState extends State<Attendancestudent> {
   final List<String> _statuses = [' Status', ' Status'];
   final List<String> _employees = [
-    'First Student',
-    'Second Student',
+    ' Student1',
+    ' Student2',
   ];
   late List<String> _filteredEmployees;
   final TextEditingController _searchController = TextEditingController();
@@ -150,43 +152,24 @@ class _AttendancestudentState extends State<Attendancestudent> {
     final screenSize = MediaQuery.of(context).size;
 
     return BackgroundScaffold(
+       appBar: AppBar(
+        backgroundColor: AppColors.secondaryColor,
+        title: const BigText("Attendence Student"),
+      ),
       body: Stack(children: [
         Column(
           children: [
-            Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 40),
-                  child: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                    size: 20.0,
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  margin: const EdgeInsets.only(top: 40),
-                  child: const Text(
-                    'Attendance',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+         
             Container(
               margin: const EdgeInsets.only(top: 10),
               width: screenSize.width * 0.9,
               child: TextField(
                 controller: _searchController,
                 decoration: const InputDecoration(
-                  fillColor: Color(0xFF133B7A),
+                  fillColor: Colors.white,
                   contentPadding: EdgeInsets.all(12.5),
                   hintText: 'Search...',
-                  hintStyle: TextStyle(color: Colors.white),
+                  hintStyle: TextStyle(color: Colors.black),
                   border: InputBorder.none,
                   prefixIcon: Icon(Icons.search, color: Colors.white, size: 20),
                 ),

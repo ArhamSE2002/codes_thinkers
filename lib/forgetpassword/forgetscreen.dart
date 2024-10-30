@@ -1,5 +1,7 @@
 import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/forgetpassword/Otpscreen.dart';
+import 'package:codes_thinkers/shared/shared_text.dart';
+import 'package:codes_thinkers/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class Forgetscreen extends StatefulWidget {
@@ -10,8 +12,8 @@ class Forgetscreen extends StatefulWidget {
 }
 
 class _ForgetscreenState extends State<Forgetscreen> {
-  final _formKey = GlobalKey<FormState>(); 
-  final TextEditingController _emailController = TextEditingController(); 
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   void dispose() {
@@ -22,11 +24,11 @@ class _ForgetscreenState extends State<Forgetscreen> {
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
-      appBar: AppBar(
-        title: const Text('Forgot Password'),  backgroundColor: const Color(
-          (0xFF133B7A),
-        ),
+        appBar: AppBar(
+        backgroundColor: AppColors.secondaryColor,
+        title: const BigText("Forgot password"),
       ),
+      
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -36,10 +38,9 @@ class _ForgetscreenState extends State<Forgetscreen> {
             children: [
               Image.asset(
                 'assets/images/logo.png',
-                height: 150, 
+                height: 150,
               ),
               const SizedBox(height: 40),
-             
               TextFormField(
                 controller: _emailController,
                 decoration: const InputDecoration(
@@ -57,11 +58,9 @@ class _ForgetscreenState extends State<Forgetscreen> {
                 },
               ),
               const SizedBox(height: 20),
-             
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                   
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -79,6 +78,3 @@ class _ForgetscreenState extends State<Forgetscreen> {
     );
   }
 }
-
-
-

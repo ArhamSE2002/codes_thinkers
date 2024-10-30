@@ -1,6 +1,8 @@
 
 import 'dart:io';
 import 'package:codes_thinkers/screens/admin/attendance/attendancestudent.dart';
+import 'package:codes_thinkers/shared/shared_text.dart';
+import 'package:codes_thinkers/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as p;
@@ -45,33 +47,15 @@ class _NewstudentState extends State<Newstudent> {
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
+        appBar: AppBar(
+        backgroundColor: AppColors.secondaryColor,
+        title: const BigText("Add new Student"),
+      ),
       body: Stack(children: [
         Column(
           children: [
-            Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  child: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                    size: 20.0,
-                  ),
-                ),
-                Container( margin: const EdgeInsets.only(top: 30),
-                  child: const Text(
-                    'Add New Student',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontStyle: FontStyle.normal,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Roboto',
-                    ),
-                  ),
-                ),
-              ],
-            ),
+        
+           
             const SizedBox(height: 20),
             Expanded(
               child: SingleChildScrollView(

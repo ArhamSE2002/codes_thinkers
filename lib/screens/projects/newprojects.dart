@@ -1,6 +1,8 @@
 
 
 import 'package:codes_thinkers/screens/projects/project.dart';
+import 'package:codes_thinkers/shared/shared_text.dart';
+import 'package:codes_thinkers/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:codes_thinkers/backgroundimage.dart';
 
@@ -15,33 +17,14 @@ class _ProjectsState extends State<Projects> {
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
+       appBar: AppBar(
+        backgroundColor: AppColors.secondaryColor,
+        title: const BigText("Project"),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  child: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                    size: 20.0,
-                  ),
-                ),
-              
-                Container( margin: const EdgeInsets.only(top: 30),
-                  child: const Text(
-                    ' Project',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Roboto',
-                    ),
-                  ),
-                ),
-              ],
-            ),
+     
             const SizedBox(height: 20), // Space between the header and button
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -57,7 +40,7 @@ class _ProjectsState extends State<Projects> {
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 50, vertical: 15),
-                    backgroundColor: const Color(0xFFFDD51D),
+                    backgroundColor: const Color(0xFF133B7A),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -108,7 +91,7 @@ class _ProjectsState extends State<Projects> {
                         Container(
                           margin: const EdgeInsets.only(right: 100),
                           child: const Text(
-                            'About',
+                            '      About',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -197,7 +180,7 @@ class _ProjectsState extends State<Projects> {
                         Container(
                           margin: const EdgeInsets.only(right: 100),
                           child: const Text(
-                            'About',
+                            '     About',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,

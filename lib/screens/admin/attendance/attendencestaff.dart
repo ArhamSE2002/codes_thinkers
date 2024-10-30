@@ -1,6 +1,8 @@
 import 'package:codes_thinkers/backgroundimage.dart';
 import 'package:codes_thinkers/screens/admin/attendance/attendancestudent.dart';
 import 'package:codes_thinkers/screens/admin/attendance/newstaff.dart';
+import 'package:codes_thinkers/shared/shared_text.dart';
+import 'package:codes_thinkers/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -152,41 +154,22 @@ Widget build(BuildContext context) {
   final screenHeight = MediaQuery.of(context).size.height;
 
   return BackgroundScaffold(
+  appBar: AppBar(
+        backgroundColor: AppColors.secondaryColor,
+        title: const BigText("Attendence Staff"),
+      ),
     body: Stack(
       children: [
         Column(
           children: [
-            Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 40),
-                  child: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                    size: 20.0,
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 40),
-                  child: const Text(
-                    'Attendance',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Roboto',
-                    ),
-                  ),
-                ),
-              ],
-            ),
+    
             Container(
               margin: EdgeInsets.only(top: screenHeight * 0.02),
               width: screenWidth * 0.9,
               child: TextField(
                 controller: _searchController,
                 decoration: const InputDecoration(
-                  fillColor: Color(0xFF133B7A),
+                  fillColor: Colors.white,
                   contentPadding: EdgeInsets.all(12.5),
                   hintText: 'Search...',
                   hintStyle: TextStyle(color: Colors.black),
