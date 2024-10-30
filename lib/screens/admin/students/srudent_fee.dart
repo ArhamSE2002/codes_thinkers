@@ -161,7 +161,7 @@ class _AttendanceState extends State<Attendancestd> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                        top: 20,
+                        top: 10,
                       ),
                       child: ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
@@ -326,7 +326,7 @@ class _AttendanceState extends State<Attendancestd> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 420, left: 220),
+                padding: const EdgeInsets.only(top: 415, left: 210),
                 child: Positioned(
                   left: screenWidth * 0.75,
                   top: screenHeight * 0.53,
